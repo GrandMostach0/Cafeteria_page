@@ -4,80 +4,145 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
     <link rel="stylesheet" href="index.css">
+
 </head>
 <body>
-    <div class="contenedorPrincipal">
-        <!--Menu de la pagina-->
-        <nav class="nav-menu">
-            <img class="logo_placer" src="src/assets/images/logo_placer.webp" alt="Place And Delirios">
-            <ul class="menu-options">
-                <li class="option">
-                    <a href="">Nosotros</a>
-                </li>
-                <li class="option">
-                    <a href="">Productos</a>
-                </li>
-                <li class="option">
-                    <a href="">Ubicacion</a>
-                </li>
-            </ul>
-        </nav>
 
-        <!--Banner de Inicio-->
-        <main class="container-banner">
-            <img class="logo_banner" src="src/assets/images/bannerCafe.png" alt="">
-            <div class="container-banner-text">
-                <h1 class="title container-banner-title">Toda nuestra tradición hasta tu hogar</h1>
-                <p class="parrafos">¡La calidad que te ha enamorado ahora puedes disfrutarla en donde estés!</p>
-                <a class="btn-a" href="">Disfrutar Ahora</a>
-            </div>
-        </main>
-
-        <!--Secciones de las cartas de presentacion-->
-        <section class="container-secctions">
-
-            <div class="container-cards">
-                <img class="img-card" src="src/assets/images/bannerMarque1.png" alt="imagen aqui">
-                <div class="container-card-text">
-                    <h2>
-                        Nuestra especialidad la chocolateria
-                    </h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci suscipit neque laudantium, deleniti praesentium omnis laborum fugit hic id eum obcaecati aut voluptatem eius incidunt vitae? Numquam voluptatem quidem repellendus.
-                    </p>
+    <!--Seccion de menu-->
+    <nav class="nav-menu">
+        <img class="logo_placer" src="src/assets/images/logo_placer.webp" alt="Place And Delirios">
+        <ul class="menu-options">
+            <li class="option">
+                <a href="">Nosotros</a>
+            </li>
+            <li class="option">
+                <a href="">Productos</a>
+            </li>
+            <li class="option">
+                <a href="">Ubicacion</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <!--Banner de Inicio-->
+    <main class="container-banner">
+        <img class="logo_banner" src="src/assets/images/bannerCafe.png" alt="">
+        <div class="container-banner-text">
+            <h1 class="title container-banner-title">Toda nuestra tradición hasta tu hogar</h1>
+            <p class="parrafos">¡La calidad que te ha enamorado ahora puedes disfrutarla en donde estés!</p>
+            <a class="btn-a" href="">Disfrutar Ahora</a>
+        </div>
+    </main>
+    
+    <!--Secciones de las cartas de presentacion/slider-->
+    <div class="swiper mySwiper container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="src/assets/images/bannerMarque1.png" alt="img1">
+                <div class="swiper-text">
+                    <h2>Nuestra Especialidad la chocolateria</h2>
+                    <p>En <strong>Placer & Delorio</strong> tenemos el propósito de rescatar las tradiciones yucatecas a través de las bebidas de chocolates así como las variadades
+                    de produtos que nos ofrece el árbol de cacao.</p>
                 </div>
             </div>
 
-            <div class="container-cards">
-                <img class="img-card" src="src/assets/images/bannerMarque1.png" alt="imagen aqui">
-                <div class="container-card-text">
-                    <h2>
-                        Nuestra especialidad la chocolateria
-                    </h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci suscipit neque laudantium, deleniti
-                        praesentium omnis laborum fugit hic id eum obcaecati aut voluptatem eius incidunt vitae? Numquam voluptatem
-                        quidem repellendus.
-                    </p>
+            <div class="swiper-slide">
+                <img src="src/assets/images/bannerMarque2.png" alt="img1">
+                <div class="swiper-text">
+                    <h2>Nuestra Especialidad la chocolateria</h2>
+                    <p>En <strong>Placer & Delorio</strong> tenemos el propósito de rescatar las tradiciones yucatecas a través de
+                        las bebidas de chocolates así como las variadades
+                        de produtos que nos ofrece el árbol de cacao.</p>
                 </div>
             </div>
 
-            <div class="container-cards">
-                <img class="img-card" src="src/assets/images/bannerMarque1.png" alt="imagen aqui">
-                <div class="container-card-text">
-                    <h2>
-                        Nuestra especialidad la chocolateria
-                    </h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci suscipit neque laudantium, deleniti
-                        praesentium omnis laborum fugit hic id eum obcaecati aut voluptatem eius incidunt vitae? Numquam voluptatem
-                        quidem repellendus.
-                    </p>
+            <div class="swiper-slide">
+                <img src="src/assets/images/bannerMarque3.png" alt="img1">
+                <div class="swiper-text">
+                    <h2>Nuestra Especialidad la chocolateria</h2>
+                    <p>En <strong>Placer & Delorio</strong> tenemos el propósito de rescatar las tradiciones yucatecas a través de
+                        las bebidas de chocolates así como las variadades
+                        de produtos que nos ofrece el árbol de cacao.</p>
                 </div>
             </div>
 
-        </section>
+            <div class="swiper-slide">
+                <img src="src/assets/images/bannerMarque1.png" alt="img1">
+                <div class="swiper-text">
+                    <h2>Nuestra Especialidad la chocolateria</h2>
+                    <p>En <strong>Placer & Delorio</strong> tenemos el propósito de rescatar las tradiciones yucatecas a través de
+                        las bebidas de chocolates así como las variadades
+                        de produtos que nos ofrece el árbol de cacao.</p>
+                </div>
+            </div>
+            
+            <div class="swiper-slide">
+                <img src="src/assets/images/bannerMarque2.png" alt="img1">
+                <div class="swiper-text">
+                    <h2>Nuestra Especialidad la chocolateria</h2>
+                    <p>En <strong>Placer & Delorio</strong> tenemos el propósito de rescatar las tradiciones yucatecas a través de
+                        las bebidas de chocolates así como las variadades
+                        de produtos que nos ofrece el árbol de cacao.</p>
+                </div>
+            </div>
+            
+            <div class="swiper-slide">
+                <img src="src/assets/images/bannerMarque3.png" alt="img1">
+                <div class="swiper-text">
+                    <h2>Nuestra Especialidad la chocolateria</h2>
+                    <p>En <strong>Placer & Delorio</strong> tenemos el propósito de rescatar las tradiciones yucatecas a través de
+                        las bebidas de chocolates así como las variadades
+                        de produtos que nos ofrece el árbol de cacao.</p>
+                </div>
+            </div>
+
+        </div>
     </div>
+
+    <!--Secion de los productos-->
+    <div class="container-productos">
+        <h2 class="titleProductos"><strong style="color: rgb(188, 177, 163);">Weekend</strong> special products</h2>
+
+        <div class="container-cards-productos">
+            <div class="cards-productos">
+                <div class="card-productos-img">
+                    <img src="src/assets/images/cafe1.png" alt="imagenProducto">
+                    <p class="offert">%20</p>
+                </div>
+                <div class="card-productos-text">
+                    <p class="title-producto">Miele CM6 Thermal Carafe</p>
+                    <p class="price-producto">$12</p>
+                </div>
+            </div>
+
+            <div class="cards-productos">
+                <div class="card-productos-img">
+                    <img src="src/assets/images/cafe1.png" alt="imagenProducto">
+                    <p class="offert">%20</p>
+                </div>
+                <div class="card-productos-text">
+                    <p class="title-producto">Miele CM6 Thermal Carafe</p>
+                    <p class="price-producto">$12</p>
+                </div>
+            </div>
+
+            <div class="cards-productos">
+                <div class="card-productos-img">
+                    <img src="src/assets/images/cafe1.png" alt="imagenProducto">
+                    <p class="offert">%20</p>
+                </div>
+                <div class="card-productos-text">
+                    <p class="title-producto">Miele CM6 Thermal Carafe</p>
+                    <p class="price-producto">$12</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="src/Js/script.js"></script>
 </body>
 </html>

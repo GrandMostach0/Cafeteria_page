@@ -1,8 +1,11 @@
-// Opcional: detener el carrusel al interactuar con él (cambiar la página)
-document.querySelector('.carousel-container').addEventListener('mouseenter', () => {
-    document.querySelector('.carousel-container').style.animationPlayState = 'paused';
-});
-
-document.querySelector('.carousel-container').addEventListener('mouseleave', () => {
-    document.querySelector('.carousel-container').style.animationPlayState = 'running';
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 80,
+    grabCursor: true,
+    loop: true,
+    breakpoints: {
+        991: {
+            slidesPerView: 3
+        }
+    }
 });
