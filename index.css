@@ -191,6 +191,19 @@ a,h1,p{
     color: var(--color-text-secundary);
 }
 
+.menu-productos{
+    width: 80%;
+    margin: 30px auto;
+}
+
+.menu-productos a{
+    text-decoration: none;
+    color: var(--bg-btn);
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    margin: 5px 10px ;
+}
+
 .container-cards-productos{
     width: 90%;
     margin: 30px auto;
@@ -245,12 +258,19 @@ a,h1,p{
     margin-bottom: 20px;
 }
 
+.price-producto-minus{
+    color: grey;
+    font-size: 1.5rem;
+    text-decoration: line-through;
+}
+
 .options-producto{
     margin: 30px 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .cards-productos:hover{
     transform: scale(1.1);
     .offert{
@@ -258,6 +278,31 @@ a,h1,p{
     }
     box-shadow: 0px 20px 54px rgba(0, 0, 0, 0.3);
 }
+
+/*Estilos del about us*/
+.container-aboutUs{
+    text-align: center;
+    margin: 120px 60px;
+}
+
+.about{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-text{
+    width: 60%;
+    font-size: 1.2rem;
+    display: inline-block;
+    text-align: left;
+}
+
+.about img{
+    border-radius: 30px;
+}
+
 
 @media(max-width:768px){
 
@@ -283,5 +328,9 @@ a,h1,p{
     /*zona de los contenedor de los productos*/
     .container-cards-productos{
         gap: 60px;
+    }
+
+    .menu-productos{
+        width: 80%;
     }
 }
