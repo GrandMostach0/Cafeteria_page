@@ -319,9 +319,12 @@ a,h1,p{
     border: 0px ;
 }
 
+.horario{
+    margin-bottom: 120px;
+}
+
 /*Estilos de footer*/
 footer{
-    margin-top: 80px;
     padding: 15px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     background-color: #b9a4863b;

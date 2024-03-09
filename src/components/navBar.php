@@ -19,7 +19,7 @@
 
         <img src="src/assets/icons/user.svg" alt="UserIcon">
         <div class="btnSession">
-            <a href="">Log In/Sing Up</a>
+            <a href="src/pages/login.php">Log In/Sing Up</a>
         </div>
     </div>
 </nav>

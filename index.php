@@ -226,7 +226,7 @@
     </div>
     
     <!--Separador del container del horario-->
-    <div class="container-horario" style="text-align: center;">
+    <div class="container-horario horario" style="text-align: center;">
         <h2 class="titleProductos" style="font-weight: bold;">Horario de Atención</h2>
         <br>
         <p class="subParrafo">
