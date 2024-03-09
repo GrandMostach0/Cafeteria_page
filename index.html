@@ -14,7 +14,7 @@
 
     <!--Seccion de menu-->
     <nav class="nav-menu">
-        <img class="logo_placer" src="src/assets/images/logo_placer.webp" alt="Place And Delirios">
+        <img class="logo_placer" src="src/assets/icons/LogoPlaceDelirios.svg" alt="Place And Delirios">
         <ul class="menu-options">
             <li class="option">
                 <a href="">Nosotros</a>
@@ -23,9 +23,20 @@
                 <a href="">Productos</a>
             </li>
             <li class="option">
+                <a href="">Horario</a>
+            </li>
+            <li class="option">
                 <a href="">Ubicacion</a>
             </li>
         </ul>
+        <div class="menu-optios-right">
+            <img src="src/assets/icons/ShopingCar.svg" alt="ShoppingCarIcon">
+
+            <img src="src/assets/icons/user.svg" alt="UserIcon">
+            <div class="btnSession">
+                <a href="">Log In/Sing Up</a>
+            </div>
+        </div>
     </nav>
     
     <!--Banner de Inicio-->
@@ -33,11 +44,20 @@
         <img class="logo_banner" src="src/assets/images/bannerCafe.png" alt="">
         <div class="container-banner-text">
             <h1 class="title container-banner-title">Toda nuestra tradición hasta tu hogar</h1>
-            <p class="parrafos">¡La calidad que te ha enamorado ahora puedes disfrutarla en donde estés!</p>
+            <p class="parrafos">¡La <strong>calidad que te ha enamorado</strong> ahora puedes disfrutarla en donde estés!</p>
             <a class="btn-a" href="">Disfrutar Ahora</a>
         </div>
     </main>
-    
+
+    <!--Separador del container del horario-->
+    <div class="container-horario">
+        <h2>Horario de Atención</h2>
+        <br>
+        <p class="subParrafo">
+            De Lunes a Domingo Entregas de 8:00 am a 9:00 pm (Pedidos fuera de horario se tomarán para el día siguiente).
+        </p>
+    </div>
+
     <!--Secciones de las cartas de presentacion/slider-->
     <div class="swiper mySwiper container">
         <div class="swiper-wrapper">
@@ -106,6 +126,9 @@
     <!--Secion de los productos-->
     <div class="container-productos">
         <h2 class="titleProductos"><strong style="color: rgb(188, 177, 163);">Weekend</strong> special products</h2>
+        <p class="subtitle">
+            Checa nuestros productos diarios especiales que puedes comprar con el <strong>¡¡%20 de Descuento!!</strong>
+        </p>
 
         <div class="container-cards-productos">
             <div class="cards-productos">
@@ -116,6 +139,13 @@
                 <div class="card-productos-text">
                     <p class="title-producto">Miele CM6 Thermal Carafe</p>
                     <p class="price-producto">$12</p>
+                    <p class="description-producto">
+                        Cacao puro mezclado con especias (canela, romero, anavís, clavo, pimienta, chile, vanilla...)
+                    </p>
+                    <div class="options-producto">
+                        <p>Agregar al carrito +</p>
+                        <img src="src/assets/icons/HeartIcon.svg" alt="HeartIcon">
+                    </div>
                 </div>
             </div>
 
@@ -127,6 +157,13 @@
                 <div class="card-productos-text">
                     <p class="title-producto">Miele CM6 Thermal Carafe</p>
                     <p class="price-producto">$12</p>
+                    <p class="description-producto">
+                        Cacao puro mezclado con especias (canela, romero, anavís, clavo, pimienta, chile, vanilla...)
+                    </p>
+                    <div class="options-producto">
+                        <p>Agregar al carrito +</p>
+                        <img src="src/assets/icons/HeartIcon.svg" alt="HeartIcon">
+                    </div>
                 </div>
             </div>
 
@@ -138,10 +175,21 @@
                 <div class="card-productos-text">
                     <p class="title-producto">Miele CM6 Thermal Carafe</p>
                     <p class="price-producto">$12</p>
+                    <p class="description-producto">
+                        Cacao puro mezclado con especias (canela, romero, anavís, clavo, pimienta, chile, vanilla...)
+                    </p>
+                    <div class="options-producto">
+                        <p>Agregar al carrito +</p>
+                        <img src="src/assets/icons/HeartIcon.svg" alt="HeartIcon">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    
+    <!--Secciones de las scripts necesarias por cierto-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="src/Js/script.js"></script>
 </body>

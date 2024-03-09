@@ -27,7 +27,6 @@ a,h1,p{
     align-items: center;
     justify-content: space-between;
     padding: 5px 10px;
-    background-color: rgba(255, 255, 255, 0.44);
     border-end-end-radius: 16px;
     border-end-start-radius: 16px;
 }
@@ -51,16 +50,42 @@ a,h1,p{
 .nav-menu > ul > li > a{
     text-decoration: none;
     font-weight: bold;
+    color: var(--color-text);
+}
+
+.menu-optios-right{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menu-optios-right img{
+    margin: 0px 5px;
+}
+
+.btnSession{
+    margin-left: 10px;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 25px;
+    padding: 8px 16px;
+}
+
+.btnSession a{
+    text-decoration: none;
+    font-weight: bold;
     color: black;
 }
+
+
 
 /*Estilos del banner principal*/
 .container-banner{
     width: 100%;
-    height: 600px;
+    height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     background-image: linear-gradient(to top, 
     #b9a4862e,
     #9b847264,
@@ -71,7 +96,7 @@ a,h1,p{
 }
 
 .logo_banner{
-    width: 650px;
+    width: 750px;
 }
 
 .container-banner-text{
@@ -79,21 +104,23 @@ a,h1,p{
 }
 
 .container-banner-title{
-    font-size: 4.7rem;
-    margin-bottom: 30px;
-    line-height: 60px;
+    text-align: left;
+    font-size: 6rem;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    line-height: 80px;
 }
 
 .parrafos{
     margin: 8px 0px;
     font-size: 1.3rem;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .btn-a{
-    background-color: var(--bg-btn);
     padding: 8px 16px;
-    border: none;
+    background-color: transparent;
+    border: 1px solid var(--bg-btn);
     border-radius: 20px;
     font-size: 1rem;
     text-decoration: none;
@@ -102,8 +129,13 @@ a,h1,p{
 }
 
 .btn-a:hover{
-    background-color: black;
-    color: white;
+    background-color: var(--bg-btn);
+}
+
+/*estilo del container Horario*/
+.container-horario{
+    text-align: center;
+    margin: 20px ;
 }
 
 /*Estilos del carrucel*/
@@ -146,13 +178,17 @@ a,h1,p{
 
 .container-productos{
     margin-top: 50px;
+    text-align: center;
 }
 
 .titleProductos{
-    text-align: center;
     color: var(--color-text-secundary);
     font-weight: normal;
     font-size: 2.5rem;
+}
+
+.subtitle{
+    color: var(--color-text-secundary);
 }
 
 .container-cards-productos{
@@ -189,6 +225,7 @@ a,h1,p{
 }
 
 .card-productos-text{
+    text-align: left;
     margin-top: 5px;
     margin-bottom: 10px;
     padding: 0px 20px;
@@ -202,20 +239,34 @@ a,h1,p{
 
 .price-producto{
     color: var(--color-text-secundary);
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-top: 5px;
     margin-bottom: 20px;
 }
 
+.options-producto{
+    margin: 30px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .cards-productos:hover{
     transform: scale(1.1);
     .offert{
         background-color: #201f1f;
     }
+    box-shadow: 0px 20px 54px rgba(0, 0, 0, 0.3);
 }
 
 @media(max-width:768px){
+
+    /*Zona del banner principal*/
+    .logo_banner{
+        width: 250px;
+    }
+
+    /*zona de las tarjetas*/
     .swiper{
         padding: 0 70px;
     }
@@ -229,6 +280,7 @@ a,h1,p{
         height: 100%;
     }
 
+    /*zona de los contenedor de los productos*/
     .container-cards-productos{
         gap: 60px;
     }
