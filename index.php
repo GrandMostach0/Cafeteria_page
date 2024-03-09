@@ -13,31 +13,9 @@
 <body>
 
     <!--Seccion de menu-->
-    <nav class="nav-menu">
-        <img class="logo_placer" src="src/assets/icons/LogoPlaceDelirios.svg" alt="Place And Delirios">
-        <ul class="menu-options">
-            <li class="option">
-                <a href="">Nosotros</a>
-            </li>
-            <li class="option">
-                <a href="">Productos</a>
-            </li>
-            <li class="option">
-                <a href="">Horario</a>
-            </li>
-            <li class="option">
-                <a href="">Ubicacion</a>
-            </li>
-        </ul>
-        <div class="menu-optios-right">
-            <img src="src/assets/icons/ShopingCar.svg" alt="ShoppingCarIcon">
-
-            <img src="src/assets/icons/user.svg" alt="UserIcon">
-            <div class="btnSession">
-                <a href="">Log In/Sing Up</a>
-            </div>
-        </div>
-    </nav>
+    <?php
+        include './src/components/navBar.php';
+    ?>
     
     <!--Banner de Inicio-->
     <main class="container-banner">
@@ -49,7 +27,6 @@
         </div>
     </main>
 
-    
     <!--Secciones de las cartas de presentacion/slider-->
     <div class="swiper mySwiper container">
         <div class="swiper-wrapper">
@@ -117,7 +94,7 @@
 
     <!--Secion de los productos-->
     <div class="container-productos">
-        <h2 class="titleProductos"><strong style="color: rgb(188, 177, 163);">Weekend</strong> special products</h2>
+        <h2 class="titleProductos"><strong style="color: rgb(188, 177, 163);">Weekend</strong> productos especiales</h2>
         <p class="subtitle">
             Checa nuestros productos diarios especiales que puedes comprar con el <strong>¡¡%20 de Descuento!!</strong>
         </p>
@@ -227,7 +204,7 @@
         <!--Incrustacion del video -->
         <br>
         <div class="vide-separador">
-            <iframe width="80%" height="600px" src="https://www.youtube.com/embed/df3JeXVWYWA" title="YouTube video player"
+            <iframe class="videoStyles" src="https://www.youtube.com/embed/df3JeXVWYWA" title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
@@ -240,8 +217,9 @@
         <br>
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.570219003467!2d-89.63340292512652!3d20.96976778980286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5673dc3de206bd%3A0x82c2a803a8e7da7d!2sPlacer%20%26%20Delirio!5e0!3m2!1ses-419!2smx!4v1686072020422!5m2!1ses-419!2smx"
-            width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="mapStyles">
         </iframe>
         <br>
         <p style="font-style: italic;">C. 59 572, entre 72 Y 74, Parque Santiago, Centro, 97000 Mérida, Yuc.</p>
@@ -257,51 +235,9 @@
     </div>
 
     <!--Footer de la pagina-->
-    <footer>
-        <div class="separador-footer">
-            <h4>Placer & Delirio</h4>
-            <p>
-                Somos una Panadería y Chocolatería Yucateca, con sede en la Casa Caterwood, Mérida, Yucatán.
-            </p>
-        </div>
-
-        <div class="separador-footer">
-            <h4>Acerca de</h4>
-            <div class="footer-list">
-                <a href="">Nostros</a>
-                <a href="">Contáctanos</a>
-                <a href="">Cotiza</a>
-            </div>
-        </div>
-
-        <div class="separador-footer">
-            <h4>Ayuda</h4>
-            <div class="footer-list">
-                <a href="">Políticas de envío</a>
-                <a href="">Devoluciones y reembolsos</a>
-                <a href="">Políticas de privacidad</a>
-                <a href="">Términos de servicio</a>
-                <a href="">Preguntas frecuentes</a>
-                <a href="">Términos del servicio</a>
-                <a href="">Políticas de reembolsos</a>
-            </div>
-        </div>
-        <div class="separador-footer">
-            <h4>Social Media</h4>
-            <div class="social-media-footer">
-                <a href="https://www.facebook.com/PlaceryDelirio" target="_blank">
-                    <img src="src/assets/icons/FaceIcon.svg" alt="Facebook">
-                </a>
-                <a target="_blank" href="https://www.instagram.com/placerydelirio/">
-                    <img src="src/assets/icons/InstaIcon.svg" alt="Instagram">
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <div class="terminacion">
-        <p style="align-items: center;">Esta página se hizo con fines practicos, <strong>Victor Bernardo Chan Varguez</strong></p>
-    </div>
+    <?php 
+    include './src/components/footer.php';
+    ?>
 
     <!--Secciones de las scripts necesarias por cierto-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
