@@ -132,12 +132,6 @@ a,h1,p{
     background-color: var(--bg-btn);
 }
 
-/*estilo del container Horario*/
-.container-horario{
-    text-align: center;
-    margin: 20px ;
-}
-
 /*Estilos del carrucel*/
 .swiper{
     margin-top: 60px;
@@ -282,7 +276,10 @@ a,h1,p{
 /*Estilos del about us*/
 .container-aboutUs{
     text-align: center;
-    margin: 120px 60px;
+    padding: 10px 20px ;
+    margin: 120px 40px;
+    background-color: rgba(188, 177, 163, 0.1);
+    border-radius: 25px;
 }
 
 .about{
@@ -303,6 +300,22 @@ a,h1,p{
     border-radius: 30px;
 }
 
+.container-Ubicacion{
+    margin: 120px 60px;
+    text-align: center;
+}
+
+/*Estilos de footer*/
+footer{
+    margin-top: 80px;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: #b9a4863b;
+
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-auto-rows: auto;
+}
 
 @media(max-width:768px){
 
@@ -332,5 +345,9 @@ a,h1,p{
 
     .menu-productos{
         width: 80%;
+    }
+
+    footer{
+        grid-template-columns: auto auto;
     }
 }
