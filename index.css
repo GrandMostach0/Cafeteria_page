@@ -313,8 +313,31 @@ footer{
     background-color: #b9a4863b;
 
     display: grid;
+    justify-content: center;
     grid-template-columns: auto auto auto auto;
+    gap: 20px;
     grid-auto-rows: auto;
+}
+
+.separador-footer{
+    padding: 10px;
+    width: 350px;
+}
+
+.separador-footer h4{
+    color: var(--bg-btn);
+    font-weight: normal;
+}
+
+.separador-footer p{
+    font-size: 0.9rem;
+}
+
+.footer-list a{
+    font-weight: 0.9rem;
+    text-decoration: none;
+    display: block;
+    margin: 15px 0px;
 }
 
 @media(max-width:768px){
