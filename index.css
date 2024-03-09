@@ -320,7 +320,6 @@ footer{
 }
 
 .separador-footer{
-    padding: 10px;
     width: 350px;
 }
 
@@ -337,7 +336,11 @@ footer{
     font-weight: 0.9rem;
     text-decoration: none;
     display: block;
-    margin: 15px 0px;
+    margin-top: 15px;
+}
+
+.social-media-footer a, img{
+    margin: 5px 5px;
 }
 
 @media(max-width:768px){
