@@ -126,7 +126,6 @@
                     </p>
                     <div class="options-producto">
                         <p>Agregar al carrito +</p>
-                        <img class="iconHeart" src="src/assets/icons/HeartIcon.svg" alt="HeartIcon">
                     </div>
                 </div>
             </div>
@@ -147,7 +146,6 @@
                     </p>
                     <div class="options-producto">
                         <p>Agregar al carrito +</p>
-                        <img class="iconHeart" src="src/assets/icons/HeartIcon.svg" alt="HeartIcon">
                     </div>
                 </div>
             </div>

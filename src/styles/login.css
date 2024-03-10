@@ -53,6 +53,10 @@ form {
         text-align: center;
         font-size: 2rem;
     }
+
+    & p{
+        text-align: center;
+    }
 }
 
 .envoltura-form{
