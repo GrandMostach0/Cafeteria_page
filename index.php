@@ -23,7 +23,7 @@
         <div class="container-banner-text">
             <h1 class="title container-banner-title">Toda nuestra tradición hasta tu hogar</h1>
             <p class="parrafos">¡La <strong>calidad que te ha enamorado</strong> ahora puedes disfrutarla en donde estés!</p>
-            <a class="btn-a" href="">Disfrutar Ahora</a>
+            <a class="btn-a" href="#productos">Disfrutar Ahora</a>
         </div>
     </main>
 
