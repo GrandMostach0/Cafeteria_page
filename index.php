@@ -93,7 +93,7 @@
     </div>
 
     <!--Secion de los productos-->
-    <div class="container-productos">
+    <div id="productos" class="container-productos">
         <h2 class="titleProductos"><strong style="color: rgb(188, 177, 163);">Weekend</strong> productos especiales</h2>
         <p class="subtitle">
             Checa nuestros productos diarios especiales que puedes comprar con el <strong>¡¡%20 de Descuento!!</strong>
@@ -174,7 +174,7 @@
     </div>
     
     <!--Seccion de Acerca de nosotros-->
-    <div class="container-aboutUs">
+    <div id="nosotros" class="container-aboutUs">
         <h2 class="titleProductos" style="font-weight: bold;">Acerca de Nosotros</h2>
         <div class="about">
             <div class="about-text">
@@ -212,7 +212,7 @@
     </div>
 
     <!--Seccion de la ubicacion-->
-    <div class="container-Ubicacion">
+    <div id="ubicacion" class="container-Ubicacion">
         <h2 class="titleProductos" style="font-weight: bold;">Ubicación</h2>
         <br>
         <iframe
@@ -226,7 +226,7 @@
     </div>
     
     <!--Separador del container del horario-->
-    <div class="container-horario horario" style="text-align: center;">
+    <div id="horario" class="container-horario horario" style="text-align: center;">
         <h2 class="titleProductos" style="font-weight: bold;">Horario de Atención</h2>
         <br>
         <p class="subParrafo">

@@ -10,11 +10,10 @@
 </head>
 
 <body>
-    <div class="header">
-        <a href="../../index.php">
-            <img src="../assets/icons/LogoPlaceDelirios.svg" alt="logoPlacer">
-        </a>
-    </div>
+    
+    <?php 
+    include '../components/navBar2.php';
+    ?>
     <div class="container-form">
         <form name="formLogin" action="" method="post">
             <h2>Registrarse</h2>
@@ -40,7 +39,7 @@
     </div>
 
     <?php
-    include '../components/footer.php';
+    include '../components/footer2.php';
     ?>
 </body>
 
