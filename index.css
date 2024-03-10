@@ -266,6 +266,12 @@ a,h1,p{
     justify-content: space-between;
 }
 
+.svgCorazon{
+    transform: scale(1.1);
+    cursor: pointer;
+    fill: red;
+}
+
 .cards-productos:hover{
     transform: scale(1.1);
     .offert{

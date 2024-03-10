@@ -8,19 +8,19 @@
     <link rel="stylesheet" href="../../index.css">
 </head>
 <body>
-    <div class="header">
-        <a href="../../index.php">
-            <img src="../assets/icons/LogoPlaceDelirios.svg" alt="logoPlacer">
-        </a>
-    </div>
+
+    <?php 
+    include '../components/navBar2.php';
+    ?>
+
     <div class="container-form">
         <form name="formLogin" action="" method="post">
             <h2>Ingresar</h2>
             <div class="envoltura-form">
-                <input type="email" name="email" placeholder="Correo electrónico">
+                <input type="email" name="email" placeholder="Correo electrónico" required>
             </div>
             <div class="envoltura-form">
-                <input type="password" name="password" placeholder="Contraseña">
+                <input type="password" name="password" placeholder="Contraseña" required>
             </div>
 
             <a class="ancor-form" href="../../index.php">
@@ -34,7 +34,7 @@
     </div>
 
     <?php 
-    include '../components/footer.php';
+    include '../components/footer2.php';
     ?>
 </body>
 </html>

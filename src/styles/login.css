@@ -23,6 +23,10 @@ form input, button{
     color: white;
 }
 
+form input{
+    border-bottom: 2px solid white;
+}
+
 form input[type="password"]{
     letter-spacing: 2px;
 }
@@ -40,6 +44,10 @@ form a{
 form {
     width: 550px;
     padding: 10px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 50px 23px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
 
     & h2 {
         text-align: center;
@@ -56,16 +64,18 @@ form {
     outline: none;
 }
 
-.container-foter{
-    position: initial;
-}
-
 .ancor-form{
     font-size: 0.9rem;
 }
 
 .crear-cuenta{
     text-align: center;
+}
+
+form button:hover{
+    background-color: white;
+    color: black;
+    transition: all 0.3s ease;
 }
 
 .btnForm{
