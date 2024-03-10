@@ -100,12 +100,12 @@
         </p>
 
         <div class="menu-productos">
-            <a href="#" onclick="filtrarProductos('todos')">Todos</a>
-            <a href="#" onclick="filtrarProductos('bebidas')">Bebidas</a>
-            <a href="#" onclick="filtrarProductos('cafes')">Cafés</a>
-            <a href="#" onclick="filtrarProductos('chocolate')">Chocolate</a>
-            <a href="#" onclick="filtrarProductos('frapes')">Frapés</a>
-            <a href="#" onclick="filtrarProductos('pasteleria')">Pastelería</a>
+            <a href="#" onclick="filtrarProductos('todos')" class="opcion-menu">Todos</a>
+            <a href="#" onclick="filtrarProductos('bebidas')" class="opcion-menu">Bebidas</a>
+            <a href="#" onclick="filtrarProductos('cafes')" class="opcion-menu">Cafés</a>
+            <a href="#" onclick="filtrarProductos('chocolate')" class="opcion-menu">Chocolate</a>
+            <a href="#" onclick="filtrarProductos('frapes')" class="opcion-menu">Frapés</a>
+            <a href="#" onclick="filtrarProductos('pasteleria')" class="opcion-menu">Pastelería</a>
         </div>
 
         <div class="container-cards-productos">
