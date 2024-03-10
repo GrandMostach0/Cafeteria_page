@@ -242,5 +242,6 @@
     <!--Secciones de las scripts necesarias por cierto-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="src/Js/script.js"></script>
+    <script src="src/Js/smooth-Scroll.js"></script>
 </body>
 </html>
