@@ -100,57 +100,17 @@
         </p>
 
         <div class="menu-productos">
-            <a href="">Bebidas</a>
-            <a href="">Cafes</a>
-            <a href="">Chocolate</a>
-            <a href="">Frapes</a>
-            <a href="">Pasteleria</a>
+            <a href="#" onclick="filtrarProductos('todos')">Todos</a>
+            <a href="#" onclick="filtrarProductos('bebidas')">Bebidas</a>
+            <a href="#" onclick="filtrarProductos('cafes')">Cafés</a>
+            <a href="#" onclick="filtrarProductos('chocolate')">Chocolate</a>
+            <a href="#" onclick="filtrarProductos('frapes')">Frapés</a>
+            <a href="#" onclick="filtrarProductos('pasteleria')">Pastelería</a>
         </div>
 
         <div class="container-cards-productos">
-            <div class="cards-productos">
-                <div class="card-productos-img">
-                    <img src="src/assets/images/cafe1.png" alt="imagenProducto">
-                    <p class="offert">%20</p>
-                </div>
-                <div class="card-productos-text">
-                    <p class="title-producto">Miele CM6 Thermal Carafe</p>
-                    <p class="price-producto">
-                        <span class="price-producto-minus">$34</span>
-                        $12
-                    </p>
-                    <p class="description-producto">
-                        Cacao puro mezclado con especias (canela, romero, anavís, clavo, pimienta, chile, vanilla...)
-                    </p>
-                    <div class="options-producto">
-                        <p>Agregar al carrito +</p>
-                        <img class="svgCorazon" src="src/assets/icons/HeartIcon.svg" alt="HeartIcon">
-                    </div>
-                </div>
-            </div>
 
-            <div class="cards-productos">
-                <div class="card-productos-img">
-                    <img src="src/assets/images/cafe1.png" alt="imagenProducto">
-                    <p class="offert">%20</p>
-                </div>
-                <div class="card-productos-text">
-                    <p class="title-producto">Miele CM6 Thermal Carafe</p>
-                    <p class="price-producto">
-                        <span class="price-producto-minus">$34</span>
-                        $12
-                    </p>
-                    <p class="description-producto">
-                        Cacao puro mezclado con especias (canela, romero, anavís, clavo, pimienta, chile, vanilla...)
-                    </p>
-                    <div class="options-producto">
-                        <p>Agregar al carrito +</p>
-                        <img src="src/assets/icons/HeartIcon.svg" alt="HeartIcon">
-                    </div>
-                </div>
-            </div>
-
-            <div class="cards-productos">
+            <div class="cards-productos" data-categoria="cafes">
                 <div class="card-productos-img">
                     <img src="src/assets/images/cafe1.png" alt="imagenProducto">
                     <p class="offert">%20</p>
@@ -170,6 +130,28 @@
                     </div>
                 </div>
             </div>
+
+            <div class="cards-productos" data-categoria="Chocolate">
+                <div class="card-productos-img">
+                    <img src="src/assets/images/cafe1.png" alt="imagenProducto">
+                    <p class="offert">%20</p>
+                </div>
+                <div class="card-productos-text">
+                    <p class="title-producto">Miele CM6 Thermal Carafe</p>
+                    <p class="price-producto">
+                        <span class="price-producto-minus">$34</span>
+                        $12
+                    </p>
+                    <p class="description-producto">
+                        Cacao puro mezclado con especias (canela, romero, anavís, clavo, pimienta, chile, vanilla...)
+                    </p>
+                    <div class="options-producto">
+                        <p>Agregar al carrito +</p>
+                        <img class="iconHeart" src="src/assets/icons/HeartIcon.svg" alt="HeartIcon">
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     
@@ -243,5 +225,18 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="src/Js/script.js"></script>
     <script src="src/Js/smooth-Scroll.js"></script>
+
+    <script>
+        function filtrarProductos(categoria) {
+            var cards = document.querySelectorAll('.cards-productos');
+
+            cards.forEach(function (card) {
+                var categoriaProducto = card.getAttribute('data-categoria').toLowerCase();
+                var visible = (categoria === 'todos' || categoria === categoriaProducto);
+                card.style.display = visible ? 'block' : 'none';
+            });
+        }
+    </script>
+
 </body>
 </html>
