@@ -43,20 +43,8 @@
     ?>
 
     <script>
-        function validateForm() {
-            var fields = ['name', 'last_name', 'email', 'password', 'confPassword'];
-
-            for (var i = 0; i < fields.length; i++) {
-                var fieldValue = document.getElementById(fields[i]).value.trim();
-                if (fieldValue.length === 0) {
-                    alert("Campo " + fields[i].toUpperCase() + " vacío");
-                    document.getElementById(fields[i]).focus();
-                    return false;
-                }
-            }
-
+        function valida_envia() {
             document.formLogin.submit();
-            return true;
         }
     </script>
 </body>

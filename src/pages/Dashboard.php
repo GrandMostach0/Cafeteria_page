@@ -11,3 +11,5 @@ echo $apellido . "<br/>";
 echo $correo . "<br/>";
 echo $contrasenia . "<br/>";
 echo $confcontrasenia . "<br/>";
+
+header("Location: menu/panel_menu.php");
