@@ -24,7 +24,7 @@
         </div>
     </a>
 
-    <a href="" class="opciones">
+    <a href="./panel_menu_Productos.php" class="opciones">
         <svg data-testid="geist-icon" height="30" stroke-linejoin="round" viewBox="0 0 16 16" width="30"
             style="color: currentcolor;">
             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -51,7 +51,7 @@
         </div>
     </a>
 
-    <a href="" class="opciones">
+    <a href="./panel_menu_Banners.php" class="opciones">
         <svg data-testid="geist-icon" height="30" stroke-width="1.3" stroke-linejoin="round" viewBox="0 0 16 16"
             width="30" style="color: currentcolor;">
             <path fill-rule="evenodd" clip-rule="evenodd"

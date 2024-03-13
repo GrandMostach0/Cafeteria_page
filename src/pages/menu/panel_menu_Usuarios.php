@@ -18,7 +18,9 @@
 
     <div class="container-registrosDatos">
         <div class="opciones-registros">
+            <h1>Usuarios Registrados</h1>
             <button class="btn-Button">Agregar +</button>
+            <br>
         </div>
         <table>
                 <tr>
