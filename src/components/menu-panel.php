@@ -1,13 +1,16 @@
 <header class="menu">
-    <img id="logoPlace" src="../../assets/icons/LogoPlaceDelirios.svg" alt="delirios">
+    <a href="./panel_menu.php">
+        <img id="logoPlace" src="../../assets/icons/LogoPlaceDelirios.svg" alt="delirios">
+    </a>
     <div class="menu-text">
+        <a href="../../../index.php">Salir</a>
         <img src="../../assets/icons/user.svg" alt="usuario">
         <p>Name Usuario</p>
     </div>
 </header>
 
 <div class="container-menu-opciones">
-    <a href="" class="opciones">
+    <a href="./panel_menu_Usuarios.php" class="opciones">
         <svg data-testid="geist-icon" height="30" stroke-linejoin="round" viewBox="0 0 16 16" width="30"
             style="color: currentcolor;">
             <path fill-rule="evenodd" clip-rule="evenodd"

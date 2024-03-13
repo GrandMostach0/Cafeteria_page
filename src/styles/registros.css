@@ -1,0 +1,25 @@
+.container-registrosDatos{
+    margin: 20px auto;
+    width: 80%;
+}
+
+.opciones-registros{
+    border: 1px solid white;
+    margin: 10px ;
+    padding: 8px;
+
+    & button{
+        padding: 8px 16px;
+        border-radius: 25px;
+    }
+}
+
+.btn-Button{
+    cursor: pointer;
+}
+
+.btn-Eliminar, .btn-Editar{
+    padding: 4px 8px;
+    margin: 0px 4px;
+}
+
