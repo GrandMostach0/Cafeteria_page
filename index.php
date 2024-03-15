@@ -9,6 +9,9 @@
 
     <link rel="stylesheet" href="index.css">
 
+    <script src="src/Js/smooth-Scroll.js"></script>
+    <script src="src/Js/filterProductos.js"></script>
+
 </head>
 <body>
 
@@ -100,12 +103,12 @@
         </p>
 
         <div class="menu-productos">
-            <a href="#" onclick="filtrarProductos('todos', this)" class="opcion-menu">Todos</a>
-            <a href="#" onclick="filtrarProductos('bebidas', this)" class="opcion-menu">Bebidas</a>
-            <a href="#" onclick="filtrarProductos('cafes', this)" class="opcion-menu">Cafés</a>
-            <a href="#" onclick="filtrarProductos('chocolate', this)" class="opcion-menu">Chocolate</a>
-            <a href="#" onclick="filtrarProductos('frapes', this)" class="opcion-menu">Frapés</a>
-            <a href="#" onclick="filtrarProductos('pasteleria', this)" class="opcion-menu">Pastelería</a>
+            <a href="#" onclick="filtrarProductos(event, 'todos', this)" class="opcion-menu">Todos</a>
+            <a href="#" onclick="filtrarProductos(event, 'bebidas', this)" class="opcion-menu">Bebidas</a>
+            <a href="#" onclick="filtrarProductos(event, 'cafes', this)" class="opcion-menu">Cafés</a>
+            <a href="#" onclick="filtrarProductos(event, 'chocolate', this)" class="opcion-menu">Chocolate</a>
+            <a href="#" onclick="filtrarProductos(event, 'frapes', this)" class="opcion-menu">Frapés</a>
+            <a href="#" onclick="filtrarProductos(event, 'pasteleria', this)" class="opcion-menu">Pastelería</a>
         </div>
 
         <div class="container-cards-productos">
@@ -222,18 +225,16 @@
     <!--Secciones de las scripts necesarias por cierto-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="src/Js/script.js"></script>
-    <script src="src/Js/smooth-Scroll.js"></script>
-
     <script>
-        function filtrarProductos(categoria) {
-            var cards = document.querySelectorAll('.cards-productos');
-
-            cards.forEach(function (card) {
-                var categoriaProducto = card.getAttribute('data-categoria').toLowerCase();
-                var visible = (categoria === 'todos' || categoria === categoriaProducto);
-                card.style.display = visible ? 'block' : 'none';
-            });
-        }
+        document.addEventListener("DOMContentLoaded", function () {
+            // Cuando se carga la página, establece la opción "Todos" como seleccionada por defecto
+            var opcionTodos = document.querySelector('.opcion-menu.selected');
+            if (!opcionTodos) {
+                // Si no hay ninguna opción seleccionada, selecciona la opción "Todos"
+                var opcionTodos = document.querySelector('.opcion-menu');
+                opcionTodos.classList.add('selected');
+            }
+        });
     </script>
 
 </body>

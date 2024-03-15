@@ -1,4 +1,5 @@
-function filtrarProductos(categoria, elementoClic) {
+function filtrarProductos(event, categoria, elementoClic) {
+     event.preventDefault()
     var cards = document.querySelectorAll('.cards-productos');
     var opcionesMenu = document.querySelectorAll('.opcion-menu');
 
@@ -14,5 +15,3 @@ function filtrarProductos(categoria, elementoClic) {
 
     elementoClic.classList.add('selected');
 }
-
-
