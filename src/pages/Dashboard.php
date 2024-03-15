@@ -6,10 +6,5 @@ $correo = $_POST['email'];
 $contrasenia = $_POST['password'];
 $confcontrasenia = $_POST['confirmPassword'];
 
-echo $nombre . "<br/>";
-echo $apellido . "<br/>";
-echo $correo . "<br/>";
-echo $contrasenia . "<br/>";
-echo $confcontrasenia . "<br/>";
-
-header("Location: menu/panel_menu.php");
+header("Location: ./LogIn.php");
+exit; // Asegúrate de que no haya más código después de la redirección

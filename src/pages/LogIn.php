@@ -14,7 +14,10 @@
     ?>
 
     <div class="container-form">
-        <form name="formLogin" action="" method="post">
+        <form 
+        name="formLogin" 
+        action="../../index.php" 
+        method="post">
             <h2>Ingresar</h2>
             <div class="form__container">
                 <div class="envoltura-form">

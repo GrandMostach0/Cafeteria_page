@@ -15,7 +15,11 @@
     include '../components/navBar2.php';
     ?>
     <div class="container-form form__SingUp">
-        <form name="formLogin" action="./Dashboard.php" method="post">
+        <form 
+        name="formLogin" 
+        action="./Dashboard.php" 
+        method="post"
+        onsubmit="return valida_envia()">
             <h2>Registrarse</h2>
 
             <div class="envoltura-form">
@@ -39,7 +43,10 @@
                 <input type="password" id="confPassword" name="confirmPassword" placeholder="Confirmar Contraseña">
             </div>
 
-            <button class="btnForm" type="button" onclick="valida_envia()" name="Submit">Registrarse</button>
+            <button 
+            class="btnForm" 
+            type="submit"
+            name="Submit">Registrarse</button>
             
             <a class="crear-cuenta" style="text-align: left" href="./LogIn.php">
                 <strong>Volver</strong>
@@ -53,9 +60,23 @@
 
     <script>
         function valida_envia() {
-            document.formLogin.submit();
+            // Realiza tus validaciones aquí
+            // Por ejemplo, puedes verificar si los campos están vacíos
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confPassword').value;
+
+            if (name == '' || email == '' || password == '' || confirmPassword == '') {
+                alert('Por favor, completa todos los campos');
+                return false; // Evita que se envíe el formulario si hay campos vacíos
+            }
+
+            // Si todas las validaciones son exitosas, se enviará el formulario
+            return true;
         }
     </script>
+
 </body>
 
 </html>
