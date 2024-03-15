@@ -14,27 +14,36 @@
     <?php 
     include '../components/navBar2.php';
     ?>
-    <div class="container-form">
+    <div class="container-form form__SingUp">
         <form name="formLogin" action="./Dashboard.php" method="post">
             <h2>Registrarse</h2>
 
             <div class="envoltura-form">
+                <label for="name">Nombre:</label>
                 <input type="text" id="name" name="name" placeholder="Nombre">
             </div>
             <div class="envoltura-form">
+                <label for="last_name">Apellido:</label>
                 <input type="text" id="last_name" name="last_name" placeholder="Apellido">
             </div>
             <div class="envoltura-form">
+                <label for="email">Correo electrónico</label>
                 <input type="email" id="email" name="email" placeholder="Correo electrónico">
             </div>
             <div class="envoltura-form">
+                <label for="password">Contraseña</label>
                 <input type="password" id="password" name="password" placeholder="contraseña">
             </div>
             <div class="envoltura-form">
+                <label for="confPassword">Confirmar contraseña:</label>
                 <input type="password" id="confPassword" name="confirmPassword" placeholder="Confirmar Contraseña">
             </div>
 
             <button class="btnForm" type="button" onclick="valida_envia()" name="Submit">Registrarse</button>
+            
+            <a class="crear-cuenta" style="text-align: left" href="./LogIn.php">
+                <strong>Volver</strong>
+            </a>
         </form>
     </div>
 

@@ -13,22 +13,9 @@
     align-items: center;
 }
 
-form {
-    width: 550px;
-    padding: 10px;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0px 0px 50px 23px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-
-    & h2 {
-        text-align: center;
-        font-size: 2rem;
-    }
-
-    & p {
-        text-align: center;
-    }
+.form__SingUp{
+    margin-top: 10px;
+    margin-bottom: 50px;
 }
 
 form input, button{
@@ -43,6 +30,7 @@ form input, button{
 
 form input{
     border-bottom: 2px solid white;
+    letter-spacing: 1px;
 }
 
 form input[type="password"]{
@@ -51,12 +39,30 @@ form input[type="password"]{
 
 form input::placeholder{
     letter-spacing: 1px;
-    color: white;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 form a{
     display: block;
     margin: 8px 40px;
+}
+
+form {
+    width: 550px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 50px 23px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+
+    & h2 {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    & p{
+        text-align: center;
+    }
 }
 
 .envoltura-form{
@@ -74,6 +80,11 @@ form a{
 
 .crear-cuenta{
     text-align: center;
+    text-decoration: none;
+}
+
+.crear-cuenta:hover{
+    text-decoration: underline;
 }
 
 form button:hover{

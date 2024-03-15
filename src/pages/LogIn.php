@@ -16,20 +16,26 @@
     <div class="container-form">
         <form name="formLogin" action="" method="post">
             <h2>Ingresar</h2>
-            <div class="envoltura-form">
-                <input type="email" name="email" placeholder="Correo electrónico" required>
+            <div class="form__container">
+                <div class="envoltura-form">
+                    <label for="email" class="form__label">Correo electrónico: </label>
+                    <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="envoltura-form">
+                    <label for="password" class="form__label">Contraseña: </label>
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                </div>
+
+                <a class="ancor-form crear-cuenta" style="text-align: left" href="./RestPassword.php">
+                    <strong>¿Olvido su contraseña?</strong>
+                </a>
+
+                <button class="btnForm" type="submit">Ingresar</button>
+
+                <a class="ancor-form crear-cuenta" href="./SingUp.php">
+                    No tienes cuenta? <strong>Crear cuenta</strong>
+                </a>
             </div>
-            <div class="envoltura-form">
-                <input type="password" name="password" placeholder="Contraseña" required>
-            </div>
-
-            <a class="ancor-form" href="./RestPassword.php">
-                ¿Olvido su contraseña?
-            </a>
-
-            <button class="btnForm" type="submit">Ingresar</button>
-
-            <a class="ancor-form crear-cuenta" href="./SingUp.php">Crear Cuenta</a>
         </form>
     </div>
 
