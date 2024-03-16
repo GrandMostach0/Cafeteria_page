@@ -275,6 +275,16 @@ a,h1,p{
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    & p{
+        padding: 8px;
+        cursor: pointer;
+    }
+}
+
+.options-producto p:hover{
+    border-radius: 8px;
+    background-color: #575656;
 }
 
 .svgCorazon{

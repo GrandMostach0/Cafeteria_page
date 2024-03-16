@@ -1,12 +1,13 @@
 <?php 
-$servername = 'PlaceAndDelirios';
-$username = 'admin';
-$password = 'root';
-$dbname = 'CafeteriaBD';
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'cafeteriaprueba';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conectar = mysqli_connect($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Conexion Fallida: " . $conn->connect_error);
+if($conectar){
+    echo 'Se conecto a la base de datos';
+}else{
+    echo 'No se pudo conectar a la base de datos';
 }
-?>

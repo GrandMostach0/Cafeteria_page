@@ -227,10 +227,8 @@
     <script src="src/Js/script.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Cuando se carga la página, establece la opción "Todos" como seleccionada por defecto
             var opcionTodos = document.querySelector('.opcion-menu.selected');
             if (!opcionTodos) {
-                // Si no hay ninguna opción seleccionada, selecciona la opción "Todos"
                 var opcionTodos = document.querySelector('.opcion-menu');
                 opcionTodos.classList.add('selected');
             }
