@@ -16,13 +16,13 @@
     <div class="container-form">
         <form 
         name="formLogin" 
-        action="../../index.php" 
+        action="../sessionStart.php"
         method="post">
             <h2>Ingresar</h2>
             <div class="form__container">
                 <div class="envoltura-form">
-                    <label for="email" class="form__label">Correo electrónico: </label>
-                    <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                    <label for="user_email" class="form__label">Correo electrónico: </label>
+                    <input type="email" id="user_email" name="user_email" placeholder="Correo electrónico" required>
                 </div>
                 <div class="envoltura-form">
                     <label for="password" class="form__label">Contraseña: </label>

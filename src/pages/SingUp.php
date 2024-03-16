@@ -17,7 +17,7 @@
     <div class="container-form form__SingUp">
         <form 
         name="formLogin" 
-        action="./Dashboard.php" 
+        action="./registroBD.php" 
         method="post"
         onsubmit="return valida_envia()">
             <h2>Registrarse</h2>

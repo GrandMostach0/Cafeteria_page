@@ -20,8 +20,18 @@
         <img src="src/assets/icons/ShopingCar.svg" alt="ShoppingCarIcon">
 
         <img src="src/assets/icons/user.svg" alt="UserIcon">
+        <a href="src/sessionClose.php">Salir</a>
         <div class="btnSession">
-            <a href="src/pages/LogIn.php">Log In/Sing Up</a>
+            <?php 
+            session_start();
+
+            if(isset($_SESSION['$username'])){
+                $username = $_SESSION['$username'];
+                echo '<p style="color: black">Welcome, ' . $username . '</p>';
+            }else{
+                echo '<a href="src/pages/LogIn.php">Log In / Sing Up</a>';
+            }
+            ?>
         </div>
     </div>
 </nav>
