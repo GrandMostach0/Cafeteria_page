@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Verificar si el usuario ya ha iniciado sesión
+if (isset ($_SESSION['$username'])) {
+    // El usuario ya ha iniciado sesión, redirigirlo al index.php
+    header("location: ../../index.php");
+    exit; // Terminar la ejecución del script para evitar redireccionamientos adicionales
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
