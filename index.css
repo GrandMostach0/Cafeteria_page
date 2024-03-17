@@ -97,7 +97,7 @@ a,h1,p{
 }
 
 .logo_banner{
-    width: 400px;
+    width: 650px;
 }
 
 .container-banner-text{
@@ -106,7 +106,7 @@ a,h1,p{
 
 .container-banner-title{
     text-align: left;
-    font-size: 4rem;
+    font-size: 6rem;
     letter-spacing: 2px;
     margin-bottom: 50px;
     line-height: 80px;

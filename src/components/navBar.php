@@ -18,7 +18,7 @@
     </ul>
     <div class="menu-optios-right">
         <img src="src/assets/icons/ShopingCar.svg" alt="ShoppingCarIcon">
-
+        
         <img src="src/assets/icons/user.svg" alt="UserIcon">
         <div class="btnSession">
             <?php 
