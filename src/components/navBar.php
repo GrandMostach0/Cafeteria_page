@@ -23,8 +23,8 @@
             <?php 
             session_start();
 
-            if(isset($_SESSION['$username'])){
-                $username = $_SESSION['$username'];
+            if(isset($_SESSION['username'])){
+                $username = $_SESSION['username'];
                 echo '<p style="color: black">Welcome, ' . $username . '</p>';
                 echo '
                 <div class="btn__salir">

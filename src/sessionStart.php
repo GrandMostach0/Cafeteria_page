@@ -6,16 +6,21 @@
     $user_email = $_POST['user_email'];
     $password = $_POST['password'];
 
-    $consulta = "SELECT COUNT(*) AS contar, user_name FROM usuarios WHERE user_email = '$user_email' AND user_password = '$password'";
+    $consulta = "SELECT COUNT(*) AS contar, user_name, user_rol FROM usuarios WHERE user_email = '$user_email' AND user_password = '$password'";
 
     $query = mysqli_query($conectar, $consulta);
     $array = mysqli_fetch_array($query);
 
     if ($array['contar'] > 0) {
-        $_SESSION['$username'] = $array['user_name'];
-        header("location: ../index.php");
+        $_SESSION['username'] = $array['user_name'];
+        $_SESSION['user_rol'] = $array['user_rol'];
+
+        //redireccion segun el rol
+        if ($array['user_rol'] == 1) {
+            header("location: ../index.php");
+        } elseif ($array['user_rol'] == 2) {
+            header("location: ./pages/MenuPagesAdmin.php");
+        }
     } else {
         header("location: ./pages/LogIn.php?login_success=false");
     }
-?>
-

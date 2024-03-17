@@ -117,7 +117,8 @@
 
         <div class="container-cards-productos">
 
-            <div class="cards-productos" data-categoria="cafes">
+            <div class="cards-productos" data-categoria="cafes"
+            onclick="openModal('producto1')">
                 <div class="card-productos-img">
                     <img src="src/assets/images/cafe1.png" alt="imagenProducto">
                     <p class="offert">%20</p>
@@ -136,6 +137,16 @@
                             Agregar al carrito +
                         </button>
                     </div>
+                </div>
+            </div>
+
+            <!----Modal para mostrar el carrito---->
+            <div id="myModal" class="modal">
+                <div class="modal_content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2 id="modal_title">Titulo</h2>
+                    <p id="modal_description">Descripcion</p>
+                    <p id="modal_price">Precio</p>
                 </div>
             </div>
 
@@ -233,6 +244,7 @@
     <!--Secciones de las scripts necesarias por cierto-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="src/Js/script.js"></script>
+    <!----Script seleccionar por defecto un opcion del menu---->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var opcionTodos = document.querySelector('.opcion-menu.selected');
@@ -242,6 +254,8 @@
             }
         });
     </script>
+
+    <!---Script para mostrar la alerta agregado --->
     <script>
         // Obtener todos los botones "Agregar al carrito"
         var botonesAgregar = document.querySelectorAll('.agregar-carrito');
@@ -259,5 +273,8 @@
             });
         });
     </script>
+
+    <!--Script para mostrar el modal---->
+    <script src="src/Js/modalScript.js"></script>
 </body>
 </html>
