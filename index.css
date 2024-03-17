@@ -78,6 +78,12 @@ a,h1,p{
     color: black;
 }
 
+.btn__salir{
+    margin-top: 5px;
+    border: 1px solid black;
+    border-radius: 25px;
+    text-align: center;
+}
 
 
 /*Estilos del banner principal*/

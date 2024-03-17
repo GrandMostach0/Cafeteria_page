@@ -1,4 +1,4 @@
-<?php 
+<?php
     require "conexion.php";
 
     session_start();
@@ -11,9 +11,11 @@
     $query = mysqli_query($conectar, $consulta);
     $array = mysqli_fetch_array($query);
 
-    if($array['contar'] > 0){
+    if ($array['contar'] > 0) {
         $_SESSION['$username'] = $array['user_name'];
         header("location: ../index.php");
-    }else{
-        header("location: ./pages/LogIn.php");
+    } else {
+        header("location: ./pages/LogIn.php?login_success=false");
     }
+?>
+

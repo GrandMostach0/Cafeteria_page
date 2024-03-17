@@ -10,6 +10,7 @@
     <!--Libreria de las alertas-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
     <link rel="stylesheet" href="index.css">
 
     <script src="src/Js/smooth-Scroll.js"></script>

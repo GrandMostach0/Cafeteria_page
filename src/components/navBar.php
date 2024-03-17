@@ -18,7 +18,6 @@
     </ul>
     <div class="menu-optios-right">
         <img src="src/assets/icons/ShopingCar.svg" alt="ShoppingCarIcon">
-        
         <img src="src/assets/icons/user.svg" alt="UserIcon">
         <div class="btnSession">
             <?php 
@@ -27,11 +26,15 @@
             if(isset($_SESSION['$username'])){
                 $username = $_SESSION['$username'];
                 echo '<p style="color: black">Welcome, ' . $username . '</p>';
-                echo '<a href="src/sessionClose.php">Salir</a>';
+                echo '
+                <div class="btn__salir">
+                    <a href="src/sessionClose.php">Salir</a>
+                </div>';
             }else{
                 echo '<a href="src/pages/LogIn.php">Log In / Sing Up</a>';
             }
             ?>
         </div>
+        
     </div>
 </nav>

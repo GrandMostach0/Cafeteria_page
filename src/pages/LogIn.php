@@ -9,6 +9,7 @@
     <!-- Incluir SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
     <link rel="stylesheet" href="../styles/login.css">
     <link rel="stylesheet" href="../../index.css">
 
@@ -23,6 +24,23 @@
                         icon: 'success',
                         title: 'Éxito',
                         text: '¡Se han guardado los datos en la base de datos!',
+                        confirmButtonText: 'Aceptar'
+                    });
+                });
+            </script>
+        ";
+    }
+
+    // Verificar si el parámetro 'login_success' está presente en la URL y si es 'true'
+    if (isset ($_GET['login_success']) && $_GET['login_success'] === 'false') {
+        // Mostrar la notificación de error de inicio de sesión con SweetAlert2
+        echo "
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Credenciales inválidas. Inténtalo de nuevo.',
                         confirmButtonText: 'Aceptar'
                     });
                 });
@@ -67,6 +85,9 @@
     <?php
     include '../components/footer2.php';
     ?>
+
+    <script src="../../Js/notification.js"></script>
+
 </body>
 
 </html>
