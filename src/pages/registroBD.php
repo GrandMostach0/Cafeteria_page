@@ -1,31 +1,23 @@
-<?php 
-    require "../conexion.php";
-    
-    //obtenemos los datos del form por post
-    $nombre = $_POST['name'];
-    $apellido = $_POST['last_name'];
-    $correo = $_POST['email'];
-    $password = $_POST['password'];
+<?php
+require "../conexion.php";
 
-    echo $nombre . "<br>";
-    echo $apellido . "<br>";
-    echo $correo . "<br>";
-    echo $password . "<br>";
+// obtenemos los datos del formulario por POST
+$nombre = $_POST['name'];
+$apellido = $_POST['last_name'];
+$correo = $_POST['email'];
+$password = $_POST['password'];
 
-    $insertar = "INSERT INTO usuarios(user_name, user_last_name, user_email, user_password) VALUES ('$nombre', '$apellido', '$correo', '$password')";
+// Insertamos los datos en la base de datos
+$insertar = "INSERT INTO usuarios(user_name, user_last_name, user_email, user_password) VALUES ('$nombre', '$apellido', '$correo', '$password')";
+$query = mysqli_query($conectar, $insertar);
 
-    $query = mysqli_query($conectar, $insertar);
-
-    if($query){
-        echo "
-        <script>
-            alert('Si se ha GUARDADO LOS DATOS EN LA BASE DE DATOS');
-            location.href = './LogIn.php';
-        </script>";
-    }else{
-        echo "
-        <script>
-            alert('Ocurrio un ERROR DURANTE EL GUARDADO LOS DATOS EN LA BASE DE DATOS');
-            location.href = './SingUp.php';
-        </script>";
-    }
+if ($query) {
+    // Redirigimos a la página de inicio de sesión con el parámetro 'guardado=true'
+    header("Location: ./LogIn.php?guardado=true");
+    exit;
+} else {
+    // Si la consulta falla, redirigimos de nuevo al formulario de registro
+    header("Location: ./SingUp.php?error=true");
+    exit;
+}
+?>

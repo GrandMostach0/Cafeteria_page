@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <link rel="stylesheet" href="../styles/login.css">
     <link rel="stylesheet" href="../../index.css">
 </head>
@@ -24,7 +27,7 @@
 
             <div class="envoltura-form">
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" placeholder="Nombre" required>
+                <input type="text" id="name" name="name" placeholder="Nombre" >
             </div>
             <div class="envoltura-form">
                 <label for="last_name">Apellido:</label>
@@ -32,15 +35,15 @@
             </div>
             <div class="envoltura-form">
                 <label for="email">Correo electrónico</label>
-                <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                <input type="email" id="email" name="email" placeholder="Correo electrónico" >
             </div>
             <div class="envoltura-form">
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" placeholder="contraseña" required>
+                <input type="password" id="password" name="password" placeholder="contraseña" >
             </div>
             <div class="envoltura-form">
                 <label for="confPassword">Confirmar contraseña:</label>
-                <input type="password" id="confPassword" name="confirmPassword" placeholder="Confirmar Contraseña" required>
+                <input type="password" id="confPassword" name="confirmPassword" placeholder="Confirmar Contraseña" >
             </div>
 
             <button 
@@ -60,23 +63,25 @@
 
     <script>
         function valida_envia() {
-            // Realiza tus validaciones aquí
-            // Por ejemplo, puedes verificar si los campos están vacíos
             var name = document.getElementById('name').value;
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
             var confirmPassword = document.getElementById('confPassword').value;
 
             if (name == '' || email == '' || password == '' || confirmPassword == '') {
-                alert('Por favor, completa todos los campos');
-                return false; // Evita que se envíe el formulario si hay campos vacíos
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Por favor, completa todos los campos'
+                });
+
+                return false;
             }
 
-            // Si todas las validaciones son exitosas, se enviará el formulario
             return true;
         }
     </script>
 
 </body>
-
 </html>

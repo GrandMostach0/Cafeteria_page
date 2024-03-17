@@ -524,60 +524,6 @@ footer{
         padding: 2px 4px;
     }
     
-
-    /*---- CARDS PRODUCTOS CONTENEDORES ----*/
-    .cards-productos{
-        padding: 10px 0px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .card-productos-img{
-        width: 40%;
-
-        .offert{
-            text-align: left;
-            padding: 4px 8px;
-            width: 60px;
-            border-radius: 0px;
-            border-top-right-radius: 25px;
-            border-end-end-radius: 25px;
-            top: 8px;
-            left: 0px;
-        }
-    }
-
-    .card-productos-text{
-        width: 60%;
-        padding: 0px;
-        margin: 0px;
-
-        .title-producto, .price-producto, .description-producto{
-            margin-top: 4px;
-            margin-bottom: 4px;
-            font-size: 0.8rem;
-        }
-
-        .title-producto{
-            text-align: center;
-        }
-
-        .price-producto .price-producto-minus{
-            font-size: 0.9rem;
-        }
-
-        .options-producto{
-            font-size: 0.8rem;
-            margin: 0px;
-        }
-    }
-
-    .options-producto:hover{
-        padding: 4px 8px;
-    }
-
-
     /*-----about styles----*/
     .about img{
         display: none;

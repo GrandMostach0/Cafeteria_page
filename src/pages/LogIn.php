@@ -1,23 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- Incluir SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link rel="stylesheet" href="../styles/login.css">
     <link rel="stylesheet" href="../../index.css">
+
+    <?php
+    // Verificar si el parámetro 'guardado' está presente en la URL y si es 'true'
+    if (isset ($_GET['guardado']) && $_GET['guardado'] === 'true') {
+        // Mostrar la notificación de guardado exitoso con SweetAlert2
+        echo "
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Éxito',
+                        text: '¡Se han guardado los datos en la base de datos!',
+                        confirmButtonText: 'Aceptar'
+                    });
+                });
+            </script>
+        ";
+    }
+    ?>
 </head>
+
 <body>
 
-    <?php 
+    <?php
     include '../components/navBar2.php';
     ?>
 
     <div class="container-form">
-        <form 
-        name="formLogin" 
-        action="../sessionStart.php"
-        method="post">
+        <form name="formLogin" action="../sessionStart.php" method="post">
             <h2>Ingresar</h2>
             <div class="form__container">
                 <div class="envoltura-form">
@@ -30,20 +52,21 @@
                 </div>
 
                 <a class="ancor-form crear-cuenta" style="text-align: left" href="./RestPassword.php">
-                    <strong>¿Olvido su contraseña?</strong>
+                    <strong>¿Olvidó su contraseña?</strong>
                 </a>
 
                 <button class="btnForm" type="submit">Ingresar</button>
 
                 <a class="ancor-form crear-cuenta" href="./SingUp.php">
-                    No tienes cuenta? <strong>Crear cuenta</strong>
+                    ¿No tienes cuenta? <strong>Crear cuenta</strong>
                 </a>
             </div>
         </form>
     </div>
 
-    <?php 
+    <?php
     include '../components/footer2.php';
     ?>
 </body>
+
 </html>
