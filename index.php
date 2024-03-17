@@ -6,6 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--Libreria de las alertas-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="index.css">
@@ -129,7 +131,9 @@
                         Cacao puro mezclado con especias (canela, romero, anavís, clavo, pimienta, chile, vanilla...)
                     </p>
                     <div class="options-producto">
-                        <p>Agregar al carrito +</p>
+                        <button class="agregar-carrito">
+                            Agregar al carrito +
+                        </button>
                     </div>
                 </div>
             </div>
@@ -149,7 +153,9 @@
                         Cacao puro mezclado con especias (canela, romero, anavís, clavo, pimienta, chile, vanilla...)
                     </p>
                     <div class="options-producto">
-                        <p>Agregar al carrito +</p>
+                        <button class="agregar-carrito">
+                            Agregar al carrito +
+                        </button>
                     </div>
                 </div>
             </div>
@@ -235,6 +241,22 @@
             }
         });
     </script>
+    <script>
+        // Obtener todos los botones "Agregar al carrito"
+        var botonesAgregar = document.querySelectorAll('.agregar-carrito');
 
+        // Agregar un evento click a cada botón
+        botonesAgregar.forEach(function(boton) {
+            boton.addEventListener('click', function() {
+                // Mostrar una notificación de SweetAlert2 cuando se hace clic en el botón
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Producto Agregado',
+                    text: 'El producto ha sido agregado al carrito',
+                    confirmButtonText: 'Aceptar'
+                });
+            });
+        });
+    </script>
 </body>
 </html>

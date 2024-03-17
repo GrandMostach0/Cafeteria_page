@@ -271,19 +271,23 @@ a,h1,p{
 }
 
 .options-producto{
-    margin: 30px 0px;
+    margin: 20px 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    & p{
+    & button{
         padding: 8px;
+        border: none;
+        border-radius: 25px;
+        background-color: transparent;
         cursor: pointer;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 }
 
-.options-producto p:hover{
-    border-radius: 8px;
+.options-producto button:hover{
     background-color: #575656;
 }
 
