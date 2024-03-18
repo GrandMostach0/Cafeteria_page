@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Verificar si el usuario ya ha iniciado sesión
+if (isset ($_SESSION['username'])) {
+} else {
+    header("location: ../../../index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,9 +84,24 @@
                     </svg>
                 </div>
                 <div class="usuario-text">
-                    <h2>Name Usuario</h2>
-                    <h3>Correo Usuario</h3>
-                    <h3>Rol Usuario</h3>
+
+                    <?php 
+                        if(isset ($_SESSION['username'])) {
+                            $username = $_SESSION['username'];
+                            if($_SESSION['user_rol'] == 2 ){
+                                $user_rol  = "Administrador";
+                            }
+                            $user_email = $_SESSION['user_email'];
+
+                            echo '<h2><span style="font-weight: normal">Name:</span> ' . $username .'</h2>';
+                            echo '<h3><span style="font-weight: normal">Rol:</span> ' . $user_rol .'</h3>';
+                            echo '<h3><span style="font-weight: normal">Email:</span> ' . $user_email .'</h3>';
+                        }else{
+                            echo '<h2>Name User</h2>';
+                            echo '<h3>Rol User</h3>';
+                            echo '<h3>Email User</h3>';
+                        }
+                    ?>
                 </div>
         </div>
         </div>

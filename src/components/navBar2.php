@@ -21,7 +21,19 @@
 
         <img src="../assets/icons/user.svg" alt="UserIcon">
         <div class="btnSession">
-            <a href="./LogIn.php">Log In/Sing Up</a>
+            <?php
+
+                if (isset ($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+                    echo '<p style="color: black">Welcome, <strong>' . $username . '</strong></p>';
+                    echo '
+                    <div class="btn__salir">
+                        <a href="../sessionClose.php">Salir</a>
+                    </div>';
+                } else {
+                    echo '<a href="#">Log In / Sing Up</a>';
+                }
+            ?>
         </div>
     </div>
 </nav>

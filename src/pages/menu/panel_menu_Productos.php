@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Verificar si el usuario ya ha iniciado sesión
+if (isset ($_SESSION['username'])) {
+} else {
+    header("location: ../../../index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -3,9 +3,16 @@
         <img id="logoPlace" src="../../assets/icons/LogoPlaceDelirios.svg" alt="delirios">
     </a>
     <div class="menu-text">
-        <a href="../../../index.php">Salir</a>
+        <a href="../../../index.php">Salir del Panel de Adminstración</a>
         <img src="../../assets/icons/user.svg" alt="usuario">
-        <p>Name Usuario</p>
+        <?php 
+            
+            if(isset ($_SESSION['username'])){
+                $username = $_SESSION['username'];
+
+                echo '<p> Bievenido <strong>' . $username . '</strong></p>';
+            }
+        ?>
     </div>
 </header>
 

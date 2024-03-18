@@ -25,11 +25,26 @@
 
             if(isset($_SESSION['username'])){
                 $username = $_SESSION['username'];
-                echo '<p style="color: black">Welcome, ' . $username . '</p>';
-                echo '
-                <div class="btn__salir">
-                    <a href="src/sessionClose.php">Salir</a>
-                </div>';
+                $userRol = $_SESSION['user_rol'];
+                if($userRol == 1){
+                    echo '<p style="color: black">Welcome, <strong>' . $username . '</strong></p>';
+                    echo '
+                    <div class="btn__salir">
+                        <a href="src/sessionClose.php">Salir</a>
+                    </div>';
+                }elseif($userRol == 2){
+                    echo '<p style="color: black">Welcome, <strong> ' . $username . '</strong></p>';
+                    echo '
+                    <div class="btn__salir">
+                        <a href="src/sessionClose.php">Salir</a>
+                        <br>
+                    </div>';
+                    echo '
+                    <div class="btn__salir">
+                        <a href="src/pages/menuPagesAdmin.php">Panel Adminstrador</a>
+                        <br>
+                    </div>';
+                }
             }else{
                 echo '<a href="src/pages/LogIn.php">Log In / Sing Up</a>';
             }
