@@ -31,11 +31,13 @@
 .btn-Eliminar:hover{
     color: white;
     background-color: rgba(255, 5, 5, 0.5);
+    border-radius: 10px;
 }
 
 .btn-Editar:hover{
     color: white;
     background-color: rgba(0, 179, 255, 0.5);
+    border-radius: 10px
 }
 
 .imagenTabla img{
