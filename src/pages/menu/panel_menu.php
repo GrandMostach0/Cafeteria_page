@@ -27,7 +27,7 @@ if (isset ($_SESSION['username'])) {
     <div class="container-registros">
         <div class="fila">
             <div class="registros">
-            <h2>Últimos 3 Registros <Strong>Usuarios</Strong></h2>
+            <h2>Registros de <Strong>Usuarios</Strong> recientes ...</h2>
             <table>
                 <tr>
                     <th>ID Usuario</th>
@@ -46,7 +46,7 @@ if (isset ($_SESSION['username'])) {
             </table>
         </div>
         <div class="registros">
-            <h2>Últimos 5 Registros <Strong>Productos</Strong> </h2>
+            <h2>Registros de <Strong>Productos</Strong> recientes ...</h2>
             <table>
                 <tr>
                     <th>ID Producto</th>

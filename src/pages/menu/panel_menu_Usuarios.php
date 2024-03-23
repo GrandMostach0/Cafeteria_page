@@ -6,6 +6,7 @@ if (isset ($_SESSION['username'])) {
 } else {
     header("location: ../../../index.php");
 }
+$usuarioActual = $_SESSION['id_user'];
 ?>
 
 <!DOCTYPE html>
@@ -51,24 +52,25 @@ if (isset ($_SESSION['username'])) {
                 ?>
 
                 <tr class="contenidoTabla">
+
                     <td><?php echo $row['id_user']?></td>
                     <td><?php echo $row['user_name']?></td>
                     <td><?php echo $row['user_email']?></td>
                     <td>
                         <?php 
-                        if($row['user_rol'] == 2){
-                            echo 'Administrador';
-                        }else{
-                            echo 'Usuario';
-                        }
+                        echo $row['user_rol'] == 2 ? 'Administrador' : 'Usuario';
                         ?>
                         </td>
                     <td><?php echo $row['user_date_created']?></td>
+                    
+                    <!---- botones accion registro ---->
                     <td>
-                        <button onclick="eliminarElemento(<?php echo $row['id_user']; ?>)" class="btn-Button btn-Eliminar"
-                        >
-                            Eliminar
-                        </button>
+                        <?php
+                            if ($usuarioActual != $row['id_user']) {
+                                echo '<button onclick="eliminarElemento(' . $row['id_user'] . ')" class="btn-Button btn-Eliminar" >Eliminar</button>';
+                            }
+                        ?>
+
                         <button class="btn-Button btn-Editar">Editar</button>
                     </td>
                 </tr>
