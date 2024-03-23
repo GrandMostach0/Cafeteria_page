@@ -66,6 +66,7 @@ $usuarioActual = $_SESSION['id_user'];
                     <!---- botones accion registro ---->
                     <td>
                         <?php
+                            //agregando validacion para no autoeliminarse
                             if ($usuarioActual != $row['id_user']) {
                                 echo '<button onclick="eliminarElemento(' . $row['id_user'] . ')" class="btn-Button btn-Eliminar" >Eliminar</button>';
                             }
@@ -82,58 +83,19 @@ $usuarioActual = $_SESSION['id_user'];
                 ?>
 
             </table>
+
+            <div id="myModal" class="modal">
+                <div class="modal_content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2 id="modal_title">Titulo</h2>
+                    <p id="modal_description">Descripcion</p>
+                    <p id="modal_price">Precio</p>
+                </div>
+            </div>
         
     </div>
 
-    <script>
-        function eliminarElemento(idUsuario) {
-            Swal.fire({
-                title: '¿Estás seguro?',
-                text: "Si eliminas este Elemento ya no lo podra recuperar.",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Sí, eliminarlo'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    //pasamos los datos a otra funcion para manejar las respuesta del servidor.
-                    eliminarUsuario(idUsuario);
-                }
-            });
-        }
-
-        function eliminarUsuario(idUsuario) {
-            //solicitud Ajax para eliminar el usuario
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    // Respuesta del servidor
-                    var respuesta = xhr.responseText;
-                    if (respuesta == 'success') {
-                        //Notificación de éxito
-                        Swal.fire(
-                            'Eliminado!',
-                            'El elemento ha sido eliminado.',
-                            'success'
-                        ).then(() => {
-                            location.reload();
-                        });
-                    } else {
-                        //Notificación de error
-                        Swal.fire(
-                            'Error',
-                            'Ha ocurrido un error al intentar eliminar el elemento.',
-                            'error'
-                        );
-                    }
-                }
-            };
-            xhr.open('POST', './eliminarUsuario.php', true);
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.send('idUsuario=' + idUsuario);
-    }
-    </script>
+    <script src="../../Js/eliminarElemento.js"></script>
 
 </body>
 
