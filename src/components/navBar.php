@@ -17,7 +17,12 @@
         </li>
     </ul>
     <div class="menu-optios-right">
-        <img src="src/assets/icons/ShopingCar.svg" alt="ShoppingCarIcon">
+        <div class="car">
+            <img id="logoCar" src="src/assets/icons/ShopingCar.svg" alt="ShoppingCarIcon">
+            <div class="cantidadCar">
+                1
+            </div>
+        </div>
         <img src="src/assets/icons/user.svg" alt="UserIcon">
         <div class="btnSession">
             <?php 

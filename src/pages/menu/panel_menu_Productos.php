@@ -23,8 +23,11 @@ if (isset ($_SESSION['username'])) {
 <body>
 
     <?php
-    include '../../components/menu-panel.php';
+        include '../../components/menu-panel.php';
+        require '../../conexion.php';
     ?>
+
+    
 
     <div class="container-registrosDatos">
         <div class="opciones-registros">
@@ -43,19 +46,34 @@ if (isset ($_SESSION['username'])) {
                 <th>Imagen</th>
                 <th>Acciones</th>
             </tr>
+            <?php 
+                $usuarios = "SELECT * FROM productos ORDER BY producto_id ASC";
+                $resultado = mysqli_query($conectar, $usuarios);
+
+                while ($row = mysqli_fetch_assoc($resultado)) {
+            ?>
             <tr class="contenidoTabla">
-                <td>1</td>
-                <td>Cafe</td>
-                <td>Cafe con leche</td>
-                <td>20</td>
-                <td>20</td>
-                <td>Cafes</td>
-                <td>[IMG HERE]</td>
+                <td><?php echo $row['producto_id']?></td>
+                <td><?php echo $row['producto_title']?></td>
+                <td><?php echo $row['producto_description']?></td>
+                <td><?php echo $row['producto_price']?></td>
+                <td><?php echo $row['producto_offert']?></td>
+                <td><?php echo $row['producto_category'] ?></td>
+                <td class="imagenTabla">
+                    <img
+                    src="<?php echo "../../../" . $row['producto_url']?>"
+                </td>
                 <td>
                     <button class="btn-Button btn-Eliminar">Eliminar</button>
                     <button class="btn-Button btn-Editar">Editar</button>
                 </td>
             </tr>
+
+            <?php
+                    //liberando los datos
+                }
+                mysqli_free_result($resultado);
+            ?>
         </table>
 
     </div>

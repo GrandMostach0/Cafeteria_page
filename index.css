@@ -64,6 +64,26 @@ a,h1,p{
     margin: 0px 5px;
 }
 
+.car{
+    position: relative;
+}
+
+.menu-optios-right #logoCar{
+    cursor: pointer;
+}
+
+.cantidadCar{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    position: absolute;
+    color: #000;
+    top: -20px;
+    right: 0;
+    text-align: center;
+}
+
 .btnSession{
     margin-left: 10px;
     border: 1px solid white;

@@ -16,8 +16,12 @@
     </div>
 </header>
 
+<?php 
+    require '../../conexion.php';
+?>
+
 <div class="container-menu-opciones">
-    <a href="./panel_menu_Usuarios.php" class="opciones">
+    <!-- USUARIOS ---->    <a href="./panel_menu_Usuarios.php" class="opciones">
         <svg data-testid="geist-icon" height="30" stroke-linejoin="round" viewBox="0 0 16 16" width="30"
             style="color: currentcolor;">
             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -27,10 +31,22 @@
         </svg>
         <div class="opciones-text">
             <h4>Usuarios</h4>
-            <p>3</p>
+            <?php 
+                $consulta = "SELECT COUNT(*) AS cantidad FROM usuarios";
+
+                $resultado = mysqli_query($conectar, $consulta);
+                $array = mysqli_fetch_array($resultado);
+
+                if($resultado){
+                    echo '<p>' . $array['cantidad'] . '</p>';
+                }else{
+                    echo '<p>O</p>';
+                }
+            ?>
         </div>
     </a>
 
+    <!---- PRODUCTOS ---->
     <a href="./panel_menu_Productos.php" class="opciones">
         <svg data-testid="geist-icon" height="30" stroke-linejoin="round" viewBox="0 0 16 16" width="30"
             style="color: currentcolor;">
@@ -41,10 +57,22 @@
         </svg>
         <div class="opciones-text">
             <h4>Productos</h4>
-            <p>3</p>
+            <?php
+                $consulta = "SELECT COUNT(*) AS cantidad FROM productos";
+
+                $resultado = mysqli_query($conectar, $consulta);
+                $array = mysqli_fetch_array($resultado);
+
+                if ($resultado) {
+                    echo '<p>' . $array['cantidad'] . '</p>';
+                } else {
+                    echo '<p>O</p>';
+                }
+            ?>
         </div>
     </a>
 
+    <!---- PORTADA DE PAGINA ---->
     <a href="" class="opciones">
         <svg data-testid="geist-icon" height="30" stroke-width="1.3" stroke-linejoin="round" viewBox="0 0 16 16"
             width="30" style="color: currentcolor;">
@@ -58,6 +86,7 @@
         </div>
     </a>
 
+    <!---- IMAGEN DE LOS BANNERS ---->
     <a href="./panel_menu_Banners.php" class="opciones">
         <svg data-testid="geist-icon" height="30" stroke-width="1.3" stroke-linejoin="round" viewBox="0 0 16 16"
             width="30" style="color: currentcolor;">
@@ -68,7 +97,18 @@
         </svg>
         <div class="opciones-text">
             <h4>Banner</h4>
-            <p>3</p>
+            <?php
+                $consulta = "SELECT COUNT(*) AS cantidad FROM banner";
+
+                $resultado = mysqli_query($conectar, $consulta);
+                $array = mysqli_fetch_array($resultado);
+
+                if ($resultado) {
+                    echo '<p>' . $array['cantidad'] . '</p>';
+                } else {
+                    echo '<p>O</p>';
+                }
+            ?>
         </div>
     </a>
 </div>

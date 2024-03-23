@@ -22,7 +22,23 @@
 }
 
 .btn-Eliminar, .btn-Editar{
+    border: none;
     padding: 4px 8px;
     margin: 0px 4px;
 }
 
+
+.btn-Eliminar:hover{
+    color: white;
+    background-color: rgba(255, 5, 5, 0.5);
+}
+
+.btn-Editar:hover{
+    color: white;
+    background-color: rgba(0, 179, 255, 0.5);
+}
+
+.imagenTabla img{
+    width: 40px;
+    height: 40px;
+}

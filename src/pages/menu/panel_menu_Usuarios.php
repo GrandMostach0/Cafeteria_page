@@ -23,7 +23,8 @@ if (isset ($_SESSION['username'])) {
 <body>
 
     <?php
-    include '../../components/menu-panel.php';
+        include '../../components/menu-panel.php';
+        require '../../conexion.php';
     ?>
 
     <div class="container-registrosDatos">
@@ -41,17 +42,39 @@ if (isset ($_SESSION['username'])) {
                     <th>Fecha</th>
                     <th>Acciones</th>
                 </tr>
+                <?php 
+                    $usuarios = "SELECT * FROM usuarios ORDER BY id_user ASC";
+                    $resultado = mysqli_query($conectar, $usuarios);
+
+                    while ($row = mysqli_fetch_assoc($resultado)) {
+                ?>
+
                 <tr class="contenidoTabla">
-                    <td>1</td>
-                    <td>Victor</td>
-                    <td>kreedlegend0@gmail.com</td>
-                    <td>Admin</td>
-                    <td>12-03-2024</td>
+                    <td><?php echo $row['id_user']?></td>
+                    <td><?php echo $row['user_name']?></td>
+                    <td><?php echo $row['user_email']?></td>
+                    <td>
+                        <?php 
+                        if($row['user_rol'] == 2){
+                            echo 'Administrador';
+                        }else{
+                            echo 'Usuario';
+                        }
+                        ?>
+                        </td>
+                    <td><?php echo $row['user_date_created']?></td>
                     <td>
                         <button class="btn-Button btn-Eliminar">Eliminar</button>
                         <button class="btn-Button btn-Editar">Editar</button>
                     </td>
                 </tr>
+
+                <?php 
+                    //liberando los datos
+                    }
+                    mysqli_free_result($resultado);
+                ?>
+
             </table>
         
     </div>
