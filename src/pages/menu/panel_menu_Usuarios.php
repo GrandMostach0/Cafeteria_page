@@ -95,21 +95,21 @@ if (isset ($_SESSION['username'])) {
                 confirmButtonText: 'Sí, eliminarlo'
             }).then((result) => {
                 if (result.isConfirmed) {
+                    //pasamos los datos a otra funcion para manejar las respuesta del servidor.
                     eliminarUsuario(idUsuario);
-                    // Aquí puedes agregar la lógica para eliminar el elemento
                 }
             });
         }
 
         function eliminarUsuario(idUsuario) {
-            // Hacer una solicitud Ajax para eliminar el usuario
+            //solicitud Ajax para eliminar el usuario
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    // Manejar la respuesta del servidor
+                    // Respuesta del servidor
                     var respuesta = xhr.responseText;
                     if (respuesta == 'success') {
-                        // Mostrar notificación de éxito
+                        //Notificación de éxito
                         Swal.fire(
                             'Eliminado!',
                             'El elemento ha sido eliminado.',
@@ -118,7 +118,7 @@ if (isset ($_SESSION['username'])) {
                             location.reload();
                         });
                     } else {
-                        // Mostrar notificación de error si es necesario
+                        //Notificación de error
                         Swal.fire(
                             'Error',
                             'Ha ocurrido un error al intentar eliminar el elemento.',
@@ -127,7 +127,7 @@ if (isset ($_SESSION['username'])) {
                     }
                 }
             };
-            xhr.open('POST', './eliminarUsuario.php', true); // Ruta al script de eliminación de usuario
+            xhr.open('POST', './eliminarUsuario.php', true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhr.send('idUsuario=' + idUsuario);
     }
