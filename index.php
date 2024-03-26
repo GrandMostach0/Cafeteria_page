@@ -74,7 +74,8 @@
                 '<?php echo $row['producto_categoria']; ?>',
                 '<?php echo $row['producto_title']; ?>',
                 '<?php echo $row['producto_description']; ?>',
-                '<?php echo $priceTotal; ?>')">
+                '<?php echo $priceTotal; ?>',
+                '<?php echo $row['producto_url']; ?>')">
                 <div class="card-productos-img">
                     <img src="src/assets/images/cafe1.png" alt="imagenProducto">
                     <p class="offert">% <?php echo $row['producto_offert']?></p>
@@ -108,31 +109,9 @@
             ?>
 
             <!----Modal para mostrar el carrito---->
-            <div id="myModal" class="modal">
-                <div class="modal_content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <h3 id="modal_categoria">Categoria</h3>
-                    <div class="modal_content_text">
-                        <div class="contenidoProducto">
-                            <h2 id="modal_title">Titulo Producto</h2>
-                            <div class="modal_cantidad">
-                                <p>Cantidad</p>
-                                <div class="contador">
-                                    <button id="restar">-</button>
-                                        <span id="cantidad">0</span>
-                                    <button id="sumar">+</button>
-                                </div>
-                            </div>
-                            <p id="modal_price">Precio</p>
-                            <button>Agregar al carrito ++</button>
-                            <p id="modal_description">Descripcion</p>
-                        </div>
-                        <div class="imagenProducto">
-                            <img src="" alt="Producto de la imagen">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php 
+                include 'src/components/modalProducto.php';
+            ?>
         </div>
     </div>
     
@@ -167,6 +146,7 @@
     <!--Secciones de las scripts necesarias por cierto-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="src/Js/script.js"></script>
+    <script src="./src/Js/contador.js"></script>
 
     <!----Script seleccionar por defecto un opcion del menu---->
     <script>
@@ -182,7 +162,7 @@
     <!---Script para mostrar la alerta agregado --->
     <script>
         // Obtener todos los botones "Agregar al carrito"
-        var botonesAgregar = document.querySelectorAll('.agregar-carrito');
+        var botonesAgregar = document.querySelectorAll('.agregarCarrito');
 
         // Agregar un evento click a cada botón
         botonesAgregar.forEach(function(boton) {

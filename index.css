@@ -351,14 +351,13 @@ a,h1,p{
 }
 
 .modal_content{
-    background-color: #fefefe;
+    background-color: rgba(51, 50, 51, 0.9);
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    border-radius: 8px;
-    color: black;
-    
+    width: 60%;
+    border-radius: 25px;
+    color: var(--bg-btn);
 }
 
 .modal_content #modal_categoria{
@@ -366,18 +365,66 @@ a,h1,p{
 }
 
 .modal_content #modal_description{
-    color: black;
+    color: #b9a586;
 }
 
 .modal_content .modal_content_text{
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: left;
+    padding: 8px;
+}
+
+#modal_title{
+    text-align: center;
 }
 
 .contenidoProducto, .imagenProducto{
-    border: 1px solid black;
     margin: 0px 8px;
+}
+
+.contenidoProducto button{
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+}
+
+.contenidoProducto button:hover{
+    transform: scale(0.9);
+    background-color: #c6c4c4;
+}
+
+.modal_cantidad{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.imagenProducto img{
+    width: 300px;
+}
+
+.buttonContador{
+    margin: 0px 5px;
+    padding: 8px;
+    border: none;
+}
+
+.contenidoProducto .agregarCarrito{
+    margin: 20px auto;
+    width: 100%;
+    padding: 8px 16px;
+}
+
+#modal_price{
+    margin-left: 10px;
+}
+
+#modal_description{
+    margin: 8px 10px;
+    overflow-y: scroll;
 }
 
 
