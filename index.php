@@ -36,69 +36,9 @@
     </main>
 
     <!--Secciones de las cartas de presentacion/slider-->
-    <div class="swiper mySwiper container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="src/assets/images/bannerMarque1.png" alt="img1">
-                <div class="swiper-text">
-                    <h2>Nuestra Especialidad la chocolateria</h2>
-                    <p>En <strong>Placer & Delorio</strong> tenemos el propósito de rescatar las tradiciones yucatecas a través de las bebidas de chocolates así como las variadades
-                    de produtos que nos ofrece el árbol de cacao.</p>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <img src="src/assets/images/bannerMarque2.png" alt="img1">
-                <div class="swiper-text">
-                    <h2>Nuestra Especialidad la chocolateria</h2>
-                    <p>En <strong>Placer & Delorio</strong> tenemos el propósito de rescatar las tradiciones yucatecas a través de
-                        las bebidas de chocolates así como las variadades
-                        de produtos que nos ofrece el árbol de cacao.</p>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <img src="src/assets/images/bannerMarque3.png" alt="img1">
-                <div class="swiper-text">
-                    <h2>Nuestra Especialidad la chocolateria</h2>
-                    <p>En <strong>Placer & Delorio</strong> tenemos el propósito de rescatar las tradiciones yucatecas a través de
-                        las bebidas de chocolates así como las variadades
-                        de produtos que nos ofrece el árbol de cacao.</p>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <img src="src/assets/images/bannerMarque1.png" alt="img1">
-                <div class="swiper-text">
-                    <h2>Nuestra Especialidad la chocolateria</h2>
-                    <p>En <strong>Placer & Delorio</strong> tenemos el propósito de rescatar las tradiciones yucatecas a través de
-                        las bebidas de chocolates así como las variadades
-                        de produtos que nos ofrece el árbol de cacao.</p>
-                </div>
-            </div>
-            
-            <div class="swiper-slide">
-                <img src="src/assets/images/bannerMarque2.png" alt="img1">
-                <div class="swiper-text">
-                    <h2>Nuestra Especialidad la chocolateria</h2>
-                    <p>En <strong>Placer & Delorio</strong> tenemos el propósito de rescatar las tradiciones yucatecas a través de
-                        las bebidas de chocolates así como las variadades
-                        de produtos que nos ofrece el árbol de cacao.</p>
-                </div>
-            </div>
-            
-            <div class="swiper-slide">
-                <img src="src/assets/images/bannerMarque3.png" alt="img1">
-                <div class="swiper-text">
-                    <h2>Nuestra Especialidad la chocolateria</h2>
-                    <p>En <strong>Placer & Delorio</strong> tenemos el propósito de rescatar las tradiciones yucatecas a través de
-                        las bebidas de chocolates así como las variadades
-                        de produtos que nos ofrece el árbol de cacao.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    <?php 
+        include 'src/components/SwipperBanners.php';
+    ?>
 
     <!--Secion de los productos-->
     <div id="productos" class="container-productos">
@@ -118,20 +58,37 @@
 
         <div class="container-cards-productos">
 
-            <div class="cards-productos" data-categoria="cafes"
+        <?php 
+            $productos = "SELECT productos.*, producto_categorias.category_name AS producto_categoria FROM productos INNER JOIN producto_categorias ON producto_category = producto_categorias.category_id;";
+            $resultado = mysqli_query($conectar, $productos);
+
+            while ($row = mysqli_fetch_assoc($resultado)) {
+                $offerta = $row['producto_offert'];
+                $offerta = $offerta / 100;
+
+
+        ?>
+
+            <div class="cards-productos" data-categoria="<?php echo $row['producto_categoria']; ?>"
             onclick="openModal('producto1')">
                 <div class="card-productos-img">
                     <img src="src/assets/images/cafe1.png" alt="imagenProducto">
-                    <p class="offert">%20</p>
+                    <p class="offert">% <?php echo $row['producto_offert']?></p>
                 </div>
                 <div class="card-productos-text">
-                    <p class="title-producto">Miele CM6 Thermal Carafe</p>
+                    <p class="title-producto">
+                        <?php echo $row['producto_title']?>
+                    </p>
                     <p class="price-producto">
-                        <span class="price-producto-minus">$34</span>
-                        $12
+                        <span class="price-producto-minus">$<?php echo $row['producto_price']?></span>
+                        <?php 
+                            $priceOffert = $row['producto_price'] * $offerta;
+                            $priceTotal = round($row['producto_price'] - $priceOffert);
+                            echo '$' . $priceTotal;
+                        ?>
                     </p>
                     <p class="description-producto">
-                        Cacao puro mezclado con especias (canela, romero, anavís, clavo, pimienta, chile, vanilla...)
+                        <?php echo $row['producto_description'];?>
                     </p>
                     <div class="options-producto">
                         <button class="agregar-carrito">
@@ -140,6 +97,12 @@
                     </div>
                 </div>
             </div>
+
+            <?php
+                //liberando los datos
+                }
+                mysqli_free_result($resultado);
+            ?>
 
             <!----Modal para mostrar el carrito---->
             <div id="myModal" class="modal">
@@ -151,81 +114,21 @@
                 </div>
             </div>
 
-            <div class="cards-productos" data-categoria="Chocolate">
-                <div class="card-productos-img">
-                    <img src="src/assets/images/cafe1.png" alt="imagenProducto">
-                    <p class="offert">%20</p>
-                </div>
-                <div class="card-productos-text">
-                    <p class="title-producto">Miele CM6 Thermal Carafe</p>
-                    <p class="price-producto">
-                        <span class="price-producto-minus">$34</span>
-                        $12
-                    </p>
-                    <p class="description-producto">
-                        Cacao puro mezclado con especias (canela, romero, anavís, clavo, pimienta, chile, vanilla...)
-                    </p>
-                    <div class="options-producto">
-                        <button class="agregar-carrito">
-                            Agregar al carrito +
-                        </button>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
     
     <!--Seccion de Acerca de nosotros-->
     <div id="nosotros" class="container-aboutUs">
-        <h2 class="titleProductos" style="font-weight: bold;">Acerca de Nosotros</h2>
-        <div class="about">
-            <div class="about-text">
-                <h2>Acerca de Placer & Delirio</h2>
-                <br>
-                <p>La historia de nuestras recetas está íntimamente ligada a la historia de la península de Yucatán. Todo comenzó en
-                    1848,
-                    cuando en plena guerra de castas muchas familias del interior del estado fueron llegando a la ciudad de Mérida
-                    huyendo
-                    para salvar sus vidas.</p>
-                <br>
-                <p>La población de la ciudad creció desmedidamente y los alimentos comenzaron a escasear, la panadería y repostería
-                    tuvo un
-                    gran impacto por la falta de insumos, los ingredientes de origen europeo se iban cambiando por los que se
-                    producían en
-                    Yucatán como la pepita de calabaza, harina de ramón, el cacahuate, miel, la canela del cuyo, cacao, etc. dando
-                    origen a
-                    una nueva repostería como nunca antes se había preparado.</p>
-                <br>
-                <p>Ahora nos enorgullece como yucatecos poder traer de vuelta estas recetas que llenaron de placer y delirio a los
-                    yucatecos del siglo XIX, sabores que nuestras generaciones no conocen pero que estamos reviviendo con la más
-                    grandiosa
-                    aventura de gastronomía histórica y artesanal de nuestra península.</p>
-            </div>
-            <img src="src/assets/images/guerra_uno_480x480.webp" alt="guerra uno">
-        </div>
-        <!--Incrustacion del video -->
-        <br>
-        <div class="vide-separador">
-            <iframe class="videoStyles" src="https://www.youtube.com/embed/df3JeXVWYWA" title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-        </div>
+        <?php 
+            include 'src/components/AboutUs.php';
+        ?>
     </div>
 
     <!--Seccion de la ubicacion-->
     <div id="ubicacion" class="container-Ubicacion">
-        <h2 class="titleProductos" style="font-weight: bold;">Ubicación</h2>
-        <br>
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.570219003467!2d-89.63340292512652!3d20.96976778980286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5673dc3de206bd%3A0x82c2a803a8e7da7d!2sPlacer%20%26%20Delirio!5e0!3m2!1ses-419!2smx!4v1686072020422!5m2!1ses-419!2smx"
-            allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            class="mapStyles">
-        </iframe>
-        <br>
-        <p style="font-style: italic;">C. 59 572, entre 72 Y 74, Parque Santiago, Centro, 97000 Mérida, Yuc.</p>
+        <?php
+            include 'src/components/ubicacion.php';
+        ?>
     </div>
     
     <!--Separador del container del horario-->
@@ -245,6 +148,7 @@
     <!--Secciones de las scripts necesarias por cierto-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="src/Js/script.js"></script>
+    
     <!----Script seleccionar por defecto un opcion del menu---->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
