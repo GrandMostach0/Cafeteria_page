@@ -65,12 +65,16 @@
             while ($row = mysqli_fetch_assoc($resultado)) {
                 $offerta = $row['producto_offert'];
                 $offerta = $offerta / 100;
-
-
+                $priceOffert = $row['producto_price'] * $offerta;
+                $priceTotal = round($row['producto_price'] - $priceOffert);
         ?>
 
             <div class="cards-productos" data-categoria="<?php echo $row['producto_categoria']; ?>"
-            onclick="openModal('producto1')">
+            onclick="openModal(
+                '<?php echo $row['producto_categoria']; ?>',
+                '<?php echo $row['producto_title']; ?>',
+                '<?php echo $row['producto_description']; ?>',
+                '<?php echo $priceTotal; ?>')">
                 <div class="card-productos-img">
                     <img src="src/assets/images/cafe1.png" alt="imagenProducto">
                     <p class="offert">% <?php echo $row['producto_offert']?></p>
@@ -81,13 +85,12 @@
                     </p>
                     <p class="price-producto">
                         <span class="price-producto-minus">$<?php echo $row['producto_price']?></span>
-                        <?php 
-                            $priceOffert = $row['producto_price'] * $offerta;
-                            $priceTotal = round($row['producto_price'] - $priceOffert);
+                        <?php
                             echo '$' . $priceTotal;
                         ?>
                     </p>
                     <p class="description-producto">
+                        <p><strong>Descripcion:</strong></p>
                         <?php echo $row['producto_description'];?>
                     </p>
                     <div class="options-producto">
@@ -108,12 +111,26 @@
             <div id="myModal" class="modal">
                 <div class="modal_content">
                     <span class="close" onclick="closeModal()">&times;</span>
-                    <h2 id="modal_title">Titulo</h2>
-                    <p id="modal_description">Descripcion</p>
-                    <p id="modal_price">Precio</p>
+                    <h3 id="modal_categoria">Categoria</h3>
+                    <div class="contenidoProducto">
+                        <h2 id="modal_title">Titulo Producto</h2>
+                        <div class="modal_cantidad">
+                            <p>Cantidad</p>
+                            <div class="contador">
+                                <button id="restar">-</button>
+                                    <span id="cantidad">0</span>
+                                <button id="sumar">+</button>
+                            </div>
+                        </div>
+                        <p id="modal_price">Precio</p>
+                        <button>Agregar al carrito ++</button>
+                        <p id="modal_description">Descripcion</p>
+                    </div>
+                    <div class="imagenProducto">
+                        <img src="" alt="Producto de la imagen">
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
     
@@ -148,7 +165,7 @@
     <!--Secciones de las scripts necesarias por cierto-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="src/Js/script.js"></script>
-    
+
     <!----Script seleccionar por defecto un opcion del menu---->
     <script>
         document.addEventListener("DOMContentLoaded", function () {

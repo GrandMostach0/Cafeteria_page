@@ -357,9 +357,6 @@ a,h1,p{
     border: 1px solid #888;
     width: 80%;
     border-radius: 8px;
-}
-
-.modal_content #modal_title, #modal_description, #modal_price{
     color: black;
 }
 
