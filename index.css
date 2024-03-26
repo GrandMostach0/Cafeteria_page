@@ -358,7 +358,28 @@ a,h1,p{
     width: 80%;
     border-radius: 8px;
     color: black;
+    
 }
+
+.modal_content #modal_categoria{
+    text-align: left;
+}
+
+.modal_content #modal_description{
+    color: black;
+}
+
+.modal_content .modal_content_text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenidoProducto, .imagenProducto{
+    border: 1px solid black;
+    margin: 0px 8px;
+}
+
 
 .close{
     color: #aaa;

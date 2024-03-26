@@ -1,4 +1,4 @@
-function openModal(title, description, price){
+function openModal(categoria, title, description, price){
     var modal = document.getElementById('myModal');
     var modalTitle = document.getElementById('modal_title');
     var modalDescription = document.getElementById('modal_description');

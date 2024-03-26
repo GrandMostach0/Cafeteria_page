@@ -112,22 +112,24 @@
                 <div class="modal_content">
                     <span class="close" onclick="closeModal()">&times;</span>
                     <h3 id="modal_categoria">Categoria</h3>
-                    <div class="contenidoProducto">
-                        <h2 id="modal_title">Titulo Producto</h2>
-                        <div class="modal_cantidad">
-                            <p>Cantidad</p>
-                            <div class="contador">
-                                <button id="restar">-</button>
-                                    <span id="cantidad">0</span>
-                                <button id="sumar">+</button>
+                    <div class="modal_content_text">
+                        <div class="contenidoProducto">
+                            <h2 id="modal_title">Titulo Producto</h2>
+                            <div class="modal_cantidad">
+                                <p>Cantidad</p>
+                                <div class="contador">
+                                    <button id="restar">-</button>
+                                        <span id="cantidad">0</span>
+                                    <button id="sumar">+</button>
+                                </div>
                             </div>
+                            <p id="modal_price">Precio</p>
+                            <button>Agregar al carrito ++</button>
+                            <p id="modal_description">Descripcion</p>
                         </div>
-                        <p id="modal_price">Precio</p>
-                        <button>Agregar al carrito ++</button>
-                        <p id="modal_description">Descripcion</p>
-                    </div>
-                    <div class="imagenProducto">
-                        <img src="" alt="Producto de la imagen">
+                        <div class="imagenProducto">
+                            <img src="" alt="Producto de la imagen">
+                        </div>
                     </div>
                 </div>
             </div>
