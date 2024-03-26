@@ -18,6 +18,8 @@ if (isset ($_SESSION['username'])) {
     <link rel="stylesheet" href="../../../index.css">
     <link rel="stylesheet" href="../../styles/menu.css">
     <link rel="stylesheet" href="../../styles/registros.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -64,7 +66,9 @@ if (isset ($_SESSION['username'])) {
                     src="<?php echo "../../../" . $row['producto_url']?>"
                 </td>
                 <td>
-                    <button class="btn-Button btn-Eliminar">Eliminar</button>
+                    <button
+                    onclick="eliminarProducto(<?php echo $row['producto_id'] ?>)"
+                    class="btn-Button btn-Eliminar">Eliminar</button>
                     <button class="btn-Button btn-Editar">Editar</button>
                 </td>
             </tr>
@@ -77,6 +81,8 @@ if (isset ($_SESSION['username'])) {
         </table>
 
     </div>
+
+    <script src="../../Js/eliminarProducto.js"></script>
 
 </body>
 

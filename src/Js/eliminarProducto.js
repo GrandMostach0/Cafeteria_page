@@ -1,8 +1,8 @@
-//funcion para realizar el eliminado de los usuarios pasando como parametro su ID
-function eliminarElemento(idUsuario) {
+//funcion para realizar el eliminado de los productos pasando como parametro su ID
+function eliminarProducto(idProducto) {
   Swal.fire({
     title: "¿Estás seguro?",
-    text: "Si eliminas este Elemento ya no lo podrá recuperar.",
+    text: "Si eliminas este Producto ya no lo podrá recuperar.",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -11,13 +11,13 @@ function eliminarElemento(idUsuario) {
   }).then((result) => {
     if (result.isConfirmed) {
       //pasamos los datos a otra funcion para manejar las respuesta del servidor.
-      eliminarUsuario(idUsuario);
+      eliminarUsuario(idProducto);
     }
   });
 }
 
-function eliminarUsuario(idUsuario) {
-  //solicitud Ajax para eliminar el usuario
+function eliminarUsuario(idProducto) {
+  //solicitud Ajax para eliminar el producto
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
@@ -42,7 +42,7 @@ function eliminarUsuario(idUsuario) {
       }
     }
   };
-  xhr.open("POST", "./eliminarUsuario.php", true);
+  xhr.open("POST", "./eliminarProducto.php", true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.send("idUsuario=" + idUsuario);
+  xhr.send("idProducto=" + idProducto);
 }
