@@ -173,6 +173,10 @@
                     title: 'Producto Agregado',
                     text: 'El producto ha sido agregado al carrito',
                     confirmButtonText: 'Aceptar'
+                }).then((result) => {
+                    if(result.isConfirmed){
+                        closeModal();
+                    }
                 });
             });
         });
