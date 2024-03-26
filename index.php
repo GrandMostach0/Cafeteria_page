@@ -21,6 +21,7 @@
 
     <!--Seccion de menu-->
     <?php
+        require './src/conexion.php';
         include './src/components/navBar.php';
     ?>
     

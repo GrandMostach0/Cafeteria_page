@@ -32,10 +32,10 @@ $usuarioActual = $_SESSION['id_user'];
     <div class="container-registrosDatos">
         <div class="opciones-registros">
             <h1>Usuarios Registrados</h1>
-            <button class="btn-Button">Agregar +</button>
+            <button onclick="openModal()" class="btn-Button">Agregar +</button>
             <br>
         </div>
-        <table>
+            <table>
                 <tr>
                     <th>ID Usuario</th>
                     <th>Nombre</th>
@@ -87,7 +87,7 @@ $usuarioActual = $_SESSION['id_user'];
             <div id="myModal" class="modal">
                 <div class="modal_content">
                     <span class="close" onclick="closeModal()">&times;</span>
-                    <h2 id="modal_title">Titulo</h2>
+                    <h2 id="modal_title">Agregar Usuario</h2>
                     <p id="modal_description">Descripcion</p>
                     <p id="modal_price">Precio</p>
                 </div>
@@ -96,6 +96,7 @@ $usuarioActual = $_SESSION['id_user'];
     </div>
 
     <script src="../../Js/eliminarElemento.js"></script>
+    <script src="../../Js/modalScript.js"></script>
 
 </body>
 
