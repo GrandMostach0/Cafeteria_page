@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Verificar si el usuario ya ha iniciado sesión
 if (isset ($_SESSION['$username'])) {
     // El usuario ya ha iniciado sesión, redirigirlo al index.php
     header("location: ../../index.php");
