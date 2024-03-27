@@ -101,8 +101,6 @@ form button:hover{
     margin: 20px 0px ;
     cursor: pointer;
 }
-
-
 /*OPCIONES DATOS XD*/
 
 .opciones{
@@ -124,4 +122,24 @@ form button:hover{
 .opciones:hover{
     transform: scale(0.9);
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media(max-width:768px){
+    form h2, button, label{
+        font-size: 1rem;
+    }
+
+    .envoltura-form label, input{
+        font-size: 0.8rem;
+    }
+
+    .nevegacion_opcion{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nevegacion_opcion .opciones{
+        width: 90%;
+        font-size: 0.9rem;
+    }
 }
