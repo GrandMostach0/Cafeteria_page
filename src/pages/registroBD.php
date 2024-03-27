@@ -8,7 +8,7 @@ $correo = $_POST['email'];
 $password = $_POST['password'];
 
 // Insertamos los datos en la base de datos
-$insertar = "INSERT INTO usuarios(user_name, user_last_name, user_email, user_password) VALUES ('$nombre', '$apellido', '$correo', '$password')";
+$insertar = "INSERT INTO usuarios(user_name, user_last_name, user_email, user_password, user_rol) VALUES ('$nombre', '$apellido', '$correo', '$password', '1')";
 $query = mysqli_query($conectar, $insertar);
 
 if ($query) {

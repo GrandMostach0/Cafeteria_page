@@ -26,7 +26,6 @@
         <img src="src/assets/icons/user.svg" alt="UserIcon">
         <div class="btnSession">
             <?php 
-            session_start();
 
             if(isset($_SESSION['username'])){
                 $username = $_SESSION['username'];
