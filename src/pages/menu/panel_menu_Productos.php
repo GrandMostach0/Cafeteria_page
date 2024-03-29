@@ -50,15 +50,17 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <?php 
-                $usuarios = "SELECT * FROM productos ORDER BY producto_id ASC";
-                $resultado = mysqli_query($conectar, $usuarios);
-
-                while ($row = mysqli_fetch_assoc($resultado)) {
-            ?>
+            
             <tbody>
+                <?php
+                    $usuarios = "SELECT * FROM productos ORDER BY producto_id ASC";
+                    $resultado = mysqli_query($conectar, $usuarios);
+
+                    while ($row = mysqli_fetch_assoc($resultado)) {
+                ?>
                 <tr class="contenidoTabla">
-                <td><?php echo $row['producto_id'] ?>
+                    <td>
+                        <?php echo $row['producto_id'] ?>
                     </td>
                     <td>
                         <?php echo $row['producto_title'] ?>

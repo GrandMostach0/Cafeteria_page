@@ -452,14 +452,14 @@ a,h1,p{
 
 
 .close{
-    color: #aaa;
+    color: #929090;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
 .close:hover, .close:focus{
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     cursor: pointer;
 }

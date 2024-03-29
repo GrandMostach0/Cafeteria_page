@@ -32,7 +32,7 @@ $usuarioActual = $_SESSION['id_user'];
     <div class="container-registrosDatos">
         <div class="opciones-registros">
             <h1>Usuarios Registrados</h1>
-            <button onclick="openModal()" class="btn-Button">Agregar +</button>
+            <button onclick="openModal()" class="btn-Button btn-Agregar">Agregar +</button>
             <br>
         </div>
             <table>
@@ -46,14 +46,14 @@ $usuarioActual = $_SESSION['id_user'];
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <?php 
-                    $usuarios = "SELECT * FROM usuarios ORDER BY id_user ASC";
-                    $resultado = mysqli_query($conectar, $usuarios);
-
-                    while ($row = mysqli_fetch_assoc($resultado)) {
-                ?>
 
                 <tbody>
+                    <?php
+                        $usuarios = "SELECT * FROM usuarios ORDER BY id_user ASC";
+                        $resultado = mysqli_query($conectar, $usuarios);
+
+                        while ($row = mysqli_fetch_assoc($resultado)) {
+                    ?>
                     <tr class="contenidoTabla">
 
                     <td><?php echo $row['id_user'] ?>
@@ -82,26 +82,44 @@ $usuarioActual = $_SESSION['id_user'];
                             }
                             ?>
                     
-                            <button class="btn-Button btn-Editar">Editar</button>
+                            <button class="btn-Button btn-Editar" onclick="openModal()">Editar</button>
                         </td>
                     </tr>
                     <?php
                         //liberando los datos
-                            }
+                        }
                         mysqli_free_result($resultado);
                     ?>
                 </tbody>
-
-                
 
             </table>
 
             <div id="myModal" class="modal">
                 <div class="modal_content">
                     <span class="close" onclick="closeModal()">&times;</span>
-                    <h2 id="modal_title">Agregar Usuario</h2>
-                    <p id="modal_description">Descripcion</p>
-                    <p id="modal_price">Precio</p>
+                    <h3 class="title-modal">Informacion del <strong>Usuario</strong></h3>
+                    <div class="informacion">
+                        <div class="informacion-contenido-group">
+                            <label for="Nombre">Nombre:</label>
+                            <input type="text" placeholder="Nombre..." name="Nombre">
+                        </div>
+                        <div class="informacion-contenido-group">
+                            <label for="Apellido">Apellido:</label>
+                            <input type="text" placeholder="Apellido..." name="Apellido">
+                        </div>
+                        <div class="informacion-contenido-group">
+                            <label for="Correo">Correo electrónico:</label>
+                            <input type="email" placeholder="correo@gmail.com" name="Correo">
+                        </div>
+                        <div class="informacion-contenido-group">
+                            <label for="contrasenia">Contraseña:</label>
+                            <input type="password" placeholder="password..." name="contrasenia">
+                        </div>
+                    </div>
+                    <div class="informacion-botones">
+                            <button class="btn-Agregar">Realizar cambios</button>
+                            <button class="btn-Eliminar" onclick="closeModal()">Cancelar</button>
+                        </div>
                 </div>
             </div>
         
