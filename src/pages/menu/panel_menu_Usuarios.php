@@ -82,7 +82,16 @@ $usuarioActual = $_SESSION['id_user'];
                             }
                             ?>
                     
-                            <button class="btn-Button btn-Editar" onclick="openModal()">Editar</button>
+                            <button class="btn-Button btn-Editar" 
+                            onclick="openModalUser(
+                                '<?php echo $row['user_name']; ?>',
+                                '<?php echo $row['user_last_name']; ?>',
+                                '<?php echo $row['user_email']; ?>',
+                                '<?php echo $row['user_password']; ?>'
+                            )">
+                                Editar
+                            </button>
+
                         </td>
                     </tr>
                     <?php
@@ -101,19 +110,19 @@ $usuarioActual = $_SESSION['id_user'];
                     <div class="informacion">
                         <div class="informacion-contenido-group">
                             <label for="Nombre">Nombre:</label>
-                            <input type="text" placeholder="Nombre..." name="Nombre">
+                            <input id="modal_nombre" type="text" placeholder="Nombre..." name="Nombre">
                         </div>
                         <div class="informacion-contenido-group">
                             <label for="Apellido">Apellido:</label>
-                            <input type="text" placeholder="Apellido..." name="Apellido">
+                            <input id="modal_apellido" type="text" placeholder="Apellido..." name="Apellido">
                         </div>
                         <div class="informacion-contenido-group">
                             <label for="Correo">Correo electrónico:</label>
-                            <input type="email" placeholder="correo@gmail.com" name="Correo">
+                            <input id="modal_correo" type="email" placeholder="correo@gmail.com" name="Correo">
                         </div>
                         <div class="informacion-contenido-group">
                             <label for="contrasenia">Contraseña:</label>
-                            <input type="password" placeholder="password..." name="contrasenia">
+                            <input id="modal_contrasenia" type="password" placeholder="password..." name="contrasenia">
                         </div>
                     </div>
                     <div class="informacion-botones">
