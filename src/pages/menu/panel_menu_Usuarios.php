@@ -32,7 +32,7 @@ $usuarioActual = $_SESSION['id_user'];
     <div class="container-registrosDatos">
         <div class="opciones-registros">
             <h1>Usuarios Registrados</h1>
-            <button onclick="openModal()" class="btn-Button btn-Agregar">Agregar +</button>
+            <button onclick="openModalUser()" class="btn-Button btn-Agregar">Agregar +</button>
             <br>
         </div>
             <table>
@@ -87,7 +87,8 @@ $usuarioActual = $_SESSION['id_user'];
                                 '<?php echo $row['user_name']; ?>',
                                 '<?php echo $row['user_last_name']; ?>',
                                 '<?php echo $row['user_email']; ?>',
-                                '<?php echo $row['user_password']; ?>'
+                                '<?php echo $row['user_password']; ?>',
+                                '<?php echo $row['user_rol'] ?>'
                             )">
                                 Editar
                             </button>
@@ -124,9 +125,17 @@ $usuarioActual = $_SESSION['id_user'];
                             <label for="contrasenia">Contraseña:</label>
                             <input id="modal_contrasenia" type="password" placeholder="password..." name="contrasenia">
                         </div>
+                        <div class="informacion-contenido-group">
+                            <label for="Rol">Rol:</label>
+                            <select name="Rol" id="modal_rol">
+                                <option value="0">Seleccione</option>
+                                <option value="1">Usuario</option>
+                                <option value="2">Administrador</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="informacion-botones">
-                            <button class="btn-Agregar">Realizar cambios</button>
+                            <button class="btn-Agregar">Guardar</button>
                             <button class="btn-Eliminar" onclick="closeModal()">Cancelar</button>
                         </div>
                 </div>
