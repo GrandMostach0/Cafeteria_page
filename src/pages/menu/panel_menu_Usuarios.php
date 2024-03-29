@@ -36,14 +36,16 @@ $usuarioActual = $_SESSION['id_user'];
             <br>
         </div>
             <table>
-                <tr>
-                    <th>ID Usuario</th>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Rol</th>
-                    <th>Fecha</th>
-                    <th>Acciones</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>ID Usuario</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
                 <?php 
                     $usuarios = "SELECT * FROM usuarios ORDER BY id_user ASC";
                     $resultado = mysqli_query($conectar, $usuarios);
@@ -51,36 +53,46 @@ $usuarioActual = $_SESSION['id_user'];
                     while ($row = mysqli_fetch_assoc($resultado)) {
                 ?>
 
-                <tr class="contenidoTabla">
+                <tbody>
+                    <tr class="contenidoTabla">
 
-                    <td><?php echo $row['id_user']?></td>
-                    <td><?php echo $row['user_name']?></td>
-                    <td><?php echo $row['user_email']?></td>
-                    <td>
-                        <?php 
-                        echo $row['user_rol'] == 2 ? 'Administrador' : 'Usuario';
-                        ?>
+                    <td><?php echo $row['id_user'] ?>
                         </td>
-                    <td><?php echo $row['user_date_created']?></td>
+                        <td>
+                            <?php echo $row['user_name'] ?>
+                        </td>
+                        <td>
+                            <?php echo $row['user_email'] ?>
+                        </td>
+                        <td>
+                            <?php
+                            echo $row['user_rol'] == 2 ? 'Administrador' : 'Usuario';
+                            ?>
+                        </td>
+                        <td>
+                            <?php echo $row['user_date_created'] ?>
+                        </td>
                     
-                    <!---- botones accion registro ---->
-                    <td>
-                        <?php
+                        <!---- botones accion registro ---->
+                        <td class="td-acciones">
+                            <?php
                             //agregando validacion para no autoeliminarse
                             if ($usuarioActual != $row['id_user']) {
                                 echo '<button onclick="eliminarElemento(' . $row['id_user'] . ')" class="btn-Button btn-Eliminar" >Eliminar</button>';
                             }
-                        ?>
+                            ?>
+                    
+                            <button class="btn-Button btn-Editar">Editar</button>
+                        </td>
+                    </tr>
+                    <?php
+                        //liberando los datos
+                            }
+                        mysqli_free_result($resultado);
+                    ?>
+                </tbody>
 
-                        <button class="btn-Button btn-Editar">Editar</button>
-                    </td>
-                </tr>
-
-                <?php 
-                    //liberando los datos
-                    }
-                    mysqli_free_result($resultado);
-                ?>
+                
 
             </table>
 

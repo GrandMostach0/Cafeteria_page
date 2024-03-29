@@ -110,13 +110,30 @@ table{
     padding: 5px;
 
     & th{
+        text-align: center;
+        font-size: 0.9rem;
         text-transform: uppercase;
-        margin: 5px 0px ;
+        overflow-y: scroll;
     }
 
     & td{
+        height: 50px;
         text-align: center;
+        border: none;
     }
+}
+
+tbody tr{
+    opacity: 0.6;
+}
+
+tbody td:nth-last-child(1){
+    width: 140px;
+}
+
+tbody tr:hover{
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .seleccionada{

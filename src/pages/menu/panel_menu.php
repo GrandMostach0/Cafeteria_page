@@ -29,43 +29,51 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
             <div class="registros">
             <h2>Registros de <Strong>Usuarios</Strong> recientes ...</h2>
             <table>
-                <tr>
-                    <th>ID Usuario</th>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Rol</th>
-                    <th>Fecha</th>
-                </tr>
-                <tr class="contenidoTabla">
-                    <td>1</td>
-                    <td>Victor</td>
-                    <td>kreedlegend0@gmail.com</td>
-                    <td>Admin</td>
-                    <td>12-03-2024</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>ID Usuario</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="contenidoTabla">
+                        <td>1</td>
+                        <td>Victor</td>
+                        <td>kreedlegend0@gmail.com</td>
+                        <td>Admin</td>
+                        <td>12-03-2024</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         <div class="registros">
             <h2>Registros de <Strong>Productos</Strong> recientes ...</h2>
             <table>
-                <tr>
-                    <th>ID Producto</th>
-                    <th>Titulo</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>Descuento</th>
-                    <th>Categoria</th>
-                    <th>Imagen</th>
-                </tr>
-                <tr class="contenidoTabla">
-                    <td>1</td>
-                    <td>Cafe</td>
-                    <td>Cafe con leche</td>
-                    <td>20</td>
-                    <td>20</td>
-                    <td>Cafes</td>
-                    <td>[IMG HERE]</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>ID Producto</th>
+                        <th>Titulo</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Descuento</th>
+                        <th>Categoria</th>
+                        <th>Imagen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="contenidoTabla">
+                        <td>1</td>
+                        <td>Cafe</td>
+                        <td>Cafe con leche</td>
+                        <td>20</td>
+                        <td>20</td>
+                        <td>Cafes</td>
+                        <td>[IMG HERE]</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         </div>

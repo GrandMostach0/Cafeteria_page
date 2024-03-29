@@ -38,46 +38,60 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
             <br>
         </div>
         <table>
-            <tr>
-                <th>ID Producto</th>
-                <th>Titulo</th>
-                <th>Descripcion</th>
-                <th>Precio</th>
-                <th>Descuento</th>
-                <th>Categoria</th>
-                <th>Imagen</th>
-                <th>Acciones</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>ID Producto</th>
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Descuento</th>
+                    <th>Categoria</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
             <?php 
                 $usuarios = "SELECT * FROM productos ORDER BY producto_id ASC";
                 $resultado = mysqli_query($conectar, $usuarios);
 
                 while ($row = mysqli_fetch_assoc($resultado)) {
             ?>
-            <tr class="contenidoTabla">
-                <td><?php echo $row['producto_id']?></td>
-                <td><?php echo $row['producto_title']?></td>
-                <td><?php echo $row['producto_description']?></td>
-                <td><?php echo $row['producto_price']?></td>
-                <td><?php echo $row['producto_offert']?></td>
-                <td><?php echo $row['producto_category'] ?></td>
-                <td class="imagenTabla">
-                    <img
-                    src="<?php echo "../../../" . $row['producto_url']?>"
-                </td>
-                <td>
-                    <button
-                    onclick="eliminarProducto(<?php echo $row['producto_id'] ?>)"
-                    class="btn-Button btn-Eliminar">Eliminar</button>
-                    <button class="btn-Button btn-Editar">Editar</button>
-                </td>
-            </tr>
+            <tbody>
+                <tr class="contenidoTabla">
+                <td><?php echo $row['producto_id'] ?>
+                    </td>
+                    <td>
+                        <?php echo $row['producto_title'] ?>
+                    </td>
+                    <td>
+                        <?php echo $row['producto_description'] ?>
+                    </td>
+                    <td>
+                        <?php echo $row['producto_price'] ?>
+                    </td>
+                    <td>
+                        <?php echo $row['producto_offert'] ?>
+                    </td>
+                    <td>
+                        <?php echo $row['producto_category'] ?>
+                    </td>
+                    <td class="imagenTabla">
+                        <img src="<?php echo "../../../" . $row['producto_url'] ?>" </td>
+                    <td>
+                        <button onclick="eliminarProducto(<?php echo $row['producto_id'] ?>)"
+                            class="btn-Button btn-Eliminar">Eliminar</button>
+                        <button class="btn-Button btn-Editar">Editar</button>
+                    </td>
+                </tr>
 
-            <?php
-                    //liberando los datos
-                }
-                mysqli_free_result($resultado);
-            ?>
+                <?php
+                //liberando los datos
+                    }
+                    mysqli_free_result($resultado);
+                ?>
+
+            </tbody>
+            
         </table>
 
     </div>
