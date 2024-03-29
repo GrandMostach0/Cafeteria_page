@@ -283,8 +283,10 @@ a,h1,p{
 .card-productos-img{
     position: relative;
 }
+
 .card-productos-img img{
     width: 100%;
+    height: 300px;
 }
 
 .offert{
