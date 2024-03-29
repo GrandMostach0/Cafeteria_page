@@ -21,7 +21,7 @@ function openModal(categoria, title, description, price, uri){
 //Modal para los usuarios
 function openModalUser(nombre, apellido, correo, contrasenia){
     
-    resetModalInputs();
+    clearModalInputs();
     
     var modal = document.getElementById('myModal');
     var modal_nombre = document.getElementById('modal_nombre');
@@ -37,23 +37,24 @@ function openModalUser(nombre, apellido, correo, contrasenia){
     modal.style.display = "block";
 }
 
-function resetModalInputs() {
-    var modal_nombre = document.getElementById('modal_nombre');
-    var modal_apellido = document.getElementById('modal_apellido');
-    var modal_correo = document.getElementById('modal_correo');
-    var modal_contrasenia = document.getElementById('modal_contrasenia');
 
-    modal_nombre.value = '';
-    modal_apellido.value = '';
-    modal_correo.value = '';
-    modal_contrasenia.value = '';
+//Funcion para resetear los valores de los inputs
+function clearModalInputs() {
+    var modal = document.getElementById('myModal');
+    var inputs = modal.querySelectorAll('input[type="text"], input[type="email"], input[type="password"]');
+    
+    inputs.forEach(function(input) {
+        input.value = '';
+    });
 }
 
+//Funcion para cerrar el modal
 function closeModal(){
     var modal = document.getElementById('myModal');
     modal.style.display = "none";
 }
 
+//Funcion para Resetear Contador
 function resetearContador() {
     var cantidadElement = document.getElementById('cantidad');
     cantidadElement.textContent = '1'; // Reiniciar contador a cero
