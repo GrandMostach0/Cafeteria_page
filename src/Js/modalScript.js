@@ -52,7 +52,7 @@ function guardarCambios() {
     var correo = document.getElementById('modal_correo').value;
     var contrasenia = document.getElementById('modal_contrasenia').value;
     var rol = document.getElementById('modal_rol').value;
-    var id_user = document.getElementById('modal_userID').value;
+    var id_user = document.getElementById('modal_userID').textContent;
 
     // Redirigir a editarUsuario.php con los datos del usuario
     window.location.href = './usuarioAccions/editarUsuario.php?id_user=' + encodeURIComponent(id_user) + '&nombre=' + encodeURIComponent(nombre) + '&apellido=' + encodeURIComponent(apellido) + '&correo=' + encodeURIComponent(correo) + '&contrasenia=' + encodeURIComponent(contrasenia) + '&rol=' + encodeURIComponent(rol);

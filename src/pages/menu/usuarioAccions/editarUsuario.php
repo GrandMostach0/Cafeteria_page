@@ -11,6 +11,13 @@ if (isset($_GET['id_user'], $_GET['nombre'], $_GET['apellido'], $_GET['correo'],
     $contrasenia = $_GET['contrasenia'];
     $rol = $_GET['rol'];
 
+    echo $id_user . '<br>';
+    echo $nombre .'<br>';
+    echo $apellido .'<br>';
+    echo $contrasenia .'<br>';
+    echo $correo .'<br>';
+    echo $rol .'<br>';
+    
     // Preparar la sentencia SQL para actualizar el usuario
     $sql = "UPDATE usuarios SET user_name=?, user_last_name=?, user_email=?, user_password=?, user_rol=? WHERE id_user=?";
     $stmt = $conectar->prepare($sql);
