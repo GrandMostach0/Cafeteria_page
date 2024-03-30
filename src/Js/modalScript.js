@@ -19,7 +19,7 @@ function openModal(categoria, title, description, price, uri){
 }
 
 //Modal para los usuarios
-function openModalUser(nombre, apellido, correo, contrasenia, rol){
+function openModalUser(nombre, apellido, correo, contrasenia, rol, id_user){
     
     clearModalInputs();
     
@@ -29,11 +29,13 @@ function openModalUser(nombre, apellido, correo, contrasenia, rol){
     var modal_correo = document.getElementById('modal_correo');
     var modal_contrasena = document.getElementById('modal_contrasenia');
     var modal_rol = document.getElementById('modal_rol');
+    var modal_userID = document.getElementById('modal_userID');
 
     modal_nombre.value += nombre;
     modal_apellido.value += apellido;
     modal_correo.value += correo;
     modal_contrasena.value += contrasenia;
+    modal_userID.textContent = id_user;
     
      // Establecer el valor seleccionado del elemento <select> modal_rol
     modal_rol.value = rol;
@@ -42,6 +44,20 @@ function openModalUser(nombre, apellido, correo, contrasenia, rol){
 
     modal.style.display = "block";
 }
+
+function guardarCambios() {
+    // Obtener los nuevos valores del modal y almacenarlos en variables locales
+    var nombre = document.getElementById('modal_nombre').value;
+    var apellido = document.getElementById('modal_apellido').value;
+    var correo = document.getElementById('modal_correo').value;
+    var contrasenia = document.getElementById('modal_contrasenia').value;
+    var rol = document.getElementById('modal_rol').value;
+    var id_user = document.getElementById('modal_userID').value;
+
+    // Redirigir a editarUsuario.php con los datos del usuario
+    window.location.href = './usuarioAccions/editarUsuario.php?id_user=' + encodeURIComponent(id_user) + '&nombre=' + encodeURIComponent(nombre) + '&apellido=' + encodeURIComponent(apellido) + '&correo=' + encodeURIComponent(correo) + '&contrasenia=' + encodeURIComponent(contrasenia) + '&rol=' + encodeURIComponent(rol);
+}
+
 
 //Modal para los productos
 function openModalProduct(){

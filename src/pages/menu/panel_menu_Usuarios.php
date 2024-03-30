@@ -56,7 +56,8 @@ $usuarioActual = $_SESSION['id_user'];
                     ?>
                     <tr class="contenidoTabla">
 
-                    <td><?php echo $row['id_user'] ?>
+                        <td>
+                            <?php echo $row['id_user'] ?>
                         </td>
                         <td>
                             <?php echo $row['user_name'] ?>
@@ -88,7 +89,8 @@ $usuarioActual = $_SESSION['id_user'];
                                 '<?php echo $row['user_last_name']; ?>',
                                 '<?php echo $row['user_email']; ?>',
                                 '<?php echo $row['user_password']; ?>',
-                                '<?php echo $row['user_rol'] ?>'
+                                '<?php echo $row['user_rol']; ?>',
+                                '<?php echo $row['id_user']; ?>'
                             )">
                                 Editar
                             </button>
@@ -109,6 +111,7 @@ $usuarioActual = $_SESSION['id_user'];
                     <span class="close" onclick="closeModal()">&times;</span>
                     <h3 class="title-modal">Informacion del <strong>Usuario</strong></h3>
                     <div class="informacion">
+                        <p id="modal_userID"></p>
                         <div class="informacion-contenido-group">
                             <label for="Nombre">Nombre:</label>
                             <input id="modal_nombre" type="text" placeholder="Nombre..." name="Nombre">
@@ -135,7 +138,7 @@ $usuarioActual = $_SESSION['id_user'];
                         </div>
                     </div>
                     <div class="informacion-botones">
-                            <button class="btn-Agregar">Guardar</button>
+                            <button class="btn-Agregar" onclick="guardarCambios()">Guardar</button>
                             <button class="btn-Eliminar" onclick="closeModal()">Cancelar</button>
                         </div>
                 </div>
