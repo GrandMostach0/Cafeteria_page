@@ -115,3 +115,7 @@ select option{
     color: white;
     cursor: pointer;
 }
+
+#modal_userID{
+    display: none;
+}
