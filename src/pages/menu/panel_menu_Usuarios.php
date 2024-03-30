@@ -146,6 +146,23 @@ $usuarioActual = $_SESSION['id_user'];
         
     </div>
 
+    <?php
+
+        if (isset($_SESSION['actualizacion_exitosa']) && $_SESSION['actualizacion_exitosa'] === true) {
+            echo "<script>
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Usuario actualizado exitosamente!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            </script>";
+
+            // Limpiar la variable de sesión después de mostrar la notificación
+            unset($_SESSION['actualizacion_exitosa']);
+        }
+    ?>
+
     <script src="../../Js/eliminarElemento.js"></script>
     <script src="../../Js/modalScript.js"></script>
 
