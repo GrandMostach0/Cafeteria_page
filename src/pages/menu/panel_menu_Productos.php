@@ -107,17 +107,17 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                         </div>
                         <div class="informacion-img-text">
                             <p class="title-content">Nombre Producto:</p>
-                            <p>Bebida1.png</p>
+                            <p id="modal_producto_img_name">Bebida1.png</p>
                             <br>
                             <p class="title-content">Cambiar Imagen:</p>
-                            <input type="file">
+                            <input id="modal_producto_img_file" type="file">
                         </div>
                     </div>
                     <div class="informacion">
                         <div class="informacion-contenido-group">
                             <label for="Producto">Nombre Producto:</label>
                             <input 
-                            id="modal_nombre_producto" 
+                            id="modal_producto_name" 
                             type="text" 
                             placeholder="Nombre Producto"
                             name="Proucto">
@@ -127,13 +127,14 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                             <textarea 
                             placeholder="Descripcion del producto"
                             name="descripcion" 
-                            id="descripcionProducto"></textarea>
+                            id="modal_producto_description"></textarea>
                         </div>
                         <div class="informacion-contenido-group group-price">
                             <!----Precio del producto ----->
                             <div class="contenido-price">
                                 <p class="title-content">Precio: </p>
                                 <input 
+                                id="modal_producto_price"
                                 class="content-content" 
                                 type="number"
                                 placeholder="$10">
@@ -143,6 +144,7 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                             <div class="contenido-price">
                                 <p class="title-content">Descuento: </p>
                                 <input 
+                                id="modal_producto_offert"
                                 class="content-content" 
                                 type="number"
                                 placeholder="20%">
@@ -151,12 +153,12 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                             <!---- Precio final de venta ----->
                             <div class="contenido-price">
                                 <p class="title-content">Precio Final: </p>
-                                <p class="content-content">$100</p>
+                                <p id="modal_producto_price_final" class="content-content">$100</p>
                             </div>
                         </div>
                         <div class="informacion-contenido-group">
                             <label for="Rol">Categoria:</label>
-                            <select name="Rol" id="modal_rol">
+                            <select name="Rol" id="modal_producto_category">
                                 <option value="0">Seleccione</option>
                                 <option value="1">Bebidas</option>
                                 <option value="2">Cafes</option>
@@ -167,7 +169,7 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                         </div>
                     </div>
                     <div class="informacion-botones">
-                            <button class="btn-Agregar" onclick="guardarCambios()">Guardar</button>
+                            <button class="btn-Agregar" onclick="#">Guardar</button>
                             <button class="btn-Eliminar" onclick="closeModal()">Cancelar</button>
                         </div>
                 </div>

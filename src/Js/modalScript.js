@@ -60,14 +60,15 @@ function guardarCambios() {
 
 
 //Modal para los productos
-function openModalProduct(){
+function openModalProduct(UriImg, Producto, Description, Price, Offert, Category){
     var modal = document.getElementById('myModal');
-    var modal_title = document.getElementById('modal_title');
-    var modal_description = document.getElementById('modal_description');
-    var modal_price = document.getElementById('modal_price');
-    var modal_descuento = document.getElementById('modal_descuento');
-    var modal_categoria = document.getElementById('modal_categoria');
-    var modal_image = document.getElementById('modal_image');
+    var modalImgName = document.getElementById('modal_producto_img_name');
+    var modalImgFile = document.getElementById('modal_producto_img_file');
+    var modalProductoName = document.getElementById('modal_producto_name');
+    var modalProductoDescription = document.getElementById('modal_producto_description');
+    var modalProductoPrice = document.getElementById('modal_producto_price');
+    var modalProductoOffert = document.getElementById('modal_producto_offert');
+    var modalProductoCategory = document.getElementById('mod_producto_category');
 
     modal.style.display = "block";
 }
