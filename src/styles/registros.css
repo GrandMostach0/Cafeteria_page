@@ -148,4 +148,6 @@ textarea{
     outline: none;
     padding: 5px;
     resize: none;
+    background-color: rgba(250, 250, 250, 0.2);
+    color: white;
 }

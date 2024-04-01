@@ -112,7 +112,6 @@ table{
         text-align: center;
         font-size: 0.8rem;
         text-transform: uppercase;
-        overflow-y: scroll;
     }
 
     & td{
@@ -126,6 +125,12 @@ thead th{
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.5);
     overflow: hidden;
+}
+
+tbody .td-descripcion{
+    max-width: 200px;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 tbody tr{

@@ -65,14 +65,14 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                     <td>
                         <?php echo $row['producto_title'] ?>
                     </td>
-                    <td>
+                    <td class="td-descripcion">
                         <?php echo $row['producto_description'] ?>
                     </td>
                     <td>
-                        <?php echo $row['producto_price'] ?>
+                        <?php echo '$' . $row['producto_price'] ?>
                     </td>
                     <td>
-                        <?php echo $row['producto_offert'] ?>
+                        <?php echo '%' . $row['producto_offert'] ?>
                     </td>
                     <td>
                         <?php echo $row['producto_category'] ?>
@@ -108,6 +108,7 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                         <div class="informacion-img-text">
                             <p class="title-content">Nombre Producto:</p>
                             <p>Bebida1.png</p>
+                            <br>
                             <p class="title-content">Cambiar Imagen:</p>
                             <input type="file">
                         </div>
@@ -123,7 +124,10 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                         </div>
                         <div class="informacion-contenido-group">
                             <p class="title-content">Descipcion:</p>
-                            <textarea name="descripcion" id="descripcionProducto"></textarea>
+                            <textarea 
+                            placeholder="Descripcion del producto"
+                            name="descripcion" 
+                            id="descripcionProducto"></textarea>
                         </div>
                         <div class="informacion-contenido-group group-price">
                             <!----Precio del producto ----->
