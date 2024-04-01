@@ -146,7 +146,8 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                                 id="modal_producto_price"
                                 class="content-content" 
                                 type="number"
-                                placeholder="$10">
+                                placeholder="$10"
+                                oninput="actualizarPrecioFinal()">
                             </div>
 
                             <!----Precio del producto con descuento ----->
@@ -156,7 +157,8 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                                 id="modal_producto_offert"
                                 class="content-content" 
                                 type="number"
-                                placeholder="20%">
+                                placeholder="20%"
+                                oninput="actualizarPrecioFinal()">
                             </div>
 
                             <!---- Precio final de venta ----->
