@@ -61,6 +61,9 @@ function guardarCambios() {
 
 //Modal para los productos
 function openModalProduct(UriImg, Producto, Description, Price, Offert, Category){
+
+    clearModalInputs();
+
     var modal = document.getElementById('myModal');
     var modalImgName = document.getElementById('modal_producto_img_name');
     var modalImgFile = document.getElementById('modal_producto_img_file');
@@ -68,7 +71,18 @@ function openModalProduct(UriImg, Producto, Description, Price, Offert, Category
     var modalProductoDescription = document.getElementById('modal_producto_description');
     var modalProductoPrice = document.getElementById('modal_producto_price');
     var modalProductoOffert = document.getElementById('modal_producto_offert');
-    var modalProductoCategory = document.getElementById('mod_producto_category');
+    var modalProductoPriceSale = document.getElementById('modal_producto_price_final');
+    var modalProductoCategory = document.getElementById('modal_producto_category');
+
+    modalImgName.textContent = UriImg;
+    modalProductoName.value += Producto;
+    modalProductoDescription.value += Description;
+    modalProductoPrice.value += Price;
+    modalProductoOffert.value += Offert;
+    var precioBruto = Math.round(Price * (Offert / 100));
+    var precionFinal = Price - precioBruto;
+    modalProductoPriceSale.textContent = '$' + precionFinal;
+    modalProductoCategory.value += Category;
 
     modal.style.display = "block";
 }
@@ -77,7 +91,7 @@ function openModalProduct(UriImg, Producto, Description, Price, Offert, Category
 //Funcion para resetear los valores de los inputs
 function clearModalInputs() {
     var modal = document.getElementById('myModal');
-    var inputs = modal.querySelectorAll('input[type="text"], input[type="email"], input[type="password"]');
+    var inputs = modal.querySelectorAll('input[type="text"], input[type="email"], input[type="password"], input[type="number"],textarea');
     
     inputs.forEach(function(input) {
         input.value = '';

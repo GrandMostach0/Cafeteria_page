@@ -82,7 +82,16 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                     <td>
                         <button onclick="eliminarProducto(<?php echo $row['producto_id'] ?>)"
                             class="btn-Button btn-Eliminar">Eliminar</button>
-                        <button class="btn-Button btn-Editar" onclick="openModalProduct()">Editar</button>
+                        <button class="btn-Button btn-Editar"
+                        onclick="openModalProduct(
+                            '<?php echo $row['producto_url']; ?>',
+                            '<?php echo $row['producto_title']; ?>',
+                            '<?php echo $row['producto_description']; ?>',
+                            '<?php echo $row['producto_price']; ?>',
+                            '<?php echo $row['producto_offert']; ?>',
+                            '<?php echo $row['producto_category']; ?>'
+                        )"
+                        >Editar</button>
                     </td>
                 </tr>
 
@@ -152,8 +161,8 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
 
                             <!---- Precio final de venta ----->
                             <div class="contenido-price">
-                                <p class="title-content">Precio Final: </p>
-                                <p id="modal_producto_price_final" class="content-content">$100</p>
+                                <p class="title-content" style="text-align: center;" >Precio Final: </p>
+                                <p id="modal_producto_price_final" style="text-align: center;" class="content-content">$100</p>
                             </div>
                         </div>
                         <div class="informacion-contenido-group">
