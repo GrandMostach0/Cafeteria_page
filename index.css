@@ -354,7 +354,7 @@ a,h1,p{
 }
 
 .cards-productos:hover{
-    transform: scale(1.1);
+    transform: scale(1.02);
     .offert{
         background-color: #201f1f;
     }

@@ -41,7 +41,7 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
             <thead>
                 <tr>
                     <th>ID Producto</th>
-                    <th>Titulo</th>
+                    <th>Nombre Producto</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
                     <th>Descuento</th>
@@ -82,7 +82,7 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                     <td>
                         <button onclick="eliminarProducto(<?php echo $row['producto_id'] ?>)"
                             class="btn-Button btn-Eliminar">Eliminar</button>
-                        <button class="btn-Button btn-Editar">Editar</button>
+                        <button class="btn-Button btn-Editar" onclick="openModalProduct()">Editar</button>
                     </td>
                 </tr>
 
@@ -93,12 +93,86 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                 ?>
 
             </tbody>
-            
         </table>
+
+        <div id="myModal" class="modal">
+                <div class="modal_content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h3 class="title-modal">Informacion del <strong>Producto</strong></h3>
+                    <div class="informacion-img">
+                        <div class="informacion-img-container">
+                            <img 
+                            src="../../assets/images/bebida1.png" 
+                            alt="Imagen Aqui">
+                        </div>
+                        <div class="informacion-img-text">
+                            <p class="title-content">Nombre Producto:</p>
+                            <p>Bebida1.png</p>
+                            <p class="title-content">Cambiar Imagen:</p>
+                            <input type="file">
+                        </div>
+                    </div>
+                    <div class="informacion">
+                        <div class="informacion-contenido-group">
+                            <label for="Producto">Nombre Producto:</label>
+                            <input 
+                            id="modal_nombre_producto" 
+                            type="text" 
+                            placeholder="Nombre Producto"
+                            name="Proucto">
+                        </div>
+                        <div class="informacion-contenido-group">
+                            <p class="title-content">Descipcion:</p>
+                            <textarea name="descripcion" id="descripcionProducto"></textarea>
+                        </div>
+                        <div class="informacion-contenido-group group-price">
+                            <!----Precio del producto ----->
+                            <div class="contenido-price">
+                                <p class="title-content">Precio: </p>
+                                <input 
+                                class="content-content" 
+                                type="number"
+                                placeholder="$10">
+                            </div>
+
+                            <!----Precio del producto con descuento ----->
+                            <div class="contenido-price">
+                                <p class="title-content">Descuento: </p>
+                                <input 
+                                class="content-content" 
+                                type="number"
+                                placeholder="20%">
+                            </div>
+
+                            <!---- Precio final de venta ----->
+                            <div class="contenido-price">
+                                <p class="title-content">Precio Final: </p>
+                                <p class="content-content">$100</p>
+                            </div>
+                        </div>
+                        <div class="informacion-contenido-group">
+                            <label for="Rol">Categoria:</label>
+                            <select name="Rol" id="modal_rol">
+                                <option value="0">Seleccione</option>
+                                <option value="1">Bebidas</option>
+                                <option value="2">Cafes</option>
+                                <option value="3">Chocolate</option>
+                                <option value="4">Frapes</option>
+                                <option value="5">Pasteleria</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="informacion-botones">
+                            <button class="btn-Agregar" onclick="guardarCambios()">Guardar</button>
+                            <button class="btn-Eliminar" onclick="closeModal()">Cancelar</button>
+                        </div>
+                </div>
+            </div>
 
     </div>
 
     <script src="../../Js/eliminarProducto.js"></script>
+    <script src="../../Js/modalScript.js"></script>
 
 </body>
 

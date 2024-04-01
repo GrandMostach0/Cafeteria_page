@@ -90,6 +90,17 @@
     letter-spacing: 1px;
 }
 
+.informacion-img{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.informacion-img-container img{
+    width: 90px;
+    height: 90px;
+}
+
 select option{
     color: black;
 }
@@ -118,4 +129,23 @@ select option{
 
 #modal_userID{
     display: none;
+}
+/*PRODUCTO*/
+.group-price{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.title-content{
+    color: #b9a586;
+    font-weight: bold;
+}
+
+textarea{
+    width: 100%;
+    height: 90%;
+    outline: none;
+    padding: 5px;
+    resize: none;
 }
