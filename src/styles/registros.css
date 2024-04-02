@@ -151,3 +151,22 @@ textarea{
     background-color: rgba(250, 250, 250, 0.2);
     color: white;
 }
+
+.banner_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.banner_container_Img, .banner_container_text{
+    flex: 1;
+}
+
+.textDescripcion{
+    resize: vertical;
+    height: 150px;
+}
+
+.banner_container_Img img{
+    width: 120px;
+}

@@ -120,6 +120,13 @@ function actualizarPrecioFinal() {
   }
 }
 
+
+/* MODAL PARA LA PORTADA */
+function openModalBanners(){
+  var modal = document.getElementById('myModal');
+  modal.style.display = "block";
+}
+
 //Funcion para resetear los valores de los inputs
 function clearModalInputs() {
   var modal = document.getElementById("myModal");

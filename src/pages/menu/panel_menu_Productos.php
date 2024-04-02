@@ -78,7 +78,7 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                         <?php echo $row['producto_category'] ?>
                     </td>
                     <td class="imagenTabla">
-                        <img src="<?php echo "../../../" . $row['producto_url'] ?>" </td>
+                        <img loading="lazy" src="<?php echo "../../../" . $row['producto_url'] ?>" </td>
                     <td>
                         <button onclick="eliminarProducto(<?php echo $row['producto_id'] ?>)"
                             class="btn-Button btn-Eliminar">Eliminar</button>
