@@ -42,17 +42,34 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                     <th>Acciones</th>
                 </tr>
             </thead>
+            <?php
+                $usuarios = "SELECT * FROM banner ORDER BY id_banner ASC";
+                $resultado = mysqli_query($conectar, $usuarios);
+
+                while ($row = mysqli_fetch_assoc($resultado)) {
+            ?>
             <tbody>
                 <tr class="contenidoTabla">
-                    <td>1</td>
-                    <td>Victor</td>
-                    <td>kreedlegend0@gmail.com</td>
-                    <td>Admin</td>
+                    <td><?php echo $row['id_banner'];?></td>
+                    <td><?php echo $row['banner_title'];?></td>
+                    <td class="td-descripcion"><?php echo $row['banner_description'];?></td>
+                    <td class="imagenTabla">
+                        <img
+                        loading="lazy"
+                        src="<?php echo "../../../" . $row['banner_url_img'] ?>"
+                        alt="Imagen Banner">
+                    </td>
                     <td>
                         <button class="btn-Button btn-Eliminar">Eliminar</button>
                         <button class="btn-Button btn-Editar" onclick="openModalBanners()">Editar</button>
                     </td>
                 </tr>
+
+                <?php
+                //liberando los datos
+                }
+                mysqli_free_result($resultado);
+                ?>
             </tbody>
         </table>
 
