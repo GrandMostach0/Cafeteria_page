@@ -70,33 +70,23 @@ function guardarCambios() {
 }
 
 //Modal para los productos
-function openModalProduct(
-  UriImg,
-  Producto,
-  Description,
-  Price,
-  Offert,
-  Category
-) {
+function openModalProduct(UriImg, Producto, Description, Price, Offert, Category){
   clearModalInputs();
 
   var modal = document.getElementById("myModal");
   var modalImgName = document.getElementById("modal_producto_img_name");
   var modalImgFile = document.getElementById("modal_producto_img_file");
   var modalProductoName = document.getElementById("modal_producto_name");
-  var modalProductoDescription = document.getElementById(
-    "modal_producto_description"
-  );
+  var modalProductoDescription = document.getElementById("modal_producto_description");
   var modalProductoPrice = document.getElementById("modal_producto_price");
   var modalProductoOffert = document.getElementById("modal_producto_offert");
-  var modalProductoPriceSale = document.getElementById(
-    "modal_producto_price_final"
-  );
-  var modalProductoCategory = document.getElementById(
-    "modal_producto_category"
-  );
+  var modalProductoPriceSale = document.getElementById("modal_producto_price_final");
+  var modalProductoCategory = document.getElementById("modal_producto_category");
 
-  modalImgName.textContent = UriImg;
+  const partesRuta = UriImg.split('/');
+  const ImgName = partesRuta[partesRuta.length - 1];
+  console.log(ImgName);
+  modalImgName.textContent = ImgName;
   modalProductoName.value += Producto;
   modalProductoDescription.value += Description;
   modalProductoPrice.value += Price;
@@ -114,11 +104,16 @@ function actualizarPrecioFinal() {
   var precio = parseFloat(document.getElementById("modal_producto_price").value);
   var descuento = parseFloat(document.getElementById("modal_producto_offert").value);
 
+  if(precio < 0 && Offert < 0){
+    precio = 0;
+    descuento = 0;
+  }
+
   // Calcular el precio final
   var precioFinal = Math.round(precio * (1 - descuento / 100));
 
   // Actualizar el contenido de la etiqueta de precio final
-  if(precioFinal < 0){
+  if(precioFinal < 0 ){
     document.getElementById("modal_producto_price_final").textContent = "$0";
   }else{
     document.getElementById("modal_producto_price_final").textContent = "$" + precioFinal;

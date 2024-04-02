@@ -115,7 +115,7 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                             alt="Imagen Aqui">
                         </div>
                         <div class="informacion-img-text">
-                            <p class="title-content">Nombre Producto:</p>
+                            <p class="title-content">Nombre Imagen:</p>
                             <p id="modal_producto_img_name">Bebida1.png</p>
                             <br>
                             <p class="title-content">Cambiar Imagen:</p>
