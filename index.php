@@ -80,7 +80,7 @@
                 '<?php echo $priceTotal; ?>',
                 '<?php echo $row['producto_url']; ?>')">
                 <div class="card-productos-img">
-                    <img src="<?php echo $row['producto_url']; ?>" alt="imagenProducto">
+                    <img loading="lazy" src="<?php echo $row['producto_url']; ?>" alt="imagenProducto">
                     <p class="offert">% <?php echo $row['producto_offert']?></p>
                 </div>
                 <div class="card-productos-text">
