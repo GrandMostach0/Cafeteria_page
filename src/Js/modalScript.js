@@ -1,3 +1,4 @@
+//MODAL PARA MOSTRAR LOS PRODUCTOS SELECCIONADOS DENTRO DEL INDEX.PHP
 function openModal(categoria, title, description, price, uri) {
   resetearContador();
   var modal = document.getElementById("myModal");
@@ -18,7 +19,23 @@ function openModal(categoria, title, description, price, uri) {
   modal.style.display = "block";
 }
 
-//Modal para los usuarios
+function openModalUserAdd() {
+  clearModalInputs();
+
+  var modal = document.getElementById("myModal");
+  var modal_nombre = document.getElementById("modal_nombre");
+  var modal_apellido = document.getElementById("modal_apellido");
+  var modal_correo = document.getElementById("modal_correo");
+  var modal_contrasena = document.getElementById("modal_contrasenia");
+  var modal_rol = document.getElementById("modal_rol");
+  var modal_userID = document.getElementById("modal_userID");
+  
+  modal_userID.textContent = "";
+
+  modal.style.display = "block";
+}
+
+//MODAL PARA MOSTAR LOS DATOS DEL USUARIO
 function openModalUser(nombre, apellido, correo, contrasenia, rol, id_user) {
   clearModalInputs();
 
@@ -39,11 +56,10 @@ function openModalUser(nombre, apellido, correo, contrasenia, rol, id_user) {
   // Establecer el valor seleccionado del elemento <select> modal_rol
   modal_rol.value = rol;
 
-  console.log(rol);
-
   modal.style.display = "block";
 }
 
+//FUNCION PARA GUARDAR LOS CAMBIOS DE EDICION
 function guardarCambios() {
   // Obtener los nuevos valores del modal y almacenarlos en variables locales
   var nombre = document.getElementById("modal_nombre").value;
@@ -53,20 +69,36 @@ function guardarCambios() {
   var rol = document.getElementById("modal_rol").value;
   var id_user = document.getElementById("modal_userID").textContent;
 
-  // Redirigir a editarUsuario.php con los datos del usuario
-  window.location.href =
-    "./usuarioAccions/editarUsuario.php?id_user=" +
-    encodeURIComponent(id_user) +
-    "&nombre=" +
-    encodeURIComponent(nombre) +
-    "&apellido=" +
-    encodeURIComponent(apellido) +
-    "&correo=" +
-    encodeURIComponent(correo) +
-    "&contrasenia=" +
-    encodeURIComponent(contrasenia) +
-    "&rol=" +
-    encodeURIComponent(rol);
+  console.log("ID:" + id_user);
+  if(id_user === undefined || id_user === null || id_user.trim() === ''){
+    console.log("entro aqui en para agregar nuevo usuario");
+      window.location.href = 
+      "./usuarioAccions/agregarUsuario.php?nombre=" +
+      encodeURIComponent(nombre) + 
+      "&apellido=" +
+      encodeURIComponent(apellido) +
+      "&correo=" +
+      encodeURIComponent(correo) +
+      "&contrasenia=" +
+      encodeURIComponent(contrasenia) +
+      "&rol=" +
+      encodeURIComponent(rol);
+  }else{
+    // Redirigir a editarUsuario.php con los datos del usuario
+    window.location.href =
+      "./usuarioAccions/editarUsuario.php?id_user=" +
+      encodeURIComponent(id_user) +
+      "&nombre=" +
+      encodeURIComponent(nombre) +
+      "&apellido=" +
+      encodeURIComponent(apellido) +
+      "&correo=" +
+      encodeURIComponent(correo) +
+      "&contrasenia=" +
+      encodeURIComponent(contrasenia) +
+      "&rol=" +
+      encodeURIComponent(rol);
+  }
 }
 
 //Modal para los productos
@@ -85,7 +117,6 @@ function openModalProduct(UriImg, Producto, Description, Price, Offert, Category
 
   const partesRuta = UriImg.split('/');
   const ImgName = partesRuta[partesRuta.length - 1];
-  console.log(ImgName);
   modalImgName.textContent = ImgName;
   modalProductoName.value += Producto;
   modalProductoDescription.value += Description;
