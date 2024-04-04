@@ -1,6 +1,6 @@
 <div id="myModal" class="modal">
     <div class="modal_content">
-        <form id="productForm" action="./agregarProducto.php" method="POST" enctype="multipart/form-data">
+        <form id="productForm" action="agregarProducto.php" method="POST" enctype="multipart/form-data">
              <span class="close" onclick="closeModal()">&times;</span>
             <h3 class="title-modal">Informacion del <strong>Producto</strong></h3>
             <div class="informacion-img">
@@ -12,7 +12,7 @@
                     <p id="modal_producto_img_name">SIN DATOS</p>
                     <br>
                     <p class="title-content">Cambiar Imagen:</p>
-                    <input id="modal_producto_img_file" type="file">
+                    <input name="modal_producto_img_file" id="modal_producto_img_file" type="file">
                 </div>
             </div>
             <div class="informacion">

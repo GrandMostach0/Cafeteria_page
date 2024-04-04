@@ -113,6 +113,25 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
 
     <script src="../../Js/eliminarProducto.js"></script>
     <script src="../../Js/modalScript.js"></script>
+
+    <!---- script para mostar notificaciones ---->
+    <?php
+    if (isset($_SESSION['actualizacion_exitosa']) && $_SESSION['actualizacion_exitosa'] === true) {
+        echo "<script>
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Cambios Guardados!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+            </script>";
+
+        // Limpiar la variable de sesión después de mostrar la notificación
+        unset($_SESSION['actualizacion_exitosa']);
+    }
+    ?>
+
     <script>
         // Obtener el modal
         var modal = document.getElementById('myModal');
