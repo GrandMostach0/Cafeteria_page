@@ -150,36 +150,46 @@ function actualizarPrecioFinal() {
 }
 
 function guardarCambiosProducto() {
-  // Obtener los nuevos valores del modal y almacenarlos en variables locales
-  var modalImgFile = document.getElementById("modal_producto_img_file").value;
-  var modalProductoName = document.getElementById("modal_producto_name").value;
-  var modalProductoDescription = document.getElementById("modal_producto_description").value;
-  var modalProductoPrice = document.getElementById("modal_producto_price").value;
-  var modalProductoOffert = document.getElementById("modal_producto_offert").value;
-  var modalProductoCategory = document.getElementById("modal_producto_category").value;
+    var formData = new FormData(); // Crea un objeto FormData
 
-  if(isset($_GET['imageUrl'],
-    $_GET['nombreProducto'],
-    $_GET['descripcionProducto'],
-    $_GET['ofertaProducto'],
-    $_GET['precioProducto'],
-    $_GET['categoriaProducto'],
-    ))
+    // Obtiene los valores de los campos del modal
+    var modalImgFile = document.getElementById("modal_producto_img_file").files[0];
+    var modalProductoName = document.getElementById("modal_producto_name").value;
+    var modalProductoDescription = document.getElementById("modal_producto_description").value;
+    var modalProductoPrice = document.getElementById("modal_producto_price").value;
+    var modalProductoOffert = document.getElementById("modal_producto_offert").value;
+    var modalProductoCategory = document.getElementById("modal_producto_category").value;
 
-  window.location.href = 
-  "./agregarProducto.php?imageUrl=" +
-  encodeURIComponent(modalImgFile) +
-  "&nombreProducto" +
-  encodeURIComponent(modalProductoName) +
-  "&descripcionProducto" +
-  encodeURIComponent(modalProductoDescription) +
-  "&ofertaProducto" +
-  encodeURIComponent(modalProductoOffert) +
-  "&precioProducto" +
-  encodeURIComponent(modalProductoPrice) +
-  "&categoriaProducto" +
-  encodeURIComponent(modalProductoCategory);
+    // Agrega los valores al objeto FormData
+    formData.append('imagen', modalImgFile);
+    formData.append('nombreProducto', modalProductoName);
+    formData.append('descripcionProducto', modalProductoDescription);
+    formData.append('ofertaProducto', modalProductoOffert);
+    formData.append('precioProducto', modalProductoPrice);
+    formData.append('categoriaProducto', modalProductoCategory);
+
+    // Crea una solicitud XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+
+    // Define la función de respuesta
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // El servidor ha procesado la solicitud correctamente
+                console.log("mangos con chamoy " + xhr.responseText); // Puedes manejar la respuesta aquí
+                // Puedes redirigir o realizar otras acciones según lo necesites
+            } else {
+                // Error en la solicitud
+                console.error('Hubo un error en la solicitud.');
+            }
+        }
+    };
+
+    // Abre la conexión y envía la solicitud al servidor
+    xhr.open('POST', 'agregarProducto.php', true);
+    xhr.send(formData); // Envía el objeto FormData
 }
+
 
 
 /* MODAL PARA LA PORTADA */

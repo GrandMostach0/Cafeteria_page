@@ -1,54 +1,53 @@
 <?php
-    session_start();
-    // Conexión a la bae de datos
-    require '../../conexion.php';
+session_start();
+// Conexión a la base de datos
+require '../../conexion.php';
 
-    if(isset($_GET['imageUrl'],
-    $_GET['nombreProducto'],
-    $_GET['descripcionProducto'],
-    $_GET['ofertaProducto'],
-    $_GET['precioProducto'],
-    $_GET['categoriaProducto'],
-    )){
+if (isset($_FILES['imagen'], $_POST['nombreProducto'], $_POST['descripcionProducto'], $_POST['ofertaProducto'], $_POST['precioProducto'], $_POST['categoriaProducto'])) {
 
-        //obtencion de los datos del producto
-        $producto = $_GET['nombreProducto'];
-        $descripcion = $_GET['descripcionProducto'];
-        $oferta = $_GET['ofertaProducto'];
-        $precio = $_GET['precioProducto'];
-        $categoria = $_GET['categoriaProducto'];
-        $urlImage = $_GET['imageUrl'];
+    $directorioDestino = "../../assets/images/";
 
+    if (move_uploaded_file($_FILES['imagen']['tmp_name'], $directorioDestino . $_FILES['imagen']['name'])) {
+        // Éxito al mover el archivo, ahora puedes guardar la ruta en la base de datos
+        $rutaImagen = $directorioDestino . $_FILES['imagen']['name'];
+
+        // Obtener los datos del producto
+        $producto = $_POST['nombreProducto'];
+        $descripcion = $_POST['descripcionProducto'];
+        $oferta = $_POST['ofertaProducto'];
+        $precio = $_POST['precioProducto'];
+        $categoria = $_POST['categoriaProducto'];
+        
         echo $producto . "<br/>";
         echo $descripcion . "<br/>";
         echo $oferta . "<br/>";
-        echo $precio . "<br/>";
         echo $categoria . "<br/>";
-        echo $urlImage . "<br/>";
 
         /*
-        //obtencion de la informacion de la imagen
-        $file_name = $_FILES['imagen']['name'];
-
-        $sql = 
-        "INSERT INTO productos(producto_title, producto_description, producto_offert, producto_price, producto_category, producto_url) VALUES ('$producto', '$descripcion', '$oferta', '$precio', '$categoria', '$urlImage')";
+        // Preparar la consulta SQL
+        $sql = "INSERT INTO productos(producto_title, producto_description, producto_offert, producto_price, producto_category, producto_url) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $conectar->prepare($sql);
+        $stmt->bind_param("ssiiis", $producto, $descripcion, $oferta, $precio, $categoria, $rutaImagen);
 
-        $stmt->bind_param("ssiiis", $producto, $descripcion, $oferta, $precio, $categoria, $urlImage);
-
-        //Verificar si el registro fue exitoso
-        if($stmt->execute()){
-            // Insert existoso
-            $_SESSION['actualizacion_exitosa'] = true; // Establecer la variable de sesión
-        }else{
+        // Ejecutar la consulta
+        if ($stmt->execute()) {
+            // Éxito al insertar en la base de datos
+            $_SESSION['actualizacion_exitosa'] = true;
+        } else {
+            // Error al insertar en la base de datos
             $_SESSION['actualizacion_exitosa'] = false;
         }
 
-        //cerrar la conexion
+        // Cerrar la conexión
         $conectar->close();
         header('Location: panel_menu_Productos.php');
         exit;
         */
     } else {
-        echo "Faltan parámetros necesarios.";
+        // Error al mover el archivo
+        echo "Error al mover el archivo.";
     }
+} else {
+    // Faltan parámetros necesarios
+    echo "Faltan parámetros necesarios.";
+}
