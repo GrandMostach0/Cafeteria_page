@@ -21,17 +21,8 @@ function openModal(categoria, title, description, price, uri) {
 
 function openModalUserAdd() {
   clearModalInputs();
-
   var modal = document.getElementById("myModal");
-  var modal_nombre = document.getElementById("modal_nombre");
-  var modal_apellido = document.getElementById("modal_apellido");
-  var modal_correo = document.getElementById("modal_correo");
-  var modal_contrasena = document.getElementById("modal_contrasenia");
-  var modal_rol = document.getElementById("modal_rol");
-  var modal_userID = document.getElementById("modal_userID");
-  
   modal_userID.textContent = "";
-
   modal.style.display = "block";
 }
 
@@ -101,6 +92,13 @@ function guardarCambios() {
   }
 }
 
+//Modal de los producto sin mostrar datos
+function openModalProductAdd(){
+  clearModalInputs();
+  var modal = document.getElementById("myModal");
+  modal.style.display = "block";
+}
+
 //Modal para los productos
 function openModalProduct(UriImg, Producto, Description, Price, Offert, Category){
   clearModalInputs();
@@ -149,6 +147,38 @@ function actualizarPrecioFinal() {
   }else{
     document.getElementById("modal_producto_price_final").textContent = "$" + precioFinal;
   }
+}
+
+function guardarCambiosProducto() {
+  // Obtener los nuevos valores del modal y almacenarlos en variables locales
+  var modalImgFile = document.getElementById("modal_producto_img_file").value;
+  var modalProductoName = document.getElementById("modal_producto_name").value;
+  var modalProductoDescription = document.getElementById("modal_producto_description").value;
+  var modalProductoPrice = document.getElementById("modal_producto_price").value;
+  var modalProductoOffert = document.getElementById("modal_producto_offert").value;
+  var modalProductoCategory = document.getElementById("modal_producto_category").value;
+
+  if(isset($_GET['imageUrl'],
+    $_GET['nombreProducto'],
+    $_GET['descripcionProducto'],
+    $_GET['ofertaProducto'],
+    $_GET['precioProducto'],
+    $_GET['categoriaProducto'],
+    ))
+
+  window.location.href = 
+  "./agregarProducto.php?imageUrl=" +
+  encodeURIComponent(modalImgFile) +
+  "&nombreProducto" +
+  encodeURIComponent(modalProductoName) +
+  "&descripcionProducto" +
+  encodeURIComponent(modalProductoDescription) +
+  "&ofertaProducto" +
+  encodeURIComponent(modalProductoOffert) +
+  "&precioProducto" +
+  encodeURIComponent(modalProductoPrice) +
+  "&categoriaProducto" +
+  encodeURIComponent(modalProductoCategory);
 }
 
 
