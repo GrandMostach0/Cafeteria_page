@@ -30,7 +30,7 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
 
     <div class="container-registrosDatos">
         <div class="opciones-registros">
-            <h1>Banners</h1>
+            <h1>Banners (maximo 5 registros)</h1>
             <button class="btn-Button">Agregar +</button>
             <br>
         </div>
