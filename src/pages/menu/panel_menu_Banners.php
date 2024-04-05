@@ -117,6 +117,31 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
     <script src="../../Js/eliminarBanner.js"></script>
     <script src="../../Js/modalScript.js"></script>
 
+     <script>
+        // Obtener el modal
+        var modal = document.getElementById('myModal');
+        
+        // Obtener la imagen y el input file dentro del modal
+        var img = modal.querySelector('#modal_banner_img');
+        var nameImg = modal.querySelector('#modal_banner_img_name');
+        var inputFile = modal.querySelector('#modal_banner_img_file');
+        
+        // Función para mostrar la imagen seleccionada
+        function mostrarImagen() {
+            if (inputFile.files && inputFile.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    img.src = e.target.result;
+                }
+                reader.readAsDataURL(inputFile.files[0]);
+                nameImg.textContent = inputFile.files[0].name; // Convierte la imagen a una URL base64
+            }
+        }
+
+        // Agregar un evento onchange al input file para llamar a la función mostrarImagen cuando cambie
+        inputFile.addEventListener('change', mostrarImagen);
+    </script>
+
 </body>
 
 </html>
