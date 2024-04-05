@@ -104,6 +104,7 @@ function openModalProduct(UriImg, Producto, Description, Price, Offert, Category
   clearModalInputs();
 
   var modal = document.getElementById("myModal");
+  var modalImage = document.getElementById("imagen");
   var modalImgName = document.getElementById("modal_producto_img_name");
   var modalImgFile = document.getElementById("modal_producto_img_file");
   var modalProductoName = document.getElementById("modal_producto_name");
@@ -113,16 +114,28 @@ function openModalProduct(UriImg, Producto, Description, Price, Offert, Category
   var modalProductoPriceSale = document.getElementById("modal_producto_price_final");
   var modalProductoCategory = document.getElementById("modal_producto_category");
 
+  //parte para mostrar solo el nombre de la imagen del producto
   const partesRuta = UriImg.split('/');
   const ImgName = partesRuta[partesRuta.length - 1];
   modalImgName.textContent = ImgName;
+  //muestra de la imagen aqui
+  const ImgNamePreview = '../../assets/images/' + ImgName;
+  modalImage.src = ImgNamePreview;
+
+  //muestra el precio Nombre del producto
   modalProductoName.value += Producto;
+  //muestra la descripcion del producto
   modalProductoDescription.value += Description;
+  //muestra el precio del producto
   modalProductoPrice.value += Price;
+  //muestra la oferta del producto
   modalProductoOffert.value += Offert;
+
+  //Parte para mostrar el precio del producto de venta con el descuento ya hecho
   var precioBruto = Math.round(Price * (Offert / 100));
   var precionFinal = Price - precioBruto;
   modalProductoPriceSale.textContent = "$" + precionFinal;
+  //muestra la categoria en la que esta
   modalProductoCategory.value += Category;
 
   modal.style.display = "block";
@@ -148,49 +161,6 @@ function actualizarPrecioFinal() {
     document.getElementById("modal_producto_price_final").textContent = "$" + precioFinal;
   }
 }
-
-function guardarCambiosProducto() {
-    var formData = new FormData(); // Crea un objeto FormData
-
-    // Obtiene los valores de los campos del modal
-    var modalImgFile = document.getElementById("modal_producto_img_file").files[0];
-    var modalProductoName = document.getElementById("modal_producto_name").value;
-    var modalProductoDescription = document.getElementById("modal_producto_description").value;
-    var modalProductoPrice = document.getElementById("modal_producto_price").value;
-    var modalProductoOffert = document.getElementById("modal_producto_offert").value;
-    var modalProductoCategory = document.getElementById("modal_producto_category").value;
-
-    // Agrega los valores al objeto FormData
-    formData.append('imagen', modalImgFile);
-    formData.append('nombreProducto', modalProductoName);
-    formData.append('descripcionProducto', modalProductoDescription);
-    formData.append('ofertaProducto', modalProductoOffert);
-    formData.append('precioProducto', modalProductoPrice);
-    formData.append('categoriaProducto', modalProductoCategory);
-
-    // Crea una solicitud XMLHttpRequest
-    var xhr = new XMLHttpRequest();
-
-    // Define la función de respuesta
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                // El servidor ha procesado la solicitud correctamente
-                console.log("mangos con chamoy " + xhr.responseText); // Puedes manejar la respuesta aquí
-                // Puedes redirigir o realizar otras acciones según lo necesites
-            } else {
-                // Error en la solicitud
-                console.error('Hubo un error en la solicitud.');
-            }
-        }
-    };
-
-    // Abre la conexión y envía la solicitud al servidor
-    xhr.open('POST', 'agregarProducto.php', true);
-    xhr.send(formData); // Envía el objeto FormData
-}
-
-
 
 /* MODAL PARA LA PORTADA */
 function openModalBanners(){

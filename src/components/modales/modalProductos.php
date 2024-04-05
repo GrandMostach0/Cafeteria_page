@@ -52,7 +52,7 @@
             </div>
             <div class="informacion-botones">
                 <button type="submit" class="btn-Agregar">Guardar</button>
-                <button class="btn-Eliminar" onclick="closeModal()">Cancelar</button>
+                <button type="button" class="btn-Eliminar" onclick="closeModal()">Cancelar</button>
             </div>
         </form>
     </div>
