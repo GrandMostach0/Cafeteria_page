@@ -145,10 +145,28 @@ function openModalProduct(UriImg, Producto, Description, Price, Offert, Category
 }
 
 //BANNERS
-function openModalBanners(){
+function openModalBanners(UrlImg, title, description, id_banner){
   clearModalInputs();
   var modal = document.getElementById("myModal");
-  
+  var modalBannerImg = document.getElementById("modal_banner_img");
+  var modalBannerImgName = document.getElementById("modal_banner_img_name");
+  var modalBannerImgFile = document.getElementById("modal_banner_img_file");
+  var modalBannerTitle = document.getElementById("modal_banner_title");
+  var modalBannerDescription = document.getElementById("modal_banner_description");
+
+  //src/assets/images/banners/bannerMarque3.png
+  const partesRuta = UrlImg.split('/');
+  const ImgName = partesRuta[partesRuta.length - 1];
+  modalBannerImgName.textContent = ImgName;
+
+  const ImgNamePreview = '../../assets/images/banners/' + ImgName;
+  console.log(ImgNamePreview);
+  modalBannerImg= ImgNamePreview;
+
+  modalBannerTitle.value += title;
+  modalBannerDescription.value += description;
+
+  modal.style.display = "block";
 }
 
 function actualizarPrecioFinal() {
@@ -170,12 +188,6 @@ function actualizarPrecioFinal() {
   }else{
     document.getElementById("modal_producto_price_final").textContent = "$" + precioFinal;
   }
-}
-
-/* MODAL PARA LA PORTADA */
-function openModalBanners(){
-  var modal = document.getElementById('myModal');
-  modal.style.display = "block";
 }
 
 //Funcion para resetear los valores de los inputs
