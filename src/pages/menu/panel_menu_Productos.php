@@ -90,7 +90,8 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                             '<?php echo $row['producto_description']; ?>',
                             '<?php echo $row['producto_price']; ?>',
                             '<?php echo $row['producto_offert']; ?>',
-                            '<?php echo $row['producto_category']; ?>'
+                            '<?php echo $row['producto_category']; ?>',
+                            <?php echo $row['producto_id']; ?>
                         )"
                         >Editar</button>
                     </td>

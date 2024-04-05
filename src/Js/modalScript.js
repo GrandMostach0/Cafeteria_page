@@ -96,13 +96,15 @@ function guardarCambios() {
 function openModalProductAdd(){
   clearModalInputs();
   var modal = document.getElementById("myModal");
+  var modal_productoID = document.getElementById("modal_productID");
+  modal_productoID.style.display = "none";
+  modal_productoID.textContent = "";
   modal.style.display = "block";
 }
 
 //Modal para los productos
-function openModalProduct(UriImg, Producto, Description, Price, Offert, Category){
+function openModalProduct(UriImg, Producto, Description, Price, Offert, Category, id_product){
   clearModalInputs();
-
   var modal = document.getElementById("myModal");
   var modalImage = document.getElementById("imagen");
   var modalImgName = document.getElementById("modal_producto_img_name");
@@ -113,6 +115,7 @@ function openModalProduct(UriImg, Producto, Description, Price, Offert, Category
   var modalProductoOffert = document.getElementById("modal_producto_offert");
   var modalProductoPriceSale = document.getElementById("modal_producto_price_final");
   var modalProductoCategory = document.getElementById("modal_producto_category");
+  var modal_productoID = document.getElementById("modal_productID");
 
   //parte para mostrar solo el nombre de la imagen del producto
   const partesRuta = UriImg.split('/');
@@ -121,6 +124,8 @@ function openModalProduct(UriImg, Producto, Description, Price, Offert, Category
   //muestra de la imagen aqui
   const ImgNamePreview = '../../assets/images/' + ImgName;
   modalImage.src = ImgNamePreview;
+  modal_productoID.style.display = "none";
+  modal_productoID.textContent = id_product;
 
   //muestra el precio Nombre del producto
   modalProductoName.value += Producto;

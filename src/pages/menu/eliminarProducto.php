@@ -30,7 +30,6 @@
             }
         }else{
             echo 'Error al eliminar la imagen';
-            echo $rutaImagen . '<br />';
         }
     }else{
         echo 'Error al obtener la información del producto';
