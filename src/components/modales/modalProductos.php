@@ -4,7 +4,7 @@
              <span class="close" onclick="closeModal()">&times;</span>
             <h3 class="title-modal">Informacion del <strong>Producto</strong></h3>
             <div class="informacion-img">
-                <p id="modal_productID"></p>
+                <input type="hidden" id="modal_productID" name="idProducto">
                 <div class="informacion-img-container">
                     <img id="imagen" src="../../assets/images/bebida1.png" alt="Imagen Aqui">
                 </div>

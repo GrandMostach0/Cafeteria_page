@@ -97,8 +97,7 @@ function openModalProductAdd(){
   clearModalInputs();
   var modal = document.getElementById("myModal");
   var modal_productoID = document.getElementById("modal_productID");
-  modal_productoID.style.display = "none";
-  modal_productoID.textContent = "";
+  modal_productoID.value = "";
   modal.style.display = "block";
 }
 
@@ -124,8 +123,7 @@ function openModalProduct(UriImg, Producto, Description, Price, Offert, Category
   //muestra de la imagen aqui
   const ImgNamePreview = '../../assets/images/' + ImgName;
   modalImage.src = ImgNamePreview;
-  modal_productoID.style.display = "none";
-  modal_productoID.textContent = id_product;
+  modal_productoID.value = id_product;
 
   //muestra el precio Nombre del producto
   modalProductoName.value += Producto;
