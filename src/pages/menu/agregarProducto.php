@@ -10,7 +10,7 @@ $_POST['ofertaProducto'], $_POST['precioProducto'], $_POST['categoriaProducto'])
 
     if (move_uploaded_file($_FILES['modal_producto_img_file']['tmp_name'], $directorioDestino . $_FILES['modal_producto_img_file']['name'])) {
         // Éxito al mover el archivo, ahora puedes guardar la ruta en la base de datos
-        $rutaImagen = $directorioDestino . $_FILES['modal_producto_img_file']['name'];
+        $rutaImagen = 'src/assets/images/' . $_FILES['modal_producto_img_file']['name'];
 
         // Obtener los datos del producto
         $producto = $_POST['nombreProducto'];
