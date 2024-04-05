@@ -18,6 +18,8 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
     <link rel="stylesheet" href="../../../index.css">
     <link rel="stylesheet" href="../../styles/menu.css">
     <link rel="stylesheet" href="../../styles/registros.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -60,7 +62,8 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                         alt="Imagen Banner">
                     </td>
                     <td>
-                        <button class="btn-Button btn-Eliminar">Eliminar</button>
+                        <button onclick="eliminarBanner(<?php echo $row['id_banner']?>)"
+                        class="btn-Button btn-Eliminar">Eliminar</button>
                         <button class="btn-Button btn-Editar" onclick="openModalBanners()">Editar</button>
                     </td>
                 </tr>
@@ -79,7 +82,7 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                     <h3 class="title-modal">Informacion <strong>Banners</strong></h3>
                     <div class="banner_container">
                         <div class="banner_container_Img">
-                            <img 
+                            <img id="modal_img_banner"
                             src="../../assets/images/bebida1.png" 
                             alt="Imagen Aqui">
 
@@ -104,6 +107,7 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
             </div>
     </div>
 
+    <script src="../../Js/eliminarBanner.js"></script>
     <script src="../../Js/modalScript.js"></script>
 
 </body>

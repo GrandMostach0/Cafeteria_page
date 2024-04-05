@@ -144,6 +144,13 @@ function openModalProduct(UriImg, Producto, Description, Price, Offert, Category
   modal.style.display = "block";
 }
 
+//BANNERS
+function openModalBanners(){
+  clearModalInputs();
+  var modal = document.getElementById("myModal");
+  
+}
+
 function actualizarPrecioFinal() {
   // Obtener los valores de los campos de entrada de precio y oferta
   var precio = parseFloat(document.getElementById("modal_producto_price").value);
