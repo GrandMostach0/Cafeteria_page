@@ -3,8 +3,8 @@
         <span class="close" onclick="closeModal()">&times;</span>
         <h3 class="title-modal">Informacion <strong>Banners</strong></h3>
         <div class="banner_container">
+            <input type="hidden" id="modal_BannerID" name="idBanner">
             <div class="banner_container_Img">
-                <input type="hidden" id="modal_bannerID" name="bannerID">
                 <img id="modal_banner_img" src="../../assets/images/bebida1.png" alt="Imagen Aqui">
 
                 <p class="title-content">Nombre Imagen:</p>
@@ -15,10 +15,10 @@
             </div>
             <div class="informacion-contenido-group banner_container_text">
                 <p class="title-content">Titulo Banner:</p>
-                <input type="text" id="modal_banner_title">
+                <input type="text" id="modal_banner_title" placeholder="Banner" required>
                 <p class="title-content">Descripcion Banner:</p>
                 <textarea class="textDescripcion" name="modal_banner_description"
-                    id="modal_banner_description"></textarea>
+                    id="modal_banner_description" placeholder="Text..." required></textarea>
             </div>
         </div>
         <div class="informacion-botones">

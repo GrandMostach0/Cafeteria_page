@@ -146,6 +146,14 @@ function openModalProduct(UriImg, Producto, Description, Price, Offert, Category
   modal.style.display = "block";
 }
 
+function openModalBannersAdd(){
+  clearModalInputs();
+  var modal = document.getElementById("myModal");
+  var modalBannerId = document.getElementById("modal_BannerID");
+  modalBannerId.value = "";
+  modal.style.display = "block";
+}
+
 //BANNERS
 function openModalBanners(UrlImg, title, description, id_banner){
   clearModalInputs();
@@ -155,11 +163,13 @@ function openModalBanners(UrlImg, title, description, id_banner){
   var modalBannerImgFile = document.getElementById("modal_banner_img_file");
   var modalBannerTitle = document.getElementById("modal_banner_title");
   var modalBannerDescription = document.getElementById("modal_banner_description");
+  var modalBannerId = document.getElementById("modal_BannerID");
 
   //src/assets/images/banners/bannerMarque3.png
   const partesRuta = UrlImg.split('/');
   const ImgName = partesRuta[partesRuta.length - 1];
   modalBannerImgName.textContent = ImgName;
+  modalBannerId.value = id_banner;
 
   const ImgNamePreview = '../../assets/images/banners/' + ImgName;
   console.log(ImgNamePreview);
