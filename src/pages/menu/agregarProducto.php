@@ -17,28 +17,75 @@ $_POST['ofertaProducto'], $_POST['precioProducto'], $_POST['categoriaProducto'],
     echo $idProducto . "<br/>";
 
     if(!empty($idProducto)){
-        //EDICION DE DATOS
-        $sql = "UPDATE productos SET producto_title=?, producto_description=?, producto_offert=?, producto_price=?, producto_category=? WHERE producto_id=?";
-        $stmt = $conectar->prepare($sql);
 
-        // Enlazar los parámetros y ejecutar la sentencia
-        $stmt->bind_param("ssiiii", $nombreProducto, $descripcionProducto, $ofertaProducto, $precioProducto, $categoriaProducto, $idProducto);
-        $stmt->execute();
+        $sqlImg = "SELECT producto_url FROM productos WHERE producto_id = '$idProducto'";
+        $resultado2 = mysqli_query($conectar, $sqlImg);
 
-        // Verificar si la actualización fue exitosa
-        if ($stmt->affected_rows > 0) {
-            // Actualización exitosa
-            $_SESSION['actualizacion_exitosa'] = true; // Establecer la variable de sesión
+        if ($resultado2) {
+            $fila = mysqli_fetch_assoc($resultado2);
+            $rutaImagenExistente = $fila['producto_url'];
+
+            // Eliminar la imagen existente
+            if (file_exists($rutaImagenExistente)) {
+                $rutaImagenExistente = str_replace("src/", "../../", $rutaImagen);
+                unlink($rutaImagenExistente);
+            }
+
+            $directorioDestino = "../../assets/images/";
+            // Mover la nueva imagen al directorio de destino
+            if (move_uploaded_file($_FILES['modal_producto_img_file']['tmp_name'], $directorioDestino . $_FILES['modal_producto_img_file']['name'])) {
+                // Éxito al mover el archivo, ahora puedes guardar la ruta en la base de datos
+                $rutaImagen = 'src/assets/images/' . $_FILES['modal_producto_img_file']['name'];
+
+                // EDICION DE DATOS
+                $sql = "UPDATE productos SET producto_title=?, producto_description=?, producto_offert=?, producto_price=?, producto_category=?, producto_url=? WHERE producto_id=?";
+                $stmt = $conectar->prepare($sql);
+
+                // Enlazar los parámetros y ejecutar la sentencia
+                $stmt->bind_param("ssiiisi", $nombreProducto, $descripcionProducto, $ofertaProducto, $precioProducto, $categoriaProducto, $rutaImagen, $idProducto);
+                $stmt->execute();
+
+                // Verificar si la actualización fue exitosa
+                if ($stmt->affected_rows > 0) {
+                    // Éxito al actualizar en la base de datos
+                    $_SESSION['actualizacion_exitosa'] = true;
+                } else {
+                    // Error al actualizar en la base de datos
+                    $_SESSION['actualizacion_exitosa'] = false;
+                }
+
+                // Cerrar la conexión
+                $conectar->close();
+                header('Location: panel_menu_Productos.php');
+                exit;
+            } else {
+                // EDICION DE DATOS
+                $sql = "UPDATE productos SET producto_title=?, producto_description=?, producto_offert=?, producto_price=?, producto_category=? WHERE producto_id=?";
+                $stmt = $conectar->prepare($sql);
+
+                // Enlazar los parámetros y ejecutar la sentencia
+                $stmt->bind_param("ssiiii", $nombreProducto, $descripcionProducto, $ofertaProducto, $precioProducto, $categoriaProducto, $idProducto);
+                $stmt->execute();
+
+                // Verificar si la actualización fue exitosa
+                if ($stmt->affected_rows > 0) {
+                    // Éxito al actualizar en la base de datos
+                    $_SESSION['actualizacion_exitosa'] = true;
+                } else {
+                    // Error al actualizar en la base de datos
+                    $_SESSION['actualizacion_exitosa'] = false;
+                }
+
+                // Cerrar la conexión
+                $conectar->close();
+                header('Location: panel_menu_Productos.php');
+                exit;
+            }
         } else {
-            // Error en la actualización
-            $_SESSION['actualizacion_exitosa'] = false; // Establecer la variable de sesión
+            // Error en la consulta
+            echo "Error: " . mysqli_error($conectar);
         }
 
-        // Cerrar la conexión
-        $conectar->close();
-
-        // Redireccionar de vuelta a la ventana
-        header('Location: ./panel_menu_Productos.php');
 
     }else{
         //AGREGAR DATOS
