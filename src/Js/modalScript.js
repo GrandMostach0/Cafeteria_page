@@ -139,7 +139,9 @@ function openModalProduct(UriImg, Producto, Description, Price, Offert, Category
   var precionFinal = Price - precioBruto;
   modalProductoPriceSale.textContent = "$" + precionFinal;
   //muestra la categoria en la que esta
-  modalProductoCategory.value += Category;
+  console.log("categoria: " + Category);
+  console.log(modalProductoCategory);
+  modalProductoCategory.value = Category;
 
   modal.style.display = "block";
 }

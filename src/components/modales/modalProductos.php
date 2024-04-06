@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="informacion-contenido-group">
-                    <label for="Rol">Categoria:</label>
+                    <label for="modal_producto_category">Categoria:</label>
                     <select name="categoriaProducto" id="modal_producto_category">
                         <option value="0">Seleccione</option>
                         <option value="1">Bebidas</option>
