@@ -31,7 +31,7 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
     <div class="container-registrosDatos">
         <div class="opciones-registros">
             <h1>Banners (maximo 5 registros)</h1>
-            <button onclick="openModalBannersAdd()" class="btn-Button">Agregar +</button>
+            <button onclick="openModalBannersAdd()" class="btn-Button btn-Agregar">Agregar +</button>
             <br>
         </div>
         <table>
@@ -88,6 +88,24 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
 
     <script src="../../Js/eliminarBanner.js"></script>
     <script src="../../Js/modalScript.js"></script>
+
+     <!---- script para mostar notificaciones ---->
+    <?php
+    if (isset($_SESSION['actualizacion_exitosa']) && $_SESSION['actualizacion_exitosa'] === true) {
+        echo "<script>
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Cambios Guardados!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+            </script>";
+
+        // Limpiar la variable de sesión después de mostrar la notificación
+        unset($_SESSION['actualizacion_exitosa']);
+    }
+    ?>
 
      <script>
         // Obtener el modal
