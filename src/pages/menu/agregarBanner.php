@@ -11,6 +11,8 @@ if(isset($_FILES['modal_banner_img_file'], $_POST['banner_title'], $_POST['banne
     $bannerTitle = $_POST['banner_title'];
     $bannerDescription = $_POST['banner_description'];
 
+    echo $idBanner . "<br>";
+
     if(!empty($idBanner)){
         $sqlImg = "SELECT banner_url_img FROM banner WHERE id_banner = '$idBanner'";
         $resultado2 = mysqli_query($conectar, $sqlImg);
@@ -87,10 +89,12 @@ if(isset($_FILES['modal_banner_img_file'], $_POST['banner_title'], $_POST['banne
             // Éxito al mover el archivo, ahora puedes guardar la ruta en la base de datos
             $rutaImagen = 'src/assets/images/banners/' . $_FILES['modal_banner_img_file']['name'];
 
+            $bannerTitle = $_POST['banner_title'];
+            $bannerDescription = $_POST['banner_description'];
             // Preparar la consulta SQL
             $sql = "INSERT INTO banner(banner_title, banner_description, banner_url_img) VALUES (?, ?, ?)";
             $stmt = $conectar->prepare($sql);
-            $stmt->bind_param("ssiiis", $bannerTitle, $bannerDescription, $rutaImagen);
+            $stmt->bind_param("sss", $bannerTitle, $bannerDescription, $rutaImagen);
 
             // Ejecutar la consulta
             if ($stmt->execute()) {
