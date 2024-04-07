@@ -98,7 +98,7 @@
                         <?php echo $row['producto_description'];?>
                     </p>
                     <div class="options-producto">
-                        <button class="agregar-carrito">
+                        <button onclick="incrementarCantidad()" class="agregar-carrito">
                             Agregar al carrito +
                         </button>
                     </div>

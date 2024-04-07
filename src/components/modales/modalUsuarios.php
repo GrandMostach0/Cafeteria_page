@@ -6,19 +6,19 @@
             <p id="modal_userID"></p>
             <div class="informacion-contenido-group">
                 <label for="Nombre">Nombre:</label>
-                <input id="modal_nombre" type="text" placeholder="Nombre..." name="Nombre">
+                <input id="modal_nombre" type="text" placeholder="Nombre..." name="Nombre" required>
             </div>
             <div class="informacion-contenido-group">
                 <label for="Apellido">Apellido:</label>
-                <input id="modal_apellido" type="text" placeholder="Apellido..." name="Apellido">
+                <input id="modal_apellido" type="text" placeholder="Apellido..." name="Apellido" required>
             </div>
             <div class="informacion-contenido-group">
                 <label for="Correo">Correo electrónico:</label>
-                <input id="modal_correo" type="email" placeholder="correo@gmail.com" name="Correo">
+                <input id="modal_correo" type="email" placeholder="correo@gmail.com" name="Correo" required>
             </div>
             <div class="informacion-contenido-group">
                 <label for="contrasenia">Contraseña:</label>
-                <input id="modal_contrasenia" type="password" placeholder="password..." name="contrasenia">
+                <input id="modal_contrasenia" type="password" placeholder="password..." name="contrasenia" required>
             </div>
             <div class="informacion-contenido-group">
                 <label for="Rol">Rol:</label>

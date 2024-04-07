@@ -19,20 +19,20 @@
             <div class="informacion">
                 <div class="informacion-contenido-group">
                     <label for="Producto">Nombre Producto:</label>
-                    <input id="modal_producto_name" type="text" placeholder="Nombre Producto" name="nombreProducto">
+                    <input id="modal_producto_name" type="text" placeholder="Nombre Producto" name="nombreProducto" required>
                 </div>
                 <div class="informacion-contenido-group">
                     <p class="title-content">Descipcion:</p>
-                    <textarea placeholder="Descripcion del producto" name="descripcionProducto" id="modal_producto_description"></textarea>
+                    <textarea placeholder="Descripcion del producto" name="descripcionProducto" id="modal_producto_description" required></textarea>
                 </div>
                 <div class="informacion-contenido-group group-price">
                     <div class="contenido-price">
                         <p class="title-content">Precio: </p>
-                        <input id="modal_producto_price" class="content-content" type="number" placeholder="$10" name="precioProducto" oninput="actualizarPrecioFinal()">
+                        <input id="modal_producto_price" class="content-content" type="number" placeholder="$10" name="precioProducto" oninput="actualizarPrecioFinal()" required>
                     </div>
                     <div class="contenido-price">
                         <p class="title-content">Descuento: </p>
-                        <input id="modal_producto_offert" class="content-content" type="number" placeholder="20%" name="ofertaProducto" oninput="actualizarPrecioFinal()">
+                        <input id="modal_producto_offert" class="content-content" type="number" placeholder="20%" name="ofertaProducto" oninput="actualizarPrecioFinal()" required>
                     </div>
                     <div class="contenido-price">
                         <p class="title-content" style="text-align: center;">Precio Final: </p>

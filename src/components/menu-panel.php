@@ -3,18 +3,25 @@
         <img id="logoPlace" src="../../assets/icons/LogoPlaceDelirios.svg" alt="delirios">
     </a>
     <div class="menu-text">
-        <a href="../../../index.php">Salir del Panel de Adminstración</a>
-        <img src="../../assets/icons/user.svg" alt="usuario">
-        <?php 
-            
-            if(isset ($_SESSION['username'])){
-                $username = $_SESSION['username'];
-
-                echo '<p> Bievenido <strong>' . $username . '</strong></p>';
-            }
-        ?>
+        <div class="dropdown">
+            <button class="dropbtn">
+                <img src="../../assets/icons/user.svg" alt="usuario">
+                <?php
+                if (isset($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+                    echo 'Bienvenido <strong>' . $username . '</strong>';
+                }
+                ?>
+            </button>
+            <div class="dropdown-content">
+                <a href="./panel_menu.php">Inicio Panel</a>
+                <a href="../../../index.php">Salir del Panel de Administración</a>
+            </div>
+        </div>
     </div>
 </header>
+
+
 
 <?php 
     require '../../conexion.php';

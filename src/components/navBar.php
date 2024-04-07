@@ -17,43 +17,42 @@
         </li>
     </ul>
     <div class="menu-optios-right">
+        
         <div class="car">
             <img id="logoCar" src="src/assets/icons/ShopingCar.svg" alt="ShoppingCarIcon">
             <div class="cantidadCar">
                 1
             </div>
         </div>
-        <img src="src/assets/icons/user.svg" alt="UserIcon">
-        <div class="btnSession">
-            <?php 
 
-            if(isset($_SESSION['username'])){
-                $username = $_SESSION['username'];
-                $userRol = $_SESSION['user_rol'];
-                if($userRol == 1){
-                    echo '<p style="color: black">Welcome, <strong>' . $username . '</strong></p>';
-                    echo '
-                    <div class="btn__salir">
-                        <a href="src/sessionClose.php">Salir</a>
-                    </div>';
-                }elseif($userRol == 2){
-                    echo '<p style="color: black">Welcome, <strong> ' . $username . '</strong></p>';
-                    echo '
-                    <div class="btn__salir">
-                        <a href="src/sessionClose.php">Salir</a>
-                        <br>
-                    </div>';
-                    echo '
-                    <div class="btn__salir">
-                        <a href="src/pages/menuPagesAdmin.php">Panel Adminstrador</a>
-                        <br>
-                    </div>';
+        <img id="logoUser" src="src/assets/icons/user.svg" alt="UserIcon">
+        <div class="dropdown">
+            <button class="dropbtn">
+                <?php
+                if (isset($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+                    $userRol = $_SESSION['user_rol'];
+                    echo 'Bienvenido, <strong>' . $username . '</strong>';
+                } else {
+                     echo 'Log In / Sing Up';
                 }
-            }else{
-                echo '<a href="src/pages/LogIn.php">Log In / Sing Up</a>';
-            }
-            ?>
+                ?>
+            </button>
+            <div class="dropdown-content">
+                <?php
+                    if (isset($_SESSION['username'])) {
+                        $userRol = $_SESSION['user_rol'];
+                        if ($userRol == 1 || $userRol == 2) {
+                            echo '<a href="src/sessionClose.php">Salir</a>';
+                        }
+                        if ($userRol == 2) {
+                            echo '<a href="src/pages/menuPagesAdmin.php">Panel Adminstrador</a>';
+                        }
+                    } else {
+                        echo '<a href="src/pages/LogIn.php">Log In / Sing Up</a>';
+                    }
+                ?>
+            </div>
         </div>
-        
     </div>
 </nav>
