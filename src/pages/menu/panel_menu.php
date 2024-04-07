@@ -114,5 +114,10 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
         </div>
         </div>
     </div>
+
+    <div style="margin-top: 50px;" class="terminacion">
+        <p style="align-items: center;">Esta página se hizo con fines practicos y de aprendizaje, por:  <strong>Victor Bernardo Chan Varguez ©</strong></p>
+    </div>
+
 </body>
 </html>

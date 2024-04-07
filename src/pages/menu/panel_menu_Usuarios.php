@@ -131,6 +131,10 @@ $usuarioActual = $_SESSION['id_user'];
         }
     ?>
 
+    <div style="margin-top: 50px;" class="terminacion">
+        <p style="align-items: center;">Esta página se hizo con fines practicos y de aprendizaje, por:  <strong>Victor Bernardo Chan Varguez ©</strong></p>
+    </div>
+
     <script src="../../Js/eliminarElemento.js"></script>
     <script src="../../Js/modalScript.js"></script>
 
