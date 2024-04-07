@@ -1,6 +1,6 @@
 .container-registrosDatos{
     margin: 20px auto;
-    width: 80%;
+    width: 90%;
     box-shadow: 0px -3px 67px -3px rgba(0, 0, 0, 0.3);
     padding-top: 30px;
     padding-bottom: 40px;
@@ -169,4 +169,23 @@ textarea{
 
 .banner_container_Img img{
     width: 120px;
+}
+
+@media (max-width:768px){
+    .container-registrosDatos{
+        width: 100%;
+    }
+
+    .banner_container{
+        flex-direction: column;
+    }
+
+    .banner_container_Img, .banner_container_text{
+        width: 100%;
+        padding: 0px;
+    }
+
+    .banner_container_Img{
+        text-align: center;
+    }
 }
