@@ -31,7 +31,16 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
     <div class="container-registrosDatos">
         <div class="opciones-registros">
             <h1>Banners (maximo 5 registros)</h1>
-            <button onclick="openModalBannersAdd()" class="btn-Button btn-Agregar">Agregar +</button>
+                <?php
+                $cantidadRegistros = "SELECT COUNT(*) AS cantidad FROM banner";
+                $resultado = mysqli_query($conectar, $cantidadRegistros);
+                $fila = mysqli_fetch_assoc($resultado);
+                $totalRegistros = $fila['cantidad'];
+                // Determinar si el botón debe estar habilitado o deshabilitado
+                $botonDeshabilitado = ($totalRegistros >= 5) ? 'disabled' : '';
+                ?>
+                <button onclick="openModalBannersAdd()" class="btn-Button btn-Agregar" <?php echo $botonDeshabilitado; ?> >Agregar+</button>
+
             <br>
         </div>
         <table>
