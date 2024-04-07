@@ -54,7 +54,7 @@ a,h1,p{
 }
 
 .logo_placer{
-    width: 150px;
+    width: 120px;
 }
 
 .nav-menu > ul{
@@ -172,7 +172,7 @@ a,h1,p{
 }
 
 .logo_banner{
-    width: 650px;
+    width: 50%;
 }
 
 .container-banner-text{
@@ -181,7 +181,7 @@ a,h1,p{
 
 .container-banner-title{
     text-align: left;
-    font-size: 6rem;
+    font-size: 4rem;
     letter-spacing: 2px;
     margin-bottom: 50px;
     line-height: 80px;
@@ -207,8 +207,6 @@ a,h1,p{
 .btn-a:hover{
     background-color: var(--bg-btn);
 }
-
-
 
 /*Estilos del carrucel*/
 .swiper{
@@ -246,8 +244,6 @@ a,h1,p{
 .swiper-slide img{
     width: 40%;
 }
-
-
 
 /*Estilos del seccion de productos*/
 
@@ -615,6 +611,10 @@ footer{
         width: 100px;
     }
 
+    .nav-menu{
+        justify-content: space-evenly;
+    }
+
     .nav-menu .menu-options{
         display: none;
     }
@@ -677,7 +677,7 @@ footer{
         background: #1f3d4738;
         backdrop-filter: blur(5px);
         border-radius: 15px;
-        transition: 1s;
+        transition: 0.2s;
         padding: 0px 10px;
         padding-top: 50px;
     }
