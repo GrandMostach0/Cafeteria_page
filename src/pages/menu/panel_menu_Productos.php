@@ -59,7 +59,7 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                     while ($row = mysqli_fetch_assoc($resultado)) {
                 ?>
                 <tr class="contenidoTabla">
-                    <td>
+                    <td class="td-id">
                         <?php echo $row['producto_id'] ?>
                     </td>
                     <td>

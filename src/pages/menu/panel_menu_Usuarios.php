@@ -56,7 +56,7 @@ $usuarioActual = $_SESSION['id_user'];
                     ?>
                     <tr class="contenidoTabla">
 
-                        <td>
+                        <td class="td-id">
                             <?php echo $row['id_user'] ?>
                         </td>
                         <td>

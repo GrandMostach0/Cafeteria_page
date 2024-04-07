@@ -29,14 +29,10 @@
     margin: 10px auto;
     padding: 10px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
     grid-auto-rows: minmax(120px, auto);
     gap: 60px;
     grid-auto-flow: dense;
-}
-
-.container-menu-opciones a:active{
-    border: 1px solid green;
 }
 
 .opciones{
@@ -133,6 +129,14 @@ tbody .td-descripcion{
     white-space: normal;
 }
 
+tbody .td-id{
+    width: 80px;
+}
+
+tbody .td-title{
+    width: 180px;
+}
+
 tbody tr{
     opacity: 0.6;
 }
@@ -148,4 +152,44 @@ tbody tr:hover{
 
 .seleccionada{
     background-color: red;
+}
+
+@media(max-width:900px){
+    .container-registrosDatos, .menu{
+        min-width: 920px;
+    }
+
+    .dropdown2{
+        width: 100%;
+    }
+    
+    table{
+        width: 900px;
+    }
+}
+
+@media(max-width:768px){
+    .container-menu-opciones{
+        width: 100%;
+        margin: 10px auto;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        grid-auto-rows: minmax(60px, auto);
+        gap: 10px;
+        grid-auto-flow: dense;
+    }
+
+    .opciones-text{
+        font-size: 0.9rem;
+    }
+
+    .opciones svg{
+        width: 12px;
+        height: 12px;
+    }
+
+    table tbody td, table thead th{
+        font-size: 0.8rem;
+    }
 }

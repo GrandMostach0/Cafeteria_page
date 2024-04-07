@@ -61,8 +61,12 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
             ?>
             <tbody>
                 <tr class="contenidoTabla">
-                    <td><?php echo $row['id_banner'];?></td>
-                    <td><?php echo $row['banner_title'];?></td>
+                    <td class="td-id">
+                        <?php echo $row['id_banner'];?>
+                    </td>
+                    <td class="td-title">
+                        <?php echo $row['banner_title'];?>
+                    </td>
                     <td class="td-descripcion"><?php echo $row['banner_description'];?></td>
                     <td class="imagenTabla">
                         <img

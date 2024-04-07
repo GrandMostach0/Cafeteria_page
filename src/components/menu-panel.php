@@ -3,7 +3,7 @@
         <img id="logoPlace" src="../../assets/icons/LogoPlaceDelirios.svg" alt="delirios">
     </a>
     <div class="menu-text">
-        <div class="dropdown">
+        <div class="dropdown dropdown2">
             <button class="dropbtn">
                 <img src="../../assets/icons/user.svg" alt="usuario">
                 <?php
@@ -28,7 +28,8 @@
 ?>
 
 <div class="container-menu-opciones">
-    <!-- USUARIOS ---->    <a href="./panel_menu_Usuarios.php" class="opciones">
+    <!-- USUARIOS ---->    
+    <a href="./panel_menu_Usuarios.php" class="opciones">
         <svg data-testid="geist-icon" height="30" stroke-linejoin="round" viewBox="0 0 16 16" width="30"
             style="color: currentcolor;">
             <path fill-rule="evenodd" clip-rule="evenodd"
