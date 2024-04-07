@@ -83,7 +83,6 @@
 .container-usuario{
     padding: 16px 20px;
     text-align: center;
-    border: 1px solid white;
     border-radius: 20px;
 
 }
@@ -180,6 +179,10 @@ tbody tr:hover{
         grid-auto-flow: dense;
     }
 
+    .registros h2{
+        font-size: 1rem;
+    }
+
     .opciones-text{
         font-size: 0.9rem;
     }
@@ -187,6 +190,19 @@ tbody tr:hover{
     .opciones svg{
         width: 12px;
         height: 12px;
+    }
+
+    .container-registros{
+        flex-direction: column;
+    }
+
+    .fila, .columna{
+        width: 100%;
+    }
+
+    .container-usuario{
+        display: flex;
+        align-items: center;
     }
 
     table tbody td, table thead th{
