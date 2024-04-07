@@ -61,20 +61,22 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
             ?>
             <tbody>
                 <tr class="contenidoTabla">
-                    <td class="td-id">
+                    <td data-label="ID Banner" class="td-id">
                         <?php echo $row['id_banner'];?>
                     </td>
-                    <td class="td-title">
+                    <td data-label="Titulo" class="td-title">
                         <?php echo $row['banner_title'];?>
                     </td>
-                    <td class="td-descripcion"><?php echo $row['banner_description'];?></td>
-                    <td class="imagenTabla">
+                    <td data-label="Descripcion" class="td-descripcion2">
+                    <?php echo $row['banner_description'];?>
+                    </td>
+                    <td data-label="Imagen" class="imagenTabla">
                         <img
                         loading="lazy"
                         src="<?php echo "../../../" . $row['banner_url_img'] ?>"
                         alt="Imagen Banner">
                     </td>
-                    <td>
+                    <td class="td-acciones">
                         <button onclick="eliminarBanner(<?php echo $row['id_banner']?>)"
                         class="btn-Button btn-Eliminar">Eliminar</button>
                         <button class="btn-Button btn-Editar" onclick="openModalBanners(

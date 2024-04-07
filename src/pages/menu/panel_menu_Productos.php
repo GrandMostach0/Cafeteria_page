@@ -59,25 +59,25 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                     while ($row = mysqli_fetch_assoc($resultado)) {
                 ?>
                 <tr class="contenidoTabla">
-                    <td class="td-id">
+                    <td data-label="ID Producto" class="td-id">
                         <?php echo $row['producto_id'] ?>
                     </td>
-                    <td>
+                    <td data-label="Nombre Producto">
                         <?php echo $row['producto_title'] ?>
                     </td>
-                    <td class="td-descripcion">
+                    <td data-label="Descripcion" class="td-descripcion">
                         <?php echo $row['producto_description'] ?>
                     </td>
-                    <td>
+                    <td data-label="Precio">
                         <?php echo '$' . $row['producto_price'] ?>
                     </td>
-                    <td>
+                    <td data-label="Descuento">
                         <?php echo '%' . $row['producto_offert'] ?>
                     </td>
-                    <td>
+                    <td data-label="Categoria">
                         <?php echo $row['producto_category'] ?>
                     </td>
-                    <td class="imagenTabla">
+                    <td data-label="Imagen" class="imagenTabla">
                         <img loading="lazy" src="<?php echo "../../../" . $row['producto_url'] ?>" 
                     </td>
                     <td>

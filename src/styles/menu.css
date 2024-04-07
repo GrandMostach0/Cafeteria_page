@@ -102,6 +102,7 @@
 table{
     width: 100%;
     padding: 5px;
+    border-collapse: collapse;
 
     & th{
         text-align: center;
@@ -119,11 +120,20 @@ table{
 thead th{
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1;
     overflow: hidden;
 }
 
 tbody .td-descripcion{
-    max-width: 200px;
+    width: 200px;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+tbody .td-descripcion2 {
+    padding: 0px 20px;
     word-wrap: break-word;
     white-space: normal;
 }
@@ -140,7 +150,7 @@ tbody tr{
     opacity: 0.6;
 }
 
-tbody td:nth-last-child(1){
+tbody .td-acciones{
     width: 150px;
 }
 
@@ -151,20 +161,6 @@ tbody tr:hover{
 
 .seleccionada{
     background-color: red;
-}
-
-@media(max-width:900px){
-    .container-registrosDatos, .menu{
-        min-width: 920px;
-    }
-
-    .dropdown2{
-        width: 100%;
-    }
-    
-    table{
-        width: 900px;
-    }
 }
 
 @media(max-width:768px){
@@ -205,7 +201,42 @@ tbody tr:hover{
         align-items: center;
     }
 
-    table tbody td, table thead th{
-        font-size: 0.8rem;
+    /*TABLA RESPONSIVE*/
+    thead{
+        display: none;
     }
+    tbody tr{
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    tbody td{
+        display: block;
+        position: relative;
+        padding-left: 30%;
+        padding-bottom: 10px;
+    }
+    
+    tbody .td-id, tbody .td-acciones, tbody .td-title{
+        display: block;
+        width: 100%;
+    }
+
+    tbody .td-descripcion, tbody .td-descripcion2{
+        padding-left: 30%;
+        width: 100%;
+        height: auto;
+    }
+
+    tbody td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 30%;
+        border-right: 1px solid white;
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
 }

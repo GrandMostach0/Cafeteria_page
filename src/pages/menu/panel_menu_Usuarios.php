@@ -56,21 +56,21 @@ $usuarioActual = $_SESSION['id_user'];
                     ?>
                     <tr class="contenidoTabla">
 
-                        <td class="td-id">
+                        <td data-label="ID Usuario" class="td-id">
                             <?php echo $row['id_user'] ?>
                         </td>
-                        <td>
+                        <td data-label="Nombre">
                             <?php echo $row['user_name'] ?>
                         </td>
-                        <td>
+                        <td data-label="Correo">
                             <?php echo $row['user_email'] ?>
                         </td>
-                        <td>
+                        <td data-label="Rol">
                             <?php
                             echo $row['user_rol'] == 2 ? 'Administrador' : 'Usuario';
                             ?>
                         </td>
-                        <td>
+                        <td data-label="Fecha">
                             <?php echo $row['user_date_created'] ?>
                         </td>
                     
