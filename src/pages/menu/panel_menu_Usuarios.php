@@ -16,7 +16,7 @@ $rolUsuarioActual = $_SESSION['user_rol'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Panel de Usuarios</title>
     <link rel="stylesheet" href="../../../index.css">
     <link rel="stylesheet" href="../../styles/menu.css">
     <link rel="stylesheet" href="../../styles/registros.css">
