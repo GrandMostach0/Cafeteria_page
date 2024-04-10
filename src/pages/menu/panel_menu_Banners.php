@@ -53,13 +53,13 @@ if (isset($_SESSION['username']) && ($_SESSION['user_rol'] == 2 || $_SESSION['us
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <?php
+            <tbody>
+                <?php
                 $usuarios = "SELECT * FROM banner ORDER BY id_banner ASC";
                 $resultado = mysqli_query($conectar, $usuarios);
 
                 while ($row = mysqli_fetch_assoc($resultado)) {
-            ?>
-            <tbody>
+                ?>
                 <tr class="contenidoTabla">
                     <td data-label="ID Banner" class="td-id">
                         <?php echo $row['id_banner'];?>
@@ -83,7 +83,7 @@ if (isset($_SESSION['username']) && ($_SESSION['user_rol'] == 2 || $_SESSION['us
                             '<?php echo $row['banner_url_img']; ?>',
                             '<?php echo $row['banner_title']; ?>',
                             '<?php echo $row['banner_description']; ?>',
-                            '<?php echo $row['id_banner']; ?>'
+                            '<?php echo $row['id_banner']; ?>',
                         )">Editar</button>
                     </td>
                 </tr>
@@ -118,11 +118,23 @@ if (isset($_SESSION['username']) && ($_SESSION['user_rol'] == 2 || $_SESSION['us
                     showConfirmButton: false,
                     timer: 1500
                 });
-
             </script>";
 
         // Limpiar la variable de sesión después de mostrar la notificación
         unset($_SESSION['actualizacion_exitosa']);
+    }
+
+    if(isset($_SESSION['actualizacion_fallida']) && $_SESSION['actualizacion_fallida'] == false){
+        echo "<script>
+                Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No tienes permisos!'
+                });
+            </script>";
+
+        // Limpiar la variable de sesión después de mostrar la notificación
+        unset($_SESSION['actualizacion_fallida']);
     }
     ?>
 
