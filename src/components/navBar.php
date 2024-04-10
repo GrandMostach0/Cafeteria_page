@@ -42,10 +42,10 @@
                 <?php
                     if (isset($_SESSION['username'])) {
                         $userRol = $_SESSION['user_rol'];
-                        if ($userRol == 1 || $userRol == 2) {
+                        if ($userRol == 1 || $userRol == 2 || $userRol == 3) {
                             echo '<a href="src/sessionClose.php">Salir</a>';
                         }
-                        if ($userRol == 2) {
+                        if ($userRol == 2 || $userRol == 3) {
                             echo '<a href="src/pages/menuPagesAdmin.php">Panel Adminstrador</a>';
                         }
                     } else {

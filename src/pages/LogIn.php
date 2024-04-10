@@ -79,9 +79,7 @@ if (isset ($_SESSION['$username'])) {
                     <input type="password" id="password" name="password" placeholder="Contraseña" required>
                 </div>
 
-                <a class="ancor-form crear-cuenta" style="text-align: left" href="./RestPassword.php">
-                    <strong>¿Olvidó su contraseña?</strong>
-                </a>
+                <p>Modo invitado: user=invitado@gmail.com, pass="invitado"</p>
 
                 <button class="btnForm" type="submit">Ingresar</button>
 

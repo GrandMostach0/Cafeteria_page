@@ -36,7 +36,7 @@
                 if (isset($_SESSION['username'])) {
                     $username = $_SESSION['username'];
                     echo '
-                    <a href="../sessionClose.php">Salir</a>';
+                    <a href="../../index.php">Volver página incial</a>';
                 } else {
                     echo '<a href="#">Log In / Sing Up</a>';
                 }

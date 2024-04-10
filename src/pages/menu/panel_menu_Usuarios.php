@@ -2,9 +2,9 @@
 session_start();
 
 // Verificar si el usuario ya ha iniciado sesión
-if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
+if (isset($_SESSION['username']) && ($_SESSION['user_rol'] == 2 || $_SESSION['user_rol'] == 3)) {
 } else {
-    header("location: ../../../index.php");
+    header("location: ../../index.php");
 }
 $usuarioActual = $_SESSION['id_user'];
 ?>
@@ -67,7 +67,13 @@ $usuarioActual = $_SESSION['id_user'];
                         </td>
                         <td data-label="Rol">
                             <?php
-                            echo $row['user_rol'] == 2 ? 'Administrador' : 'Usuario';
+                            if($row['user_rol'] == 1){
+                                echo 'Usuario';
+                            }else if($row['user_rol'] == 2){
+                                echo 'Administrador';
+                            }else{
+                                echo 'Invitado';
+                            }
                             ?>
                         </td>
                         <td data-label="Fecha">

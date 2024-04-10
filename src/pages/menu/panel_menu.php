@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-// Verificar si el usuario ya ha iniciado sesión
-if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
+if (isset($_SESSION['username']) && ($_SESSION['user_rol'] == 2 || $_SESSION['user_rol'] == 3)) {
 } else {
-    header("location: ../../../index.php");
+    header("location: ../../index.php");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -98,6 +98,8 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                             $username = $_SESSION['username'];
                             if($_SESSION['user_rol'] == 2 ){
                                 $user_rol  = "Administrador";
+                            }else{
+                                $user_rol = "invitado";
                             }
                             $user_email = $_SESSION['user_email'];
 

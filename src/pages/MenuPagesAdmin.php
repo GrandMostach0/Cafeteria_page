@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
+if (isset ($_SESSION['username']) && ($_SESSION['user_rol'] == 2 || $_SESSION['user_rol'] == 3)) {
 } else {
     header("location: ../../index.php");
 }
