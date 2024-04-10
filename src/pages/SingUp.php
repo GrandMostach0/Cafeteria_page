@@ -90,6 +90,16 @@ if (isset ($_SESSION['$username'])) {
                 return false;
             }
 
+            if(password !== confirmPassword){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Contraseñas distintas'
+                });
+
+                return false;
+            }
+
             return true;
         }
     </script>
