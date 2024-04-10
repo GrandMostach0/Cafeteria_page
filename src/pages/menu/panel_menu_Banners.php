@@ -5,7 +5,7 @@ if (isset($_SESSION['username']) && ($_SESSION['user_rol'] == 2 || $_SESSION['us
 } else {
     header("location: ../../index.php");
 }
-
+$rolUsuarioActual = $_SESSION['user_rol'];
 ?>
 
 <!DOCTYPE html>
@@ -77,7 +77,7 @@ if (isset($_SESSION['username']) && ($_SESSION['user_rol'] == 2 || $_SESSION['us
                         alt="Imagen Banner">
                     </td>
                     <td class="td-acciones">
-                        <button onclick="eliminarBanner(<?php echo $row['id_banner']?>)"
+                        <button onclick="eliminarBanner(<?php echo $row['id_banner']?>, <?php echo $rolUsuarioActual ?>)"
                         class="btn-Button btn-Eliminar">Eliminar</button>
                         <button class="btn-Button btn-Editar" onclick="openModalBanners(
                             '<?php echo $row['banner_url_img']; ?>',
@@ -129,7 +129,7 @@ if (isset($_SESSION['username']) && ($_SESSION['user_rol'] == 2 || $_SESSION['us
                 Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'No tienes permisos!'
+                text: 'No tienes privilegios!'
                 });
             </script>";
 

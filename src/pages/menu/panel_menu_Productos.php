@@ -5,7 +5,7 @@ if (isset($_SESSION['username']) && ($_SESSION['user_rol'] == 2 || $_SESSION['us
 } else {
     header("location: ../../index.php");
 }
-
+$rolUsuarioActual = $_SESSION['user_rol'];
 ?>
 
 <!DOCTYPE html>
