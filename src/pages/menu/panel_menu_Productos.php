@@ -81,7 +81,7 @@ $rolUsuarioActual = $_SESSION['user_rol'];
                         <img loading="lazy" src="<?php echo "../../../" . $row['producto_url'] ?>" 
                     </td>
                     <td>
-                        <button onclick="eliminarProducto(<?php echo $row['producto_id'] ?>)"
+                        <button onclick="eliminarProducto(<?php echo $row['producto_id']; ?>, <?php echo $rolUsuarioActual ?>)"
                             class="btn-Button btn-Eliminar">Eliminar</button>
                         <button class="btn-Button btn-Editar"
                         onclick="openModalProduct(
@@ -134,6 +134,19 @@ $rolUsuarioActual = $_SESSION['user_rol'];
 
         // Limpiar la variable de sesión después de mostrar la notificación
         unset($_SESSION['actualizacion_exitosa']);
+    }
+
+    if (isset($_SESSION['actualizacion_fallida']) && $_SESSION['actualizacion_fallida'] == false) {
+        echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No tienes privilegios'
+            });
+        </script>";
+
+        // Limpiar la variable de sesión después de mostrar la notificación
+        unset($_SESSION['actualizacion_fallida']);
     }
     ?>
 

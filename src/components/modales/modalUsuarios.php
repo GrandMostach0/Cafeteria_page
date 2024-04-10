@@ -26,6 +26,7 @@
                     <option value="0">Seleccione</option>
                     <option value="1">Usuario</option>
                     <option value="2">Administrador</option>
+                    <option value="3">Invitado</option>
                 </select>
             </div>
         </div>

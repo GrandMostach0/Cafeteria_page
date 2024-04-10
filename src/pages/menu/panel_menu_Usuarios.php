@@ -7,6 +7,7 @@ if (isset($_SESSION['username']) && ($_SESSION['user_rol'] == 2 || $_SESSION['us
     header("location: ../../index.php");
 }
 $usuarioActual = $_SESSION['id_user'];
+$rolUsuarioActual = $_SESSION['user_rol'];
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +86,7 @@ $usuarioActual = $_SESSION['id_user'];
                             <?php
                             //agregando validacion para no autoeliminarse
                             if ($usuarioActual != $row['id_user']) {
-                                echo '<button onclick="eliminarElemento(' . $row['id_user'] . ')" class="btn-Button btn-Eliminar" >Eliminar</button>';
+                                echo '<button onclick="eliminarElemento(' . $row['id_user'] . ', ' . $rolUsuarioActual . ')" class="btn-Button btn-Eliminar" >Eliminar</button>';
                             }
                             ?>
                     
@@ -135,6 +136,19 @@ $usuarioActual = $_SESSION['id_user'];
             // Limpiar la variable de sesión después de mostrar la notificación
             unset($_SESSION['actualizacion_exitosa']);
         }
+
+    if (isset($_SESSION['actualizacion_fallida']) && $_SESSION['actualizacion_fallida'] == false) {
+        echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No tienes privilegios'
+            });
+        </script>";
+
+        // Limpiar la variable de sesión después de mostrar la notificación
+        unset($_SESSION['actualizacion_fallida']);
+    }
     ?>
 
     <div style="margin-top: 50px;" class="terminacion">

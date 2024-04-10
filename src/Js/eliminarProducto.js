@@ -1,5 +1,5 @@
 //funcion para realizar el eliminado de los productos pasando como parametro su ID
-function eliminarProducto(idProducto) {
+function eliminarProducto(idProducto, rolUsuario) {
   Swal.fire({
     title: "¿Estás seguro?",
     text: "Si eliminas este Producto ya no lo podrá recuperar.",
@@ -10,8 +10,16 @@ function eliminarProducto(idProducto) {
     confirmButtonText: "Sí, eliminarlo",
   }).then((result) => {
     if (result.isConfirmed) {
-      //pasamos los datos a otra funcion para manejar las respuesta del servidor.
-      eliminarUsuario(idProducto);
+      if(rolUsuario != 3){
+        //pasamos los datos a otra funcion para manejar las respuesta del servidor.
+        eliminarUsuario(idProducto);
+      }else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'No tienes privilegios!'
+        });
+      }
     }
   });
 }
