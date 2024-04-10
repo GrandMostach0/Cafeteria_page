@@ -172,7 +172,6 @@ function openModalBanners(UrlImg, title, description, id_banner){
   modalBannerId.value = id_banner;
 
   const ImgNamePreview = '../../assets/images/banners/' + ImgName;
-  console.log(ImgNamePreview);
   modalBannerImg.src = ImgNamePreview;
 
   modalBannerTitle.value += title;
