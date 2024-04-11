@@ -219,6 +219,11 @@ function closeModal() {
   modal.style.display = "none";
 }
 
+function closeModalCar(){
+  var modal = document.getElementById("myModalCarrito");
+  modal.style.display = "none";
+}
+
 //Funcion para Resetear Contador
 function resetearContador() {
   var cantidadElement = document.getElementById("cantidad");

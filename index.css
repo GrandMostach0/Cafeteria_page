@@ -612,7 +612,7 @@ footer{
     }
 
     .nav-menu{
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 
     .nav-menu .menu-options{

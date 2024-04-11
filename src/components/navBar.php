@@ -18,7 +18,7 @@
     </ul>
     <div class="menu-optios-right">
         
-        <div class="car">
+        <div id="car" class="car">
             <img id="logoCar" src="src/assets/icons/ShopingCar.svg" alt="ShoppingCarIcon">
             <div class="cantidadCar">
                 1

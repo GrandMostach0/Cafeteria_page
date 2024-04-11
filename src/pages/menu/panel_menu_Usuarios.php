@@ -55,7 +55,7 @@ $rolUsuarioActual = $_SESSION['user_rol'];
 
                 while ($row = mysqli_fetch_assoc($resultado)) {
                     // Verificamos si el rol del usuario actual es diferente de 2 (no es administrador)
-                    if ($row['user_rol'] != 2) {
+                    if ($rolUsuarioActual == 2 || $row['user_rol'] != 2) {
                         ?>
                         <tr class="contenidoTabla">
 

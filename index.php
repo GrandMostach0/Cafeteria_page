@@ -114,6 +114,7 @@
             <!----Modal para mostrar el carrito---->
             <?php 
                 include 'src/components/modalProducto.php';
+                include 'src/components/modales/modalCarrito.php';
             ?>
         </div>
     </div>
@@ -187,5 +188,23 @@
 
     <!--Script para mostrar el modal---->
     <script src="src/Js/modalScript.js"></script>
+
+    <script>
+    // Espera a que el DOM se cargue completamente
+    document.addEventListener("DOMContentLoaded", function() {
+        // Obtén una referencia al div que contiene el icono del carrito de compras
+        var divCarrito = document.getElementById("car");
+
+        // Obtén una referencia al modal
+        var modalCarrito = document.getElementById("myModalCarrito");
+
+        // Agrega un evento de clic al div del carrito de compras
+        divCarrito.addEventListener("click", function() {
+            // Muestra el modal
+            modalCarrito.style.display = "block";
+        });
+    });
+</script>
+
 </body>
 </html>

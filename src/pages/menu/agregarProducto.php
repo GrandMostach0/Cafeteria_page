@@ -140,7 +140,6 @@ if(isset($_SESSION['user_rol']) && $_SESSION['user_rol'] == 2){
         echo "Faltan parámetros necesarios.";
     }
 }else{
-    echo "No tienes permisos de modificacion";
     $_SESSION['actualizacion_fallida'] = false;
     header('Location: panel_menu_Productos.php');
     exit;
