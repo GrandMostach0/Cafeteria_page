@@ -93,10 +93,12 @@
                             echo '$' . $priceTotal;
                         ?>
                     </p>
-                    <p class="description-producto">
+                    <div class="card-producto-description">
+                        <p class="description-producto">
                         <p><strong>Descripcion:</strong></p>
-                        <?php echo $row['producto_description'];?>
-                    </p>
+                        <?php echo $row['producto_description']; ?>
+                        </p>
+                    </div>
                     <div class="options-producto">
                         <button onclick="incrementarCantidad()" class="agregar-carrito">
                             Agregar al carrito +
