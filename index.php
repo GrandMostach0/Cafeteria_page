@@ -15,7 +15,7 @@
 
 
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="./styles/carritoCompras.css">
+    <link rel="stylesheet" href="./src/styles/carritoCompras.css">
 
     <script src="src/Js/smooth-Scroll.js"></script>
     <script src="src/Js/filterProductos.js"></script>

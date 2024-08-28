@@ -1,0 +1,20 @@
+.carritoContainer{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 560px;
+    padding: 10px;
+    z-index: 10;
+    height: 100%;
+    border: 1px solid white;
+    background-color: #ddd;
+}
+
+.carritoContainer p, .carritoContainer h1, .carritoContainer a{
+    color: black;
+}
+
+.carritoTitle{
+    border-bottom: 2px solid rgba(198, 5, 5, 0.77);
+    padding: 20px;
+}
