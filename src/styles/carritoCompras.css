@@ -10,6 +10,11 @@
     background-color: #ddd;
 }
 
+.carritoSeccion{
+    position: relative;
+    height: 100%;
+}
+
 .carritoContainer p, .carritoContainer h1, .carritoContainer a{
     color: black;
 }
@@ -17,4 +22,44 @@
 .carritoTitle{
     border-bottom: 2px solid rgba(198, 5, 5, 0.77);
     padding: 20px;
+}
+
+.carritoCard{
+    margin-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid grey;
+}
+
+.carritoCard > .carritoCardInformation, .carritoCard > .carritoCard-Price{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+.carritoCard > .carritoCardInformation{
+    flex-direction: row-reverse;
+}
+
+/*---- SECCION FINAL DEL CARRITO DE COMPRAS -----*/
+
+.carritoTotal {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(93, 68, 2);
+}
+
+.carritoTotal > .carritoTotalTitle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.carritoTotal a {
+    border: 1px solid black;
+    padding: 8px 16px;
 }
