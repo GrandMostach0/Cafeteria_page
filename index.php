@@ -15,6 +15,7 @@
 
 
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./styles/carritoCompras.css">
 
     <script src="src/Js/smooth-Scroll.js"></script>
     <script src="src/Js/filterProductos.js"></script>
@@ -26,6 +27,7 @@
     <?php
         require './src/conexion.php';
         include './src/components/navBar.php';
+        include './src/components/carritoSeccion.php';
     ?>
     
     <!--Banner de Inicio-->
