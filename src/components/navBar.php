@@ -17,13 +17,14 @@
         </li>
     </ul>
     <div class="menu-optios-right">
-        
-        <div id="car" class="car">
+        <!--icono del carrtio de compras --->
+        <div id="cart-icon" onclick="toggleCart()">
             <img id="logoCar" src="src/assets/icons/ShopingCar.svg" alt="ShoppingCarIcon">
-            <div class="cantidadCar">
-                1
-            </div>
+            <span id="cart-count">0</span>
         </div>
+        
+        <!---- [Overlay para cerrar el carrito] ---->
+        <div id="cart-overlay" onclick="toggleCart()"></div>
 
         <img id="logoUser" src="src/assets/icons/user.svg" alt="UserIcon">
         <div class="dropdown">

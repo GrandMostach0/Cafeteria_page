@@ -27,7 +27,7 @@
     <?php
         require './src/conexion.php';
         include './src/components/navBar.php';
-        include './src/components/carritoSeccion.php';
+        include './src/components/carritoSeccion.php'
     ?>
     
     <!--Banner de Inicio-->

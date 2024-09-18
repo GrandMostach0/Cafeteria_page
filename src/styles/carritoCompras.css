@@ -1,65 +1,73 @@
-.carritoContainer{
-    position: absolute;
+@import url('../../index.css');
+
+/*Estilos del carrtio*/
+#cart{
+    position: fixed;
     top: 0;
-    right: 0;
-    width: 560px;
-    padding: 10px;
-    z-index: 10;
-    height: 100%;
-    border: 1px solid white;
-    background-color: #ddd;
-}
-
-.carritoSeccion{
-    position: relative;
-    height: 100%;
-}
-
-.carritoContainer p, .carritoContainer h1, .carritoContainer a{
-    color: black;
-}
-
-.carritoTitle{
-    border-bottom: 2px solid rgba(198, 5, 5, 0.77);
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #636363;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
     padding: 20px;
+    overflow-y: auto;
+    z-index: 999;
 }
 
-.carritoCard{
-    margin-top: 10px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid grey;
+#cart.active{
+    right: 0;
 }
 
-.carritoCard > .carritoCardInformation, .carritoCard > .carritoCard-Price{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 20px;
+#cart h2 {
+    margin: 0;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ddd;
 }
 
-.carritoCard > .carritoCardInformation{
-    flex-direction: row-reverse;
+#cart ul {
+    list-style: none;
+    padding: 0;
 }
 
-/*---- SECCION FINAL DEL CARRITO DE COMPRAS -----*/
+#cart ul li {
+    margin: 20px 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
 
-.carritoTotal {
-    position: absolute;
-    bottom: 0;
+#cart .total {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/*Estilo de la fecha para cerrar la ventana*/
+.close-cart-count{
+    font-size: 32px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+.close-cart-count:hover {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/*Overlay para cerrar el carrito*/
+#cart-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    text-align: center;
-    padding: 10px;
-    background-color: rgb(93, 68, 2);
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
 }
 
-.carritoTotal > .carritoTotalTitle{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 5px;
-}
-
-.carritoTotal a {
-    border: 1px solid black;
-    padding: 8px 16px;
+#cart-overlay.active{
+    display: block;
 }
