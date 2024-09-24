@@ -20,7 +20,7 @@
         //redireccion segun el rol
         if ($array['user_rol'] == 1) {
             header("location: ../index.php");
-        } elseif ($array['user_rol'] == 2) {
+        } elseif ($array['user_rol'] == 2 || $array['user_rol'] == 3) {
             header("location: ./pages/MenuPagesAdmin.php");
         }
     } else {

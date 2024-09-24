@@ -42,6 +42,8 @@
 
 <div class="terminacion">
     <p style="align-items: center;">
-        Esta página se hizo con fines practicos y de aprendizaje, por: <strong>Victor Bernardo Chan Varguez</strong>
+        Esta página se hizo con fines practicos y de aprendizaje, por: <strong>Victor Bernardo Chan Varguez
+            ©
+        </strong>
     </p>
 </div>

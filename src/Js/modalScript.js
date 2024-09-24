@@ -1,3 +1,4 @@
+//MODAL PARA MOSTRAR LOS PRODUCTOS SELECCIONADOS DENTRO DEL INDEX.PHP
 function openModal(categoria, title, description, price, uri) {
   resetearContador();
   var modal = document.getElementById("myModal");
@@ -18,7 +19,14 @@ function openModal(categoria, title, description, price, uri) {
   modal.style.display = "block";
 }
 
-//Modal para los usuarios
+function openModalUserAdd() {
+  clearModalInputs();
+  var modal = document.getElementById("myModal");
+  modal_userID.textContent = "";
+  modal.style.display = "block";
+}
+
+//MODAL PARA MOSTAR LOS DATOS DEL USUARIO
 function openModalUser(nombre, apellido, correo, contrasenia, rol, id_user) {
   clearModalInputs();
 
@@ -39,11 +47,10 @@ function openModalUser(nombre, apellido, correo, contrasenia, rol, id_user) {
   // Establecer el valor seleccionado del elemento <select> modal_rol
   modal_rol.value = rol;
 
-  console.log(rol);
-
   modal.style.display = "block";
 }
 
+//FUNCION PARA GUARDAR LOS CAMBIOS DE EDICION
 function guardarCambios() {
   // Obtener los nuevos valores del modal y almacenarlos en variables locales
   var nombre = document.getElementById("modal_nombre").value;
@@ -53,27 +60,52 @@ function guardarCambios() {
   var rol = document.getElementById("modal_rol").value;
   var id_user = document.getElementById("modal_userID").textContent;
 
-  // Redirigir a editarUsuario.php con los datos del usuario
-  window.location.href =
-    "./usuarioAccions/editarUsuario.php?id_user=" +
-    encodeURIComponent(id_user) +
-    "&nombre=" +
-    encodeURIComponent(nombre) +
-    "&apellido=" +
-    encodeURIComponent(apellido) +
-    "&correo=" +
-    encodeURIComponent(correo) +
-    "&contrasenia=" +
-    encodeURIComponent(contrasenia) +
-    "&rol=" +
-    encodeURIComponent(rol);
+  console.log("ID:" + id_user);
+  if(id_user === undefined || id_user === null || id_user.trim() === ''){
+    console.log("entro aqui en para agregar nuevo usuario");
+      window.location.href = 
+      "./usuarioAccions/agregarUsuario.php?nombre=" +
+      encodeURIComponent(nombre) + 
+      "&apellido=" +
+      encodeURIComponent(apellido) +
+      "&correo=" +
+      encodeURIComponent(correo) +
+      "&contrasenia=" +
+      encodeURIComponent(contrasenia) +
+      "&rol=" +
+      encodeURIComponent(rol);
+  }else{
+    // Redirigir a editarUsuario.php con los datos del usuario
+    window.location.href =
+      "./usuarioAccions/editarUsuario.php?id_user=" +
+      encodeURIComponent(id_user) +
+      "&nombre=" +
+      encodeURIComponent(nombre) +
+      "&apellido=" +
+      encodeURIComponent(apellido) +
+      "&correo=" +
+      encodeURIComponent(correo) +
+      "&contrasenia=" +
+      encodeURIComponent(contrasenia) +
+      "&rol=" +
+      encodeURIComponent(rol);
+  }
+}
+
+//Modal de los producto sin mostrar datos
+function openModalProductAdd(){
+  clearModalInputs();
+  var modal = document.getElementById("myModal");
+  var modal_productoID = document.getElementById("modal_productID");
+  modal_productoID.value = "";
+  modal.style.display = "block";
 }
 
 //Modal para los productos
-function openModalProduct(UriImg, Producto, Description, Price, Offert, Category){
+function openModalProduct(UriImg, Producto, Description, Price, Offert, Category, id_product){
   clearModalInputs();
-
   var modal = document.getElementById("myModal");
+  var modalImage = document.getElementById("imagen");
   var modalImgName = document.getElementById("modal_producto_img_name");
   var modalImgFile = document.getElementById("modal_producto_img_file");
   var modalProductoName = document.getElementById("modal_producto_name");
@@ -82,19 +114,68 @@ function openModalProduct(UriImg, Producto, Description, Price, Offert, Category
   var modalProductoOffert = document.getElementById("modal_producto_offert");
   var modalProductoPriceSale = document.getElementById("modal_producto_price_final");
   var modalProductoCategory = document.getElementById("modal_producto_category");
+  var modal_productoID = document.getElementById("modal_productID");
 
+  //parte para mostrar solo el nombre de la imagen del producto
   const partesRuta = UriImg.split('/');
   const ImgName = partesRuta[partesRuta.length - 1];
-  console.log(ImgName);
   modalImgName.textContent = ImgName;
+  //muestra de la imagen aqui
+  const ImgNamePreview = '../../assets/images/' + ImgName;
+  modalImage.src = ImgNamePreview;
+  modal_productoID.value = id_product;
+
+  //muestra el precio Nombre del producto
   modalProductoName.value += Producto;
+  //muestra la descripcion del producto
   modalProductoDescription.value += Description;
+  //muestra el precio del producto
   modalProductoPrice.value += Price;
+  //muestra la oferta del producto
   modalProductoOffert.value += Offert;
+
+  //Parte para mostrar el precio del producto de venta con el descuento ya hecho
   var precioBruto = Math.round(Price * (Offert / 100));
   var precionFinal = Price - precioBruto;
   modalProductoPriceSale.textContent = "$" + precionFinal;
-  modalProductoCategory.value += Category;
+  //muestra la categoria en la que esta
+  console.log("categoria: " + Category);
+  console.log(modalProductoCategory);
+  modalProductoCategory.value = Category;
+
+  modal.style.display = "block";
+}
+
+function openModalBannersAdd(){
+  clearModalInputs();
+  var modal = document.getElementById("myModal");
+  var modalBannerId = document.getElementById("modal_BannerID");
+  modalBannerId.value = "";
+  modal.style.display = "block";
+}
+
+//BANNERS
+function openModalBanners(UrlImg, title, description, id_banner){
+  clearModalInputs();
+  var modal = document.getElementById("myModal");
+  var modalBannerImg = document.getElementById("modal_banner_img");
+  var modalBannerImgName = document.getElementById("modal_banner_img_name");
+  var modalBannerImgFile = document.getElementById("modal_banner_img_file");
+  var modalBannerTitle = document.getElementById("modal_banner_title");
+  var modalBannerDescription = document.getElementById("modal_banner_description");
+  var modalBannerId = document.getElementById("modal_BannerID");
+
+  //src/assets/images/banners/bannerMarque3.png
+  const partesRuta = UrlImg.split('/');
+  const ImgName = partesRuta[partesRuta.length - 1];
+  modalBannerImgName.textContent = ImgName;
+  modalBannerId.value = id_banner;
+
+  const ImgNamePreview = '../../assets/images/banners/' + ImgName;
+  modalBannerImg.src = ImgNamePreview;
+
+  modalBannerTitle.value += title;
+  modalBannerDescription.value += description;
 
   modal.style.display = "block";
 }
@@ -120,13 +201,6 @@ function actualizarPrecioFinal() {
   }
 }
 
-
-/* MODAL PARA LA PORTADA */
-function openModalBanners(){
-  var modal = document.getElementById('myModal');
-  modal.style.display = "block";
-}
-
 //Funcion para resetear los valores de los inputs
 function clearModalInputs() {
   var modal = document.getElementById("myModal");
@@ -142,6 +216,11 @@ function clearModalInputs() {
 //Funcion para cerrar el modal
 function closeModal() {
   var modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}
+
+function closeModalCar(){
+  var modal = document.getElementById("myModalCarrito");
   modal.style.display = "none";
 }
 

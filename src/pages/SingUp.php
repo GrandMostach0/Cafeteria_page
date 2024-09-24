@@ -15,7 +15,7 @@ if (isset ($_SESSION['$username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registro de Usuario</title>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
@@ -38,23 +38,23 @@ if (isset ($_SESSION['$username'])) {
 
             <div class="envoltura-form">
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" placeholder="Nombre" >
+                <input type="text" id="name" name="name" placeholder="Nombre" required>
             </div>
             <div class="envoltura-form">
                 <label for="last_name">Apellido:</label>
-                <input type="text" id="last_name" name="last_name" placeholder="Apellido">
+                <input type="text" id="last_name" name="last_name" placeholder="Apellido" required>
             </div>
             <div class="envoltura-form">
                 <label for="email">Correo electrónico</label>
-                <input type="email" id="email" name="email" placeholder="Correo electrónico" >
+                <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
             </div>
             <div class="envoltura-form">
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" placeholder="contraseña" >
+                <input type="password" id="password" name="password" placeholder="contraseña" required>
             </div>
             <div class="envoltura-form">
                 <label for="confPassword">Confirmar contraseña:</label>
-                <input type="password" id="confPassword" name="confirmPassword" placeholder="Confirmar Contraseña" >
+                <input type="password" id="confPassword" name="confirmPassword" placeholder="Confirmar Contraseña" required>
             </div>
 
             <button 
@@ -90,9 +90,18 @@ if (isset ($_SESSION['$username'])) {
                 return false;
             }
 
+            if(password !== confirmPassword){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Contraseñas distintas'
+                });
+
+                return false;
+            }
+
             return true;
         }
     </script>
-
 </body>
 </html>

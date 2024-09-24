@@ -1,8 +1,8 @@
-//funcion para realizar el eliminado de los productos pasando como parametro su ID
-function eliminarProducto(idProducto, rolUsuario) {
-  Swal.fire({
+//funcion para realizar el eliminado de los usuarios pasando como parametro su ID
+function eliminarBanner(idBanner, rolUsuario) {
+    Swal.fire({
     title: "¿Estás seguro?",
-    text: "Si eliminas este Producto ya no lo podrá recuperar.",
+    text: "Si eliminas este Elemento ya no lo podrá recuperar.",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -12,7 +12,7 @@ function eliminarProducto(idProducto, rolUsuario) {
     if (result.isConfirmed) {
       if(rolUsuario != 3){
         //pasamos los datos a otra funcion para manejar las respuesta del servidor.
-        eliminarUsuario(idProducto);
+        eliminarUsuario(idBanner);
       }else{
         Swal.fire({
           icon: 'error',
@@ -20,12 +20,12 @@ function eliminarProducto(idProducto, rolUsuario) {
           text: 'No tienes privilegios!'
         });
       }
-    }
-  });
+      }
+    });
 }
 
-function eliminarUsuario(idProducto) {
-  //solicitud Ajax para eliminar el producto
+function eliminarUsuario(idBanner) {
+  //solicitud Ajax para eliminar el usuario
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
@@ -50,7 +50,7 @@ function eliminarUsuario(idProducto) {
       }
     }
   };
-  xhr.open("POST", "./eliminarProducto.php", true);
+  xhr.open("POST", "./eliminarBanner.php", true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.send("idProducto=" + idProducto);
+  xhr.send("idBanner=" + idBanner);
 }

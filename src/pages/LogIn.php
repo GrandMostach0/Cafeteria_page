@@ -14,7 +14,7 @@ if (isset ($_SESSION['$username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio de Sesion</title>
 
     <!-- Incluir SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -79,9 +79,7 @@ if (isset ($_SESSION['$username'])) {
                     <input type="password" id="password" name="password" placeholder="Contraseña" required>
                 </div>
 
-                <a class="ancor-form crear-cuenta" style="text-align: left" href="./RestPassword.php">
-                    <strong>¿Olvidó su contraseña?</strong>
-                </a>
+                <p>Modo invitado: user=invitado@gmail.com, pass="invitado"</p>
 
                 <button class="btnForm" type="submit">Ingresar</button>
 

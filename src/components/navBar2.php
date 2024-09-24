@@ -17,23 +17,31 @@
         </li>
     </ul>
     <div class="menu-optios-right">
-        <img src="../assets/icons/ShopingCar.svg" alt="ShoppingCarIcon">
+        <img id="logoCar" src="../assets/icons/ShopingCar.svg" alt="ShoppingCarIcon">
 
-        <img src="../assets/icons/user.svg" alt="UserIcon">
-        <div class="btnSession">
-            <?php
-
-                if (isset ($_SESSION['username'])) {
+        <img id="logoUser" src="../assets/icons/user.svg" alt="UserIcon">
+        <div class="dropdown">
+            <button class="dropbtn">
+                <?php
+                if (isset($_SESSION['username'])) {
                     $username = $_SESSION['username'];
                     echo '<p style="color: black">Welcome, <strong>' . $username . '</strong></p>';
-                    echo '
-                    <div class="btn__salir">
-                        <a href="../sessionClose.php">Salir</a>
-                    </div>';
                 } else {
                     echo '<a href="#">Log In / Sing Up</a>';
                 }
-            ?>
+                ?>
+            </button>
+            <div class="dropdown-content">
+                <?php
+                if (isset($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+                    echo '
+                    <a href="../../index.php">Volver página incial</a>';
+                } else {
+                    echo '<a href="#">Log In / Sing Up</a>';
+                }
+                ?>
+            </div>
         </div>
     </div>
 </nav>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
+if (isset ($_SESSION['username']) && ($_SESSION['user_rol'] == 2 || $_SESSION['user_rol'] == 3)) {
 } else {
     header("location: ../../index.php");
 }
@@ -15,7 +15,7 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Panel de administracion</title>
 
     <!-- Incluir SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

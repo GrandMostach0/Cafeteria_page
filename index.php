@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PlaceAndDelirios</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -15,6 +15,7 @@
 
 
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./src/styles/carritoCompras.css">
 
     <script src="src/Js/smooth-Scroll.js"></script>
     <script src="src/Js/filterProductos.js"></script>
@@ -26,6 +27,7 @@
     <?php
         require './src/conexion.php';
         include './src/components/navBar.php';
+        include './src/components/carritoSeccion.php'
     ?>
     
     <!--Banner de Inicio-->
@@ -93,12 +95,14 @@
                             echo '$' . $priceTotal;
                         ?>
                     </p>
-                    <p class="description-producto">
+                    <div class="card-producto-description">
+                        <p class="description-producto">
                         <p><strong>Descripcion:</strong></p>
-                        <?php echo $row['producto_description'];?>
-                    </p>
+                        <?php echo $row['producto_description']; ?>
+                        </p>
+                    </div>
                     <div class="options-producto">
-                        <button class="agregar-carrito">
+                        <button onclick="incrementarCantidad()" class="agregar-carrito">
                             Agregar al carrito +
                         </button>
                     </div>
@@ -114,6 +118,7 @@
             <!----Modal para mostrar el carrito---->
             <?php 
                 include 'src/components/modalProducto.php';
+                include 'src/components/modales/modalCarrito.php';
             ?>
         </div>
     </div>
@@ -187,5 +192,23 @@
 
     <!--Script para mostrar el modal---->
     <script src="src/Js/modalScript.js"></script>
+
+    <script>
+    // Espera a que el DOM se cargue completamente
+    document.addEventListener("DOMContentLoaded", function() {
+        // Obtén una referencia al div que contiene el icono del carrito de compras
+        var divCarrito = document.getElementById("car");
+
+        // Obtén una referencia al modal
+        var modalCarrito = document.getElementById("myModalCarrito");
+
+        // Agrega un evento de clic al div del carrito de compras
+        divCarrito.addEventListener("click", function() {
+            // Muestra el modal
+            modalCarrito.style.display = "block";
+        });
+    });
+</script>
+
 </body>
 </html>

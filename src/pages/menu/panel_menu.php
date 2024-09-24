@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-// Verificar si el usuario ya ha iniciado sesión
-if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
+if (isset($_SESSION['username']) && ($_SESSION['user_rol'] == 2 || $_SESSION['user_rol'] == 3)) {
 } else {
-    header("location: ../../../index.php");
+    header("location: ../../index.php");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -13,15 +13,17 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Panel Inicial</title>
     <link rel="stylesheet" href="../../../index.css">
     <link rel="stylesheet" href="../../styles/menu.css">
+    <link rel="stylesheet" href="../../styles/registros.css">
 </head>
 
 <body>
 
     <?php 
-        include'../../components/menu-panel.php';
+        include '../../components/menu-panel.php';
+        require '../../conexion.php';
     ?>
 
     <div class="container-registros">
@@ -39,15 +41,43 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                     </tr>
                 </thead>
                 <tbody>
+                    <?php 
+                    $consulta = "SELECT * FROM usuarios ORDER BY user_date_created DESC LIMIT 1";
+                    $resultado = mysqli_query($conectar, $consulta);
+                    while($row = mysqli_fetch_assoc($resultado)){
+                    ?>
                     <tr class="contenidoTabla">
-                        <td>1</td>
-                        <td>Victor</td>
-                        <td>kreedlegend0@gmail.com</td>
-                        <td>Admin</td>
-                        <td>12-03-2024</td>
+                        <td data-label="ID Usuario" class="td-id">
+                            <?php echo $row['id_user']?>
+                        </td>
+                        <td data-label="Nombre">
+                            <?php echo $row['user_name']?>
+                        </td>
+                        <td data-label="Correo">
+                            <?php echo $row['user_email'] ?>
+                        </td>
+                        <td data-label="Rol">
+                            <?php
+                                if ($row['user_rol'] == 1) {
+                                    echo 'Usuario';
+                                } else if ($row['user_rol'] == 2) {
+                                    echo 'Administrador';
+                                } else {
+                                    echo 'Invitado';
+                                }
+                            ?>
+                        </td>
+                        <td data-label="Fecha">
+                            <?php echo $row['user_date_created'] ?>
+                        </td>
                     </tr>
+                    <?php 
+                    }
+                    mysqli_free_result($resultado);
+                    ?>
                 </tbody>
             </table>
+            <p><a style="text-align: right;" href="./panel_menu_Usuarios.php">ver mas</a></p>
         </div>
         <div class="registros">
             <h2>Registros de <Strong>Productos</Strong> recientes ...</h2>
@@ -64,17 +94,43 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                    $consulta = "SELECT * FROM productos ORDER BY producto_id DESC LIMIT 1";
+                    $resultado = mysqli_query($conectar, $consulta);
+                    while($row = mysqli_fetch_assoc($resultado)){
+                    ?>
                     <tr class="contenidoTabla">
-                        <td>1</td>
-                        <td>Cafe</td>
-                        <td>Cafe con leche</td>
-                        <td>20</td>
-                        <td>20</td>
-                        <td>Cafes</td>
-                        <td>[IMG HERE]</td>
+                        <td data-label="ID Producto" class="td-id">
+                            <?php echo $row['producto_id']?>
+                        </td>
+                        <td data-label="Nombre Producto">
+                            <?php echo $row['producto_title']?>
+                        </td>
+                        <td data-label="Descripcion" class="td-descripcion">
+                            <?php echo $row['producto_description']?>
+                        </td>
+                        <td data-label="Precio">
+                            <?php echo '$' . $row['producto_price']?>
+                        </td>
+                        <td data-label="Descuento">
+                            <?php echo '%' . $row['producto_offert']?>
+                        </td>
+                        <td data-label="Categoria">
+                            <?php echo $row['producto_category']?>
+                        </td>
+                        <td data-label="Imagen" class="imagenTabla">
+                            <img loading="lazy" 
+                            src="<?php echo "../../../" . $row['producto_url']?>" 
+                            alt="Imagen Here">
+                        </td>
                     </tr>
+                    <?php 
+                    }
+                    mysqli_free_result($resultado);
+                    ?>
                 </tbody>
             </table>
+            <p><a style="text-align: right;" href="./panel_menu_Productos.php">ver mas</a></p>
         </div>
         </div>
         <div class="columna">
@@ -98,6 +154,8 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
                             $username = $_SESSION['username'];
                             if($_SESSION['user_rol'] == 2 ){
                                 $user_rol  = "Administrador";
+                            }else{
+                                $user_rol = "invitado";
                             }
                             $user_email = $_SESSION['user_email'];
 
@@ -114,5 +172,10 @@ if (isset ($_SESSION['username']) && (int) $_SESSION['user_rol'] === 2) {
         </div>
         </div>
     </div>
+
+    <div style="margin-top: 50px;" class="terminacion">
+        <p style="align-items: center;">Esta página se hizo con fines practicos y de aprendizaje, por:  <strong>Victor Bernardo Chan Varguez ©</strong></p>
+    </div>
+
 </body>
 </html>

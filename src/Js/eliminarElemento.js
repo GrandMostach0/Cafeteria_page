@@ -1,5 +1,5 @@
 //funcion para realizar el eliminado de los usuarios pasando como parametro su ID
-function eliminarElemento(idUsuario) {
+function eliminarElemento(idUsuario, rolUsuarioActual) {
   Swal.fire({
     title: "¿Estás seguro?",
     text: "Si eliminas este Elemento ya no lo podrá recuperar.",
@@ -10,8 +10,16 @@ function eliminarElemento(idUsuario) {
     confirmButtonText: "Sí, eliminarlo",
   }).then((result) => {
     if (result.isConfirmed) {
-      //pasamos los datos a otra funcion para manejar las respuesta del servidor.
-      eliminarUsuario(idUsuario);
+      if(rolUsuarioActual != 3){
+        //pasamos los datos a otra funcion para manejar las respuesta del servidor.
+        eliminarUsuario(idUsuario);
+      }else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops..',
+          text: 'No tienes privilegios!'
+        });
+      }
     }
   });
 }
