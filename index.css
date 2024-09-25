@@ -81,13 +81,14 @@ a,h1,p{
 }
 
 .menu-optios-right img{
-    margin: 0px 5px;
+    margin: 0px 8px;
 }
 
 /*estilos del icono del carrtio de compras del menú*/
 #cart-icon{
     position: relative;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 #cart-icon img{
@@ -373,14 +374,14 @@ a,h1,p{
 }
 
 .options-producto{
-    right: 20px;
     margin: 20px 0px;
+    right: 20px;
 
     & button{
         padding: 8px;
         border: none;
         border-radius: 25px;
-        background-color: transparent;
+        background-color:#322f2f;
         cursor: pointer;
         color: white;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -389,12 +390,6 @@ a,h1,p{
 
 .options-producto button:hover{
     background-color: #868383;
-}
-
-.svgCorazon{
-    transform: scale(1.1);
-    cursor: pointer;
-    fill: red;
 }
 
 .cards-productos:hover{
@@ -658,7 +653,11 @@ footer{
     }
 
     .dropdown{
-        width: 100px;
+        width: auto;
+    }
+
+    .dropdown button{
+        font-size: 0.7rem;
     }
 
     /*Zona del banner principal*/
