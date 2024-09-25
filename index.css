@@ -302,8 +302,8 @@ a,h1,p{
     width: 70%;
     margin: 30px auto;
     display: grid;
-    grid-template-columns: repeat(3, minmax(20px, 1fr));
-    gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 80px;
     padding: 5px;
     grid-auto-flow: dense;
 }
@@ -314,6 +314,10 @@ a,h1,p{
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 25px;
     cursor: pointer;
+    min-height: 300px; /*Altura maxima para mantener uniformidad*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-productos-img{
