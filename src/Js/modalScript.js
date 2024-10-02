@@ -1,3 +1,4 @@
+
 //MODAL PARA MOSTRAR LOS PRODUCTOS SELECCIONADOS DENTRO DEL INDEX.PHP
 function openModal(categoria, title, description, price, uri) {
   resetearContador();
@@ -216,11 +217,6 @@ function clearModalInputs() {
 //Funcion para cerrar el modal
 function closeModal() {
   var modal = document.getElementById("myModal");
-  modal.style.display = "none";
-}
-
-function closeModalCar(){
-  var modal = document.getElementById("myModalCarrito");
   modal.style.display = "none";
 }
 

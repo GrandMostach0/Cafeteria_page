@@ -42,7 +42,7 @@
     margin-top: 20px;
 }
 
-/*Estilo de la fecha para cerrar la ventana*/
+/*Estilo de la felcha para cerrar la ventana*/
 .close-cart-count{
     font-size: 32px;
     cursor: pointer;
@@ -70,4 +70,8 @@
 
 #cart-overlay.active{
     display: block;
+}
+
+.item-text{
+    color: rgb(118, 18, 18);
 }

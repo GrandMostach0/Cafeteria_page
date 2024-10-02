@@ -2,10 +2,18 @@
 <!----Contenedor del carrito---->
 <div id="cart">
     <button class="close-cart-count" onclick="toggleCart()">
-        &#x2190;
+        &#x2190; Seguir Comprando
     </button>
+    <br>
     <h2>Tu carrito</h2>
-    <ul id="cart-items"></ul>
+    <ul id="cart-items">
+        <div class="item-description">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut itaque quaerat, ullam tempore ut odio reprehenderit architecto quidem error provident commodi ad, voluptatum necessitatibus similique consectetur magnam nesciunt alias veniam?</p>
+        </div>
+        <div class="img">
+            <img src="" alt="Imagen aqui">
+        </div>
+    </ul>
     <div class="total">
         Total: $<span id="cart-total">0.00</span>
     </div>
@@ -26,9 +34,9 @@
     }
 
     // Ejemplo de agregar productos al carrito (puedes adaptar esto para que funcione con productos reales)
-    function addToCart(id, name, price) {
+    function addToCart(id, name, price, descripcion) {
         // Agregar producto al carrito
-        cart.push({ id, name, price });
+        cart.push({ id, name, price, descripcion });
         cartTotal += price;
         cartCount += 1;
 
@@ -45,13 +53,15 @@
 
         cart.forEach(item => {
             const li = document.createElement('li');
-            li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+            li.classList.add("item-container");
+            li.textContent = `${item.name} - ${item.price.toFixed(2)} - ${item.descripcion}`;
             cartItems.appendChild(li);
         });
     }
 
     // Ejemplo para agregar un producto al carrito (puedes llamarlo desde botones en tu tienda)
-    addToCart(1, 'Producto 1', 10.99);
-    addToCart(2, 'Producto 2', 15.49);
-    addToCart(2, 'Producto 3', 20.49);
+    addToCart(1, 'Producto 1', 10.99, "descripcion");
+    addToCart(2, 'Producto 2', 15.49, "descripcion");
+    addToCart(2, 'Producto 3', 20.49, "descripcion");
+    addToCart(3, 'Producto 4', 20.45, "descripcion");
 </script>

@@ -7,6 +7,10 @@ function inicializarContador() {
     // Inicializar
     var cantidad = 1;
 
+    function restablecer(){
+        cantidad = 1;
+    }
+
     //actualizar la cantidad
     function actualizarCantidad() {
         cantidadElement.textContent = cantidad;
@@ -33,6 +37,5 @@ function inicializarContador() {
 
 // Evento que se dispara cuando el DOM se carga completamente
 document.addEventListener('DOMContentLoaded', function () {
-    // Inicializar el contador
     inicializarContador();
 });

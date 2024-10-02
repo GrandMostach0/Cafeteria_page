@@ -118,7 +118,6 @@
             <!----Modal para mostrar el carrito---->
             <?php 
                 include 'src/components/modalProducto.php';
-                include 'src/components/modales/modalCarrito.php';
             ?>
         </div>
     </div>
@@ -151,7 +150,7 @@
     include './src/components/footer.php';
     ?>
 
-    <!--Secciones de las scripts necesarias por cierto-->
+    <!--Secciones de las scripts necesarias como por ejemplo el del swiper-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="src/Js/script.js"></script>
     <script src="./src/Js/contador.js"></script>
@@ -189,26 +188,9 @@
             });
         });
     </script>
-
+    
     <!--Script para mostrar el modal---->
     <script src="src/Js/modalScript.js"></script>
-
-    <script>
-    // Espera a que el DOM se cargue completamente
-    document.addEventListener("DOMContentLoaded", function() {
-        // Obtén una referencia al div que contiene el icono del carrito de compras
-        var divCarrito = document.getElementById("car");
-
-        // Obtén una referencia al modal
-        var modalCarrito = document.getElementById("myModalCarrito");
-
-        // Agrega un evento de clic al div del carrito de compras
-        divCarrito.addEventListener("click", function() {
-            // Muestra el modal
-            modalCarrito.style.display = "block";
-        });
-    });
-</script>
 
 </body>
 </html>
