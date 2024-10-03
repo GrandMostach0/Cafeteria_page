@@ -10,7 +10,7 @@
         <hr>
         Total: $<span id="cart-total">0.00</span>
         <br>
-        <button onclick="finalizarCompra()">FINALIZAR COMPRA</button>
+        <button id="finalizar-compra-btn">FINALIZAR COMPRA</button>
     </div>
 </div>
 
@@ -30,20 +30,20 @@
 
     // Función para agregar productos al carrito
     function addToCart(id, nombre, precioTotal, descripcion, cantidad) {
-        // Verifica si el producto ya está en el carrito
         const itemExistente = cart.find(item => item.id === id);
 
         if (itemExistente) {
-            // Si el producto ya existe, solo incrementa la cantidad
             itemExistente.cantidad += cantidad;
             cartTotal += precioTotal * cantidad;
             cartCount += cantidad;
         } else {
-            // Si es un nuevo producto, lo agrega al carrito
             cart.push({ id, nombre, precioTotal, descripcion, cantidad });
             cartTotal += precioTotal * cantidad;
             cartCount += cantidad;
         }
+
+        // Guardar el carrito en localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
 
         // Actualizar la interfaz
         document.getElementById('cart-count').textContent = cartCount;
@@ -62,7 +62,6 @@
                     cartCount += increment;
                     return true; // Mantener el producto en el carrito
                 } else {
-                    // Si la cantidad es 0 o menor, eliminar el producto
                     cartTotal -= item.precioTotal * item.cantidad;
                     cartCount -= item.cantidad;
                     return false; // Eliminar el producto del carrito
@@ -71,10 +70,34 @@
             return true; // Mantener los otros productos
         });
 
+        // Guardar el carrito actualizado en localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
         // Actualizar la interfaz
         document.getElementById('cart-count').textContent = cartCount;
         document.getElementById('cart-total').textContent = cartTotal.toFixed(2);
         renderCartItems();
+    }
+
+    // Función para vaciar el carrito
+    function clearCart() {
+        cart = [];
+        cartTotal = 0;
+        cartCount = 0;
+
+        // Eliminar el carrito del localStorage
+        localStorage.removeItem('cart');
+
+        // Actualizar la interfaz
+        document.getElementById('cart-count').textContent = cartCount;
+        document.getElementById('cart-total').textContent = cartTotal.toFixed(2);
+        renderCartItems();
+    }
+
+    // Función para finalizar la compra
+    function finalizarCompra() {
+        clearCart(); // Vaciar el carrito
+        alert('¡Compra finalizada! Gracias por su compra.'); // Mensaje de confirmación
     }
 
     // Renderizar los productos en el carrito
@@ -131,7 +154,6 @@
         });
     }
 
-    function finalizarCompra(){
-        localStorage.removeItem('carrito');
-    }
+    // Asignar la función de finalizar compra al botón
+    document.getElementById('finalizar-compra-btn').addEventListener('click', finalizarCompra);
 </script>
