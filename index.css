@@ -458,7 +458,7 @@ a,h1,p{
 }
 
 .modal_cantidad{
-    margin-top: 10px;
+    margin: 20px 0px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -469,8 +469,9 @@ a,h1,p{
 }
 
 .buttonContador{
-    margin: 0px 5px;
-    padding: 8px;
+    margin: 0px 2px;
+    min-width: 50px;
+    padding: 5px;
     border: none;
 }
 
@@ -489,6 +490,9 @@ a,h1,p{
     overflow-y: scroll;
 }
 
+.modal_container_precios p{
+    font-size: 1rem;
+}
 
 .close{
     color: #929090;
