@@ -104,8 +104,8 @@
                         </p>
                     </div>
                     <div class="options-producto">
-                        <button onclick="agregarCarrito('<?php echo $row['producto_id']; ?>')" class="agregar-carrito">
-                            Agregar al carrito +
+                        <button class="detalles-producto">
+                            Ver detalles
                         </button>
                     </div>
                 </div>

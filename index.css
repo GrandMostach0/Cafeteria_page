@@ -379,6 +379,7 @@ a,h1,p{
 
     & button{
         padding: 8px;
+        width: 100%;
         border: none;
         border-radius: 25px;
         background-color:#322f2f;
