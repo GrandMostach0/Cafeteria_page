@@ -244,20 +244,33 @@ function closeModal() {
 }
 
 // FUNCION PARA AGRREGAR EL PRODUCTO AL CARRITO
-function agregarCarrito(){
-  //obtener los datos de la modal
-  const productoID = document.getElementById('modal_id_producto').textContent;
-  const productoNombre = document.getElementById("modal_title").textContent;
-  const productoDescripcion = document.getElementById("modal_description").textContent;
-  const productoPrecio = parseFloat(document.getElementById("modal_price").textContent.replace("Precio Unitario: $", ""));
-  const cantidad = parseInt(document.getElementById("cantidad").textContent);
+// Función para agregar producto al carrito
+function agregarCarrito() {
+  // Hacer una solicitud PHP para verificar la sesión
+  fetch('/src/Components/validaSesion.php')
+    .then(response => response.json())  // Convertir la respuesta a JSON
+    .then(data => {
+      if (data.loggedIn) {
+        const productoID = document.getElementById('modal_id_producto').textContent;
+        const productoNombre = document.getElementById("modal_title").textContent;
+        const productoDescripcion = document.getElementById("modal_description").textContent;
+        const productoPrecio = parseFloat(document.getElementById("modal_price").textContent.replace("Precio Unitario: $", ""));
+        const cantidad = parseInt(document.getElementById("cantidad").textContent);
 
-  // Verificar que la cantidad sea mayor a 0
-  if (cantidad > 0){
-    const precioTotal = productoPrecio * cantidad;
-    addToCart(productoID, productoNombre, precioTotal, productoDescripcion, cantidad);
-    console.log("Producto agregado al carrito, ID:" + productoID);
-  }else{
-    alert("La cantidad debe ser mayor a 0");
-  }
+        // Verificar que la cantidad sea mayor a 0
+        if (cantidad > 0) {
+          const precioTotal = productoPrecio * cantidad;
+          addToCart(productoID, productoNombre, precioTotal, productoDescripcion, cantidad);
+          console.log("Producto agregado al carrito, ID:" + productoID);
+        } else {
+          alert("La cantidad debe ser mayor a 0");
+        }
+      } else {
+        // Si no está en sesión, redirigir o mostrar un mensaje
+        alert("Por favor, inicie sesión para agregar el producto al carrito.");
+      }
+    })
+    .catch(error => {
+      console.log("Error al verificar la sesión", error);
+    });
 }

@@ -25,7 +25,7 @@
                 <?php
                 if (isset($_SESSION['username'])) {
                     $username = $_SESSION['username'];
-                    echo '<p style="color: black">Welcome, <strong>' . $username . '</strong></p>';
+                    echo '<p style="color: white">Bienvenido, <strong>' . $username . '</strong></p>';
                 } else {
                     echo '<a href="#">Log In / Sing Up</a>';
                 }
