@@ -240,5 +240,18 @@ function closeModal() {
 
 // FUNCION PARA AGRREGAR EL PRODUCTO AL CARRITO
 function agregarCarrito(productoID){
-  console.log("Producto agregado al carrito, ID: " + productoID);
+  //obtener los datos de la modal
+  const productoNombre = document.getElementById("modal_title").textContent;
+  const productoDescripcion = document.getElementById("modal_description").textContent;
+  const productoPrecio = parseFloat(document.getElementById("modal_price").textContent.replace("Precio Unitario: $", ""));
+  const cantidad = parseInt(document.getElementById("cantidad").textContent);
+
+  // Verificar que la cantidad sea mayor a 0
+  if (cantidad > 0){
+    const precioTotal = productoPrecio * cantidad;
+    addToCart(productoID, productoNombre, precioTotal, productoDescripcion, cantidad);
+    console.log("Producto agregado al carrito, ID:" + productoID);
+  }else{
+    alert("La cantidad debe ser mayor a 0");
+  }
 }

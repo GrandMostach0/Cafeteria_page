@@ -33,14 +33,14 @@
         overlay.classList.toggle('active');
     }
 
-    // Ejemplo de agregar productos al carrito (puedes adaptar esto para que funcione con productos reales)
-    function addToCart(id, name, price, descripcion) {
+    // Función para agregar productos al carrito
+    function addToCart(id, nombre, precioTotal, descripcion, cantidad) {
         // Agregar producto al carrito
-        cart.push({ id, name, price, descripcion });
-        cartTotal += price;
-        cartCount += 1;
+        cart.push({id, nombre, precioTotal, descripcion, cantidad});
+        cartTotal += precioTotal;
+        cartCount += cantidad;
 
-        // Actualizar la interfaz
+        //Actualizar la interfaz
         document.getElementById('cart-count').textContent = cartCount;
         document.getElementById('cart-total').textContent = cartTotal.toFixed(2);
         renderCartItems();
@@ -52,9 +52,9 @@
         cartItems.innerHTML = ''; // Limpiar antes de renderizar
 
         cart.forEach(item => {
-            const li = document.createElement('li');
-            li.classList.add("item-container");
-            li.textContent = `${item.name} - ${item.price.toFixed(2)} - ${item.descripcion}`;
+            const li =document.createElement('li');
+            li.classList.add('item-container');
+            li.textContent = `${item.cantidad}x ${item.name} - $${item.totalPrice.toFixed(2)} - ${item.descripcion}`;
             cartItems.appendChild(li);
         });
     }
