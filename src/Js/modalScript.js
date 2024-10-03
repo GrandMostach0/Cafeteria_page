@@ -1,6 +1,6 @@
 
 //MODAL PARA MOSTRAR LOS PRODUCTOS SELECCIONADOS DENTRO DEL INDEX.PHP
-function openModal(categoria, title, description, price, uri) {
+function openModal(id_producto, categoria, title, description, price, uri) {
   var modal = document.getElementById("myModal");
   var modalCategory = document.getElementById("modal_categoria");
   var modalTitle = document.getElementById("modal_title");
@@ -8,7 +8,12 @@ function openModal(categoria, title, description, price, uri) {
   var modalPrice = document.getElementById("modal_price");
   var modalImage = document.getElementById("modal_image");
   var modalPriceTotal = document.getElementById("modal_price_total");
-    
+  var modalIdProducto = document.getElementById("modal_id_producto");
+
+  //obtenemos el ID del producto y luego se la pasamos al documento.
+  modalIdProducto.textContent = id_producto
+  modalIdProducto.style.display = "none";
+
   modalCategory.textContent = categoria;
   modalTitle.textContent = title;
   modalDescription.textContent = description;
@@ -239,8 +244,9 @@ function closeModal() {
 }
 
 // FUNCION PARA AGRREGAR EL PRODUCTO AL CARRITO
-function agregarCarrito(productoID){
+function agregarCarrito(){
   //obtener los datos de la modal
+  const productoID = document.getElementById('modal_id_producto').textContent;
   const productoNombre = document.getElementById("modal_title").textContent;
   const productoDescripcion = document.getElementById("modal_description").textContent;
   const productoPrecio = parseFloat(document.getElementById("modal_price").textContent.replace("Precio Unitario: $", ""));

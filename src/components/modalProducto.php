@@ -2,6 +2,7 @@
     <div class="modal_content">
         <span class="close" onclick="closeModal()">&times;</span>
         <h3 id="modal_categoria">Categoría</h3>
+        <p id="modal_id_producto"></p>
         <div class="modal_content_text">
             <div class="contenidoProducto">
                 <h2 id="modal_title">Titulo Producto</h2>
@@ -17,7 +18,7 @@
                     <p style="color: white" id="modal_price">Precio Unitario</p>
                     <p style="color: white" id="modal_price_total">Precio Total</p>
                 </div>
-                <button onclick="agregarCarrito('<?php echo $row['producto_id']; ?>')" class="agregarCarrito">Agregar al carrito ++</button>
+                <button onclick="agregarCarrito()" class="agregarCarrito">Agregar al carrito ++</button>
                 <p style="color: white"><strong>Descripción</strong></p>
                 <p id="modal_description">Descripción</p>
             </div>

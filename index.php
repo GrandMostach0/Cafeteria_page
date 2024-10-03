@@ -74,6 +74,7 @@
 
             <div class="cards-productos" data-categoria="<?php echo $row['producto_categoria']; ?>"
             onclick="openModal(
+                '<?php echo $row['producto_id']; ?>',
                 '<?php echo $row['producto_categoria']; ?>',
                 '<?php echo $row['producto_title']; ?>',
                 '<?php echo $row['producto_description']; ?>',

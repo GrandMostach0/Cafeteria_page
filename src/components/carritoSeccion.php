@@ -6,14 +6,7 @@
     </button>
     <br>
     <h2>Tu carrito</h2>
-    <ul id="cart-items">
-        <div class="item-description">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut itaque quaerat, ullam tempore ut odio reprehenderit architecto quidem error provident commodi ad, voluptatum necessitatibus similique consectetur magnam nesciunt alias veniam?</p>
-        </div>
-        <div class="img">
-            <img src="" alt="Imagen aqui">
-        </div>
-    </ul>
+    <ul id="cart-items"></ul>
     <div class="total">
         Total: $<span id="cart-total">0.00</span>
     </div>
@@ -54,14 +47,8 @@
         cart.forEach(item => {
             const li =document.createElement('li');
             li.classList.add('item-container');
-            li.textContent = `${item.cantidad}x ${item.name} - $${item.totalPrice.toFixed(2)} - ${item.descripcion}`;
+            li.textContent = `${item.cantidad}x ${item.nombre} - ${item.precioTotal.toFixed(2)} - ${item.descripcion}`;
             cartItems.appendChild(li);
         });
     }
-
-    // Ejemplo para agregar un producto al carrito (puedes llamarlo desde botones en tu tienda)
-    addToCart(1, 'Producto 1', 10.99, "descripcion");
-    addToCart(2, 'Producto 2', 15.49, "descripcion");
-    addToCart(2, 'Producto 3', 20.49, "descripcion");
-    addToCart(3, 'Producto 4', 20.45, "descripcion");
 </script>
