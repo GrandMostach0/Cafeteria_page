@@ -262,12 +262,40 @@ function agregarCarrito() {
           const precioTotal = productoPrecio * cantidad;
           addToCart(productoID, productoNombre, precioTotal, productoDescripcion, cantidad);
           console.log("Producto agregado al carrito, ID:" + productoID);
+
+          // Mostrar notificacion con SweetAlert2
+          Swal.fire({
+            icon: 'success',
+            title: 'Producto Agregado',
+            text: 'El producto ha sido agregado al carrito',
+            confirmButtonText: 'Aceptar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                closeModal();
+            }
+          });
+
         } else {
-          alert("La cantidad debe ser mayor a 0");
+
+          Swal.fire({
+            icon: 'error',
+            title: 'Cantidad no válida',
+            text: 'La cantidad debe ser mayor a 0',
+            confirmButtonText: 'Aceptar'
+          });
+
         }
+
       } else {
-        // Si no está en sesión, redirigir o mostrar un mensaje
-        alert("Por favor, inicie sesión para agregar el producto al carrito.");
+
+        // Si no está en sesión, mostrar mensaje
+        Swal.fire({
+          icon: 'warning',
+          title: 'Sesión requerida',
+          text: 'Por favor, inicie sesión para agregar el producto al carrito',
+          confirmButtonText: 'Aceptar'
+        });
+
       }
     })
     .catch(error => {
