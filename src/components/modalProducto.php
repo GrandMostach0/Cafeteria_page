@@ -6,7 +6,7 @@
             <div class="contenidoProducto">
                 <h2 id="modal_title">Titulo Producto</h2>
                 <div class="modal_cantidad">
-                    <p style="color: #b9a586">Cantidad</p>
+                    <p id="cantidad_producto" style="color: #b9a586">Cantidad</p>
                     <div class="contador">
                         <button class="buttonContador" id="restar">-</button>
                         <span id="cantidad">0</span>

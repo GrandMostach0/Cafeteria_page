@@ -1,7 +1,6 @@
 
 //MODAL PARA MOSTRAR LOS PRODUCTOS SELECCIONADOS DENTRO DEL INDEX.PHP
 function openModal(categoria, title, description, price, uri) {
-  resetearContador();
   var modal = document.getElementById("myModal");
   var modalCategory = document.getElementById("modal_categoria");
   var modalTitle = document.getElementById("modal_title");

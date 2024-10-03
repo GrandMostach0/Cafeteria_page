@@ -62,17 +62,15 @@
         </div>
 
         <div class="container-cards-productos">
+            <?php 
+                $productos = "SELECT productos.*, producto_categorias.category_name AS producto_categoria FROM productos INNER JOIN producto_categorias ON producto_category = producto_categorias.category_id;";
+                $resultado = mysqli_query($conectar, $productos);
 
-        <?php 
-            $productos = "SELECT productos.*, producto_categorias.category_name AS producto_categoria FROM productos INNER JOIN producto_categorias ON producto_category = producto_categorias.category_id;";
-            $resultado = mysqli_query($conectar, $productos);
-
-            while ($row = mysqli_fetch_assoc($resultado)) {
-                $offerta = $row['producto_offert'];
-                $offerta = $offerta / 100;
-                $priceOffert = $row['producto_price'] * $offerta;
-                $priceTotal = round($row['producto_price'] - $priceOffert);
-        ?>
+                while ($row = mysqli_fetch_assoc($resultado)) {
+                    $offerta = $row['producto_offert'] / 100;
+                    $priceOffert = $row['producto_price'] * $offerta;
+                    $priceTotal = round($row['producto_price'] - $priceOffert);
+            ?>
 
             <div class="cards-productos" data-categoria="<?php echo $row['producto_categoria']; ?>"
             onclick="openModal(
@@ -81,6 +79,8 @@
                 '<?php echo $row['producto_description']; ?>',
                 '<?php echo $priceTotal; ?>',
                 '<?php echo $row['producto_url']; ?>')">
+
+                <!----- inicio de la cards el de arriba se lo pasa como parametro para mostrarlo a la modal ---->
                 <div class="card-productos-img">
                     <img loading="lazy" src="<?php echo $row['producto_url']; ?>" alt="imagenProducto">
                     <p class="offert">% <?php echo $row['producto_offert']?></p>
@@ -95,14 +95,15 @@
                             echo '$' . $priceTotal;
                         ?>
                     </p>
+                    <!----- Division para la parte de los precios ----->
                     <div class="card-producto-description">
                         <p class="description-producto">
-                        <p><strong>Descripcion:</strong></p>
-                        <?php echo $row['producto_description']; ?>
+                        <p><strong>Descripción:</strong></p>
+                            <?php echo $row['producto_description']; ?>
                         </p>
                     </div>
                     <div class="options-producto">
-                        <button onclick="incrementarCantidad()" class="agregar-carrito">
+                        <button onclick="agregarCarrito('<?php echo $row['producto_id']; ?>')" class="agregar-carrito">
                             Agregar al carrito +
                         </button>
                     </div>
@@ -110,15 +111,12 @@
             </div>
 
             <?php
-                //liberando los datos
-                }
+                } //liberando los datos
                 mysqli_free_result($resultado);
             ?>
 
-            <!----Modal para mostrar el carrito---->
-            <?php 
-                include 'src/components/modalProducto.php';
-            ?>
+            <!---- Incluyendo el archivo del modal de los productos---->
+            <?php include 'src/components/modalProducto.php'; ?>
         </div>
     </div>
     
