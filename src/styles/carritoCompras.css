@@ -71,7 +71,3 @@
 #cart-overlay.active{
     display: block;
 }
-
-.item-text{
-    color: rgb(118, 18, 18);
-}

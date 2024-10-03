@@ -143,11 +143,11 @@
     <!--Footer de la pagina-->
     <?php include './src/components/footer.php'; ?>
 
-    <!--Secciones de las scripts necesarias como por ejemplo el del swiper-->
+    <!---- Secciones de las scripts necesarias como por ejemplo el del swiper ---->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="src/Js/script.js"></script>
 
-    <!----Script seleccionar por defecto un opcion del menu---->
+    <!---- Script seleccionar por defecto un opcion del menu---->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var opcionTodos = document.querySelector('.opcion-menu.selected');
@@ -180,10 +180,7 @@
         });
     </script>
 
-
-    
-
-    <!--Script para mostrar el modal---->
+        <!----- Script para mostrar el modal ---->
     <script src="src/Js/modalScript.js"></script>
 
 </body>

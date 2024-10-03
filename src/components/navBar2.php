@@ -19,7 +19,6 @@
     <div class="menu-optios-right">
         <img id="logoCar" src="../assets/icons/ShopingCar.svg" alt="ShoppingCarIcon">
 
-        <img id="logoUser" src="../assets/icons/user.svg" alt="UserIcon">
         <div class="dropdown">
             <button class="dropbtn">
                 <?php
@@ -27,6 +26,7 @@
                     $username = $_SESSION['username'];
                     echo '<p style="color: white">Bienvenido, <strong>' . $username . '</strong></p>';
                 } else {
+                    echo '<img id="logoUser" src="../assets/icons/user.svg" alt="UserIcon">';
                     echo 'Iniciar Sesión';
                 }
                 ?>

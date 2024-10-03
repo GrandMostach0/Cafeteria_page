@@ -25,8 +25,7 @@
         
         <!---- [Overlay para cerrar el carrito] ---->
         <div id="cart-overlay" onclick="toggleCart()"></div>
-
-        <img id="logoUser" src="src/assets/icons/user.svg" alt="UserIcon">
+        
         <div class="dropdown">
             <button class="dropbtn">
                 <?php
@@ -35,7 +34,8 @@
                     $userRol = $_SESSION['user_rol'];
                     echo 'Bienvenido, <strong>' . $username . '</strong>';
                 } else {
-                     echo 'Iniciar Sesion';
+                    echo '<img id="logoUser" src="src/assets/icons/user.svg" alt="UserIcon">';
+                    echo 'Iniciar Sesion';
                 }
                 ?>
             </button>
