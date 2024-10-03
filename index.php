@@ -122,16 +122,12 @@
     
     <!--Seccion de Acerca de nosotros-->
     <div id="nosotros" class="container-aboutUs">
-        <?php 
-            include 'src/components/AboutUs.php';
-        ?>
+        <?php include 'src/components/AboutUs.php'; ?>
     </div>
 
     <!--Seccion de la ubicacion-->
     <div id="ubicacion" class="container-Ubicacion">
-        <?php
-            include 'src/components/ubicacion.php';
-        ?>
+        <?php include 'src/components/ubicacion.php'; ?>
     </div>
     
     <!--Separador del container del horario-->
@@ -144,14 +140,11 @@
     </div>
 
     <!--Footer de la pagina-->
-    <?php 
-    include './src/components/footer.php';
-    ?>
+    <?php include './src/components/footer.php'; ?>
 
     <!--Secciones de las scripts necesarias como por ejemplo el del swiper-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="src/Js/script.js"></script>
-    <script src="./src/Js/contador.js"></script>
 
     <!----Script seleccionar por defecto un opcion del menu---->
     <script>

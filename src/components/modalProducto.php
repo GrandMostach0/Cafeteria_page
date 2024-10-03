@@ -13,7 +13,8 @@
                         <button class="buttonContador" id="sumar">+</button>
                     </div>
                 </div>
-                <p style="color: white" id="modal_price">Precio</p>
+                <p style="color: white" id="modal_price">Precio Unitario</p>
+                <p style="color: white" id="modal_price_total">Precio Total</p>
                 <button class="agregarCarrito">Agregar al carrito ++</button>
                 <p style="color: white"><strong>Descripción</strong></p>
                 <p id="modal_description">Descripción</p>

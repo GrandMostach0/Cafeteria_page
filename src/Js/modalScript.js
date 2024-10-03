@@ -7,16 +7,50 @@ function openModal(categoria, title, description, price, uri) {
   var modalDescription = document.getElementById("modal_description");
   var modalPrice = document.getElementById("modal_price");
   var modalImage = document.getElementById("modal_image");
-
+  var modalPriceTotal = document.getElementById("modal_price_total");
+    
   modalCategory.textContent = categoria;
   modalTitle.textContent = title;
   modalDescription.textContent = description;
-  var precioEntero = parseInt(price);
-  modalPrice.textContent = "Precio Unitario: " + precioEntero;
 
+  var precioUnitario = parseFloat(price);
+  modalPrice.textContent = "Precio Unitario: $" + precioUnitario.toFixed(2);
+  // Pasamos la URI de la imagen (URL de la ubicacion)
   modalImage.src = uri;
 
+  // Reinicar el contador al abrir el modal
+  document.getElementById('cantidad').textContent = "1";
+  modalPriceTotal.textContent = "Precio Total: $" + precioUnitario.toFixed(2); // Precio Total Inicial
+
+  setContadorListener(precioUnitario);
   modal.style.display = "block";
+}
+
+// --------- FUNCION DEL CONTADOR ---------
+function setContadorListener(precioUnitario) {
+  const cantidadElemento = document.getElementById('cantidad');
+  const modalPriceTotal = document.getElementById('modal_price_total');
+  let cantidad = parseInt(cantidadElemento.textContent);
+
+  document.getElementById('sumar').addEventListener("click", function(){
+    cantidad++;
+    cantidadElemento.textContent = cantidad;
+    actualizarPrecioTotal(cantidad, precioUnitario, modalPriceTotal);
+  });
+
+  document.getElementById('restar').addEventListener("click", function(){
+    if(cantidad > 1){
+      cantidad--;
+      cantidadElemento.textContent = cantidad;
+      actualizarPrecioTotal(cantidad, precioUnitario, modalPriceTotal);
+    }
+  });
+}
+
+// Funcion para actualizar el modal con el precio total
+function actualizarPrecioTotal(cantidad, precioUnitario, modalPriceTotal){
+  var precioTotal = cantidad * precioUnitario;
+  modalPriceTotal.textContent = "Precio Total: $" + precioTotal.toFixed(2);
 }
 
 function openModalUserAdd() {
@@ -213,14 +247,18 @@ function clearModalInputs() {
   });
 }
 
-//Funcion para cerrar el modal
+// Funcion para cerrar el modal
 function closeModal() {
   var modal = document.getElementById("myModal");
   modal.style.display = "none";
+
+  // Reseteo de la modal cuando se cierra para evitar prolemas
+  document.getElementById('cantidad').textContent = "0";
+  // Reseteo del precio Total de los productos
+  document.getElementById('modal_price_total').textContent = "Precio Total: $0.00";
 }
 
-//Funcion para Resetear Contador
-function resetearContador() {
-  var cantidadElement = document.getElementById("cantidad");
-  cantidadElement.textContent = "1"; // Reiniciar contador a cero
+// FUNCION PARA AGRREGAR EL PRODUCTO AL CARRITO
+function agregarCarrito(productoID){
+  console.log("Producto agregado al carrito, ID: " + productoID);
 }
