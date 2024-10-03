@@ -144,7 +144,7 @@ $rolUsuarioActual = $_SESSION['user_rol'];
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'No tienes privilegios'
+                text: 'Estás en Modo Invitado!'
             });
         </script>";
 
