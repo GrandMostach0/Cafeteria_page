@@ -4,15 +4,18 @@
 #cart{
     position: fixed;
     top: 0;
-    right: -300px;
-    width: 300px;
+    right: -400px;
+    width: 350px;
     height: 100vh;
-    background-color: #636363;
+    background-color: rgb(67, 63, 58);
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     transition: right 0.3s ease;
     padding: 20px;
     overflow-y: auto;
     z-index: 999;
+
+    display: flex;
+    flex-direction: column;
 }
 
 #cart.active{
@@ -28,23 +31,17 @@
 #cart ul {
     list-style: none;
     padding: 0;
+    flex: 1;
 }
 
 #cart ul li {
     margin: 20px 0;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-}
-
-#cart .total {
-    font-weight: bold;
-    font-size: 18px;
-    margin-top: 20px;
 }
 
 /*Estilo de la felcha para cerrar la ventana*/
 .close-cart-count{
-    font-size: 32px;
+    font-size: 16px;
+    text-align: left;
     cursor: pointer;
     background-color: transparent;
     color: white;
@@ -70,4 +67,65 @@
 
 #cart-overlay.active{
     display: block;
+}
+
+#cart-total, .total{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.total span{
+    text-align: left;
+    margin-top: 5px;
+}
+
+.total button{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px 0px;
+    cursor: pointer;
+}
+
+/* ESTILOS DE LA PANTALLA DE LOS PRODUCTOS*/
+.item-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(178, 158, 130, 0.2);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.container-descripcion{
+    width: 70%;
+}
+
+.container-cantidad{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-cantidad{
+    padding: 4px 8px;
+    margin: 0px 5px;
+    background-color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-cantidad:active{
+    transform: scale(0.9);
+}
+
+.font-bold{
+    font-weight: bold;
 }

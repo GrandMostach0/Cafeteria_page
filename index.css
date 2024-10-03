@@ -82,6 +82,7 @@ a,h1,p{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-right: 10px;
 }
 
 .menu-optios-right img{
@@ -92,7 +93,7 @@ a,h1,p{
 #cart-icon{
     position: relative;
     cursor: pointer;
-    margin-right: 30px;
+    margin-right: 10%;
     padding: 2px;
     background-color: rgb(92, 85, 76);
     border-radius: 8px;
@@ -128,6 +129,7 @@ a,h1,p{
 
 /* Estilo para el botón del dropdown */
 .dropbtn{
+    min-width: auto;
     background-color: rgba(185, 164, 134, 0.3);
     color: #fff;
     padding: 13px 5px;

@@ -5,10 +5,13 @@
         &#x2190; Seguir Comprando
     </button>
     <br>
-    <h2>Tu carrito</h2>
+    <h2>Carrito: </h2>
     <ul id="cart-items"></ul>
     <div class="total">
+        <hr>
         Total: $<span id="cart-total">0.00</span>
+        <br>
+        <button>FINALIZAR COMPRA</button>
     </div>
 </div>
 
@@ -45,10 +48,43 @@
         cartItems.innerHTML = ''; // Limpiar antes de renderizar
 
         cart.forEach(item => {
-            const li =document.createElement('li');
+            const li = document.createElement('li');
             li.classList.add('item-container');
-            li.textContent = `${item.cantidad}x ${item.nombre} - ${item.precioTotal.toFixed(2)} - ${item.descripcion}`;
+            const divDescripcion = document.createElement('div');
+            divDescripcion.classList.add('item-container-informatio', 'container-descripcion');
+            const pNombre = document.createElement('p');
+            const pPrecio = document.createElement('p');
+            
+            const divCantidad = document.createElement('div');
+
+            divCantidad.classList.add('item-container-informatio', 'container-cantidad');
+            const pCantidad = document.createElement('p');
+            const btnMas = document.createElement('button');
+            const btnMenos = document.createElement('button');
+
+            btnMas.classList.add('btn-cantidad');
+            btnMenos.classList.add('btn-cantidad');
+            pNombre.classList.add('font-bold');
+            pCantidad.classList.add('font-bold');
+
+            pNombre.textContent = `${item.nombre}`;
+            pPrecio.textContent = `$${item.precioTotal.toFixed(2)}`;
+            
+            pCantidad.textContent = `${item.cantidad}`;
+            btnMas.textContent = "+";
+            btnMenos.textContent = "-";
+            
             cartItems.appendChild(li);
+
+            li.appendChild(divDescripcion);
+            li.appendChild(divCantidad);
+
+            divDescripcion.appendChild(pNombre);
+            divDescripcion.appendChild(pPrecio);
+
+            divCantidad.appendChild(btnMas);
+            divCantidad.appendChild(pCantidad);
+            divCantidad.appendChild(btnMenos);
         });
     }
 </script>
