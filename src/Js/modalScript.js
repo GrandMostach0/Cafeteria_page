@@ -259,11 +259,28 @@ function agregarCarrito() {
 
         // Verificar que la cantidad sea mayor a 0
         if (cantidad > 0) {
-          const precioTotal = productoPrecio * cantidad;
-          addToCart(productoID, productoNombre, precioTotal, productoDescripcion, cantidad);
-          console.log("Producto agregado al carrito, ID:" + productoID);
+          // Creación de un JSON u objeto del producto
+          const producto = {
+            id: productoID,
+            nombre: productoNombre,
+            precio: productoPrecio,
+            descripcion: productoDescripcion,
+            cantidad: cantidad
+          };
 
-          // Mostrar notificacion con SweetAlert2
+          // Obtener el carrito del Local Storage
+          let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+          // Agregar el producto al carrito
+          carrito.push(producto);
+
+          // Guardar el carrito actualizado en Local Storage
+          localStorage.setItem('carrito', JSON.stringify(carrito));
+
+          // Actualizar el carrito en la interfaz
+          addToCart(productoID, productoNombre, productoPrecio * cantidad, productoDescripcion, cantidad); // Llama a la función de agregar al carrito
+
+          // Mostrar notificación con SweetAlert2
           Swal.fire({
             icon: 'success',
             title: 'Producto Agregado',
@@ -271,23 +288,18 @@ function agregarCarrito() {
             confirmButtonText: 'Aceptar'
           }).then((result) => {
             if (result.isConfirmed) {
-                closeModal();
+              closeModal();
             }
           });
-
         } else {
-
           Swal.fire({
             icon: 'error',
             title: 'Cantidad no válida',
             text: 'La cantidad debe ser mayor a 0',
             confirmButtonText: 'Aceptar'
           });
-
         }
-
       } else {
-
         // Si no está en sesión, mostrar mensaje
         Swal.fire({
           icon: 'warning',
@@ -295,7 +307,6 @@ function agregarCarrito() {
           text: 'Por favor, inicie sesión para agregar el producto al carrito',
           confirmButtonText: 'Aceptar'
         });
-
       }
     })
     .catch(error => {

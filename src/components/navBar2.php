@@ -27,7 +27,7 @@
                     $username = $_SESSION['username'];
                     echo '<p style="color: white">Bienvenido, <strong>' . $username . '</strong></p>';
                 } else {
-                    echo '<a href="#">Log In / Sing Up</a>';
+                    echo 'Iniciar Sesión';
                 }
                 ?>
             </button>
@@ -38,7 +38,7 @@
                     echo '
                     <a href="../../index.php">Volver página incial</a>';
                 } else {
-                    echo '<a href="#">Log In / Sing Up</a>';
+                    echo '<a href="#">Iniciar Sesion</a>';
                 }
                 ?>
             </div>

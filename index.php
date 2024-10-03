@@ -158,29 +158,31 @@
         });
     </script>
 
-    <!---Script para mostrar la alerta agregado --->
     <script>
-        // Obtener todos los botones "Agregar al carrito"
-        var botonesAgregar = document.querySelectorAll('.agregarCarrito');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Obtener el carrito del localStorage
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        
+        // Inicializar el total y contar los productos
+        let total = 0;
+        let cantidadTotal = 0;
 
-        // Agregar un evento click a cada botón
-        botonesAgregar.forEach(function(boton) {
-            boton.addEventListener('click', function() {
-                // Mostrar una notificación de SweetAlert2 cuando se hace clic en el botón
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Producto Agregado',
-                    text: 'El producto ha sido agregado al carrito',
-                    confirmButtonText: 'Aceptar'
-                }).then((result) => {
-                    if(result.isConfirmed){
-                        closeModal();
-                    }
-                });
-            });
+        // Renderizar los productos del carrito
+        carrito.forEach(item => {
+            total += item.precio * item.cantidad;
+            cantidadTotal += item.cantidad;
+            addToCart(item.id, item.nombre, item.precio * item.cantidad, item.descripcion, item.cantidad);
+        });
+
+        // Actualizar el total en la interfaz
+        document.getElementById('cart-total').textContent = total.toFixed(2);
+        document.getElementById('cart-count').textContent = cantidadTotal;
         });
     </script>
+
+
     
+
     <!--Script para mostrar el modal---->
     <script src="src/Js/modalScript.js"></script>
 

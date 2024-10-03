@@ -35,7 +35,7 @@
                     $userRol = $_SESSION['user_rol'];
                     echo 'Bienvenido, <strong>' . $username . '</strong>';
                 } else {
-                     echo 'Log In / Sing Up';
+                     echo 'Iniciar Sesion';
                 }
                 ?>
             </button>
@@ -44,13 +44,13 @@
                     if (isset($_SESSION['username'])) {
                         $userRol = $_SESSION['user_rol'];
                         if ($userRol == 1 || $userRol == 2 || $userRol == 3) {
-                            echo '<a href="src/sessionClose.php">Salir</a>';
+                            echo '<a href="#" onclick="localStorage.removeItem(\'carrito\'); window.location.href=\'src/sessionClose.php\';">Salir</a>';
                         }
                         if ($userRol == 2 || $userRol == 3) {
                             echo '<a href="src/pages/MenuPagesAdmin.php">Panel Adminstrador</a>';
                         }
                     } else {
-                        echo '<a href="src/pages/LogIn.php">Log In / Sing Up</a>';
+                        echo '<a href="src/pages/LogIn.php">Iniciar Sesión</a>';
                     }
                 ?>
             </div>
