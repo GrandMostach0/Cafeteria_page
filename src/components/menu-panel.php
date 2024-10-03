@@ -3,7 +3,6 @@
         <img id="logoPlace" src="../../assets/icons/LogoPlaceDelirios.svg" alt="delirios">
     </a>
     <div class="menu-text">
-        <img src="../../assets/icons/user.svg" alt="usuario">
         <div class="dropdown dropdown2">
             <button class="dropbtn">
                 <?php
