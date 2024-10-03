@@ -1,4 +1,3 @@
-
 <!----Contenedor del carrito---->
 <div id="cart">
     <button class="close-cart-count" onclick="toggleCart()">
@@ -11,7 +10,7 @@
         <hr>
         Total: $<span id="cart-total">0.00</span>
         <br>
-        <button>FINALIZAR COMPRA</button>
+        <button onclick="finalizarCompra()">FINALIZAR COMPRA</button>
     </div>
 </div>
 
@@ -31,12 +30,48 @@
 
     // Función para agregar productos al carrito
     function addToCart(id, nombre, precioTotal, descripcion, cantidad) {
-        // Agregar producto al carrito
-        cart.push({id, nombre, precioTotal, descripcion, cantidad});
-        cartTotal += precioTotal;
-        cartCount += cantidad;
+        // Verifica si el producto ya está en el carrito
+        const itemExistente = cart.find(item => item.id === id);
 
-        //Actualizar la interfaz
+        if (itemExistente) {
+            // Si el producto ya existe, solo incrementa la cantidad
+            itemExistente.cantidad += cantidad;
+            cartTotal += precioTotal * cantidad;
+            cartCount += cantidad;
+        } else {
+            // Si es un nuevo producto, lo agrega al carrito
+            cart.push({ id, nombre, precioTotal, descripcion, cantidad });
+            cartTotal += precioTotal * cantidad;
+            cartCount += cantidad;
+        }
+
+        // Actualizar la interfaz
+        document.getElementById('cart-count').textContent = cartCount;
+        document.getElementById('cart-total').textContent = cartTotal.toFixed(2);
+        renderCartItems();
+    }
+
+    // Función para actualizar la cantidad de productos y eliminar si es necesario
+    function updateCartItem(id, increment) {
+        cart = cart.filter(item => {
+            if (item.id === id) {
+                const nuevaCantidad = item.cantidad + increment;
+                if (nuevaCantidad > 0) {
+                    item.cantidad = nuevaCantidad;
+                    cartTotal += item.precioTotal * increment;
+                    cartCount += increment;
+                    return true; // Mantener el producto en el carrito
+                } else {
+                    // Si la cantidad es 0 o menor, eliminar el producto
+                    cartTotal -= item.precioTotal * item.cantidad;
+                    cartCount -= item.cantidad;
+                    return false; // Eliminar el producto del carrito
+                }
+            }
+            return true; // Mantener los otros productos
+        });
+
+        // Actualizar la interfaz
         document.getElementById('cart-count').textContent = cartCount;
         document.getElementById('cart-total').textContent = cartTotal.toFixed(2);
         renderCartItems();
@@ -54,7 +89,7 @@
             divDescripcion.classList.add('item-container-informatio', 'container-descripcion');
             const pNombre = document.createElement('p');
             const pPrecio = document.createElement('p');
-            
+
             const divCantidad = document.createElement('div');
 
             divCantidad.classList.add('item-container-informatio', 'container-cantidad');
@@ -69,11 +104,19 @@
 
             pNombre.textContent = `${item.nombre}`;
             pPrecio.textContent = `$${item.precioTotal.toFixed(2)}`;
-            
             pCantidad.textContent = `${item.cantidad}`;
             btnMas.textContent = "+";
             btnMenos.textContent = "-";
-            
+
+            // Añadir funcionalidad a los botones de sumar y restar
+            btnMas.addEventListener('click', function () {
+                updateCartItem(item.id, 1); // Sumar 1 al producto
+            });
+
+            btnMenos.addEventListener('click', function () {
+                updateCartItem(item.id, -1); // Restar 1 al producto, eliminar si llega a 0
+            });
+
             cartItems.appendChild(li);
 
             li.appendChild(divDescripcion);
@@ -82,9 +125,13 @@
             divDescripcion.appendChild(pNombre);
             divDescripcion.appendChild(pPrecio);
 
-            divCantidad.appendChild(btnMas);
-            divCantidad.appendChild(pCantidad);
             divCantidad.appendChild(btnMenos);
+            divCantidad.appendChild(pCantidad);
+            divCantidad.appendChild(btnMas);
         });
+    }
+
+    function finalizarCompra(){
+        localStorage.removeItem('carrito');
     }
 </script>

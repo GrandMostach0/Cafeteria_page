@@ -244,7 +244,6 @@ function closeModal() {
 }
 
 // FUNCION PARA AGRREGAR EL PRODUCTO AL CARRITO
-// Función para agregar producto al carrito
 function agregarCarrito() {
   // Hacer una solicitud PHP para verificar la sesión
   fetch('/src/Components/validaSesion.php')
