@@ -74,6 +74,10 @@ a,h1,p{
     color: var(--color-text);
 }
 
+.nav-menu > ul > li > a:hover{
+    color: var(--color-text-secundary);
+}
+
 .menu-optios-right{
     display: flex;
     align-items: center;
